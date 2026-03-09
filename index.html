@@ -444,7 +444,7 @@ let upiURL=`upi://pay?pa=${upiID}&pn=Ayilara%20Madathil%20Temple&am=${total}&cu=
 document.getElementById("payNowBtn").href=upiURL;
 // auto open UPI app
 setTimeout(()=>{
-  window.open(upiURL,'_self');
+window.location.href = upiURL;
 },600);
 
 // WhatsApp message
