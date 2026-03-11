@@ -498,10 +498,14 @@ let note=donateOnly
 
 let upiURL=`upi://pay?pa=${upiID}&pn=Ayilara%20Madathil%20Temple&am=${total}&cu=INR&tn=${encodeURIComponent(note)}`;
 
-document.getElementById("payNowBtn").href=upiURL;
+let payBtn = document.getElementById("payNowBtn");
 
-document.getElementById("payNowBtn").onclick=function(){
-window.location.href=upiURL;
+payBtn.href = upiURL;
+payBtn.target = "_self";
+
+payBtn.onclick = function(e){
+    e.preventDefault();
+    window.location.href = upiURL;
 };
 
 let whatsappMessage=
