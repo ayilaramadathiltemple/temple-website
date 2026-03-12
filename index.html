@@ -1,7 +1,7 @@
-<!DOCTYPE html>
+
 <html lang="en">
 <head>
-<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+<link rel="icon" href="temple-icon.png" type="image/png">
 <meta property="og:url" content="https://www.ayilaramadathiltemple.org">
 <link rel="canonical" href="https://www.ayilaramadathiltemple.org">
 <meta property="og:title" content="Ayilara Madathil Sree Bhadra Bhagavathi Temple">
@@ -13,10 +13,7 @@
 <title>Ayilar Madathil Sree Bhadra Bhagavathi Temple</title>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Malayalam:wght@400;600&display=swap" rel="stylesheet">
 <style>
-img.lazy{
-background:#3a0000;
-min-height:80px;
-}
+img.lazy{background:#3a0000;display:block;}
 *{margin:0;padding:0;box-sizing:border-box;}
 body{font-family:'Noto Sans Malayalam',system-ui,-apple-system,Segoe UI,Roboto;background:#1a0000;color:#fff;line-height:1.6;scroll-behavior:smooth;}
 header{background:#2b0000;padding:12px;text-align:center;position:sticky;top:0;z-index:1000;box-shadow:0 2px 10px rgba(0,0,0,0.6);}
@@ -38,10 +35,10 @@ section{padding:40px 15px;max-width:1000px;margin:auto;text-align:center;}
 section h2{color:#ffd700;margin-bottom:15px;font-size:22px;}
 .card{background:#2b0000;padding:20px;border-radius:12px;margin-top:15px;text-align:left;box-shadow:0 4px 12px rgba(0,0,0,0.4);}
 .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(100px,1fr));gap:8px;margin-top:15px;}
-.gallery img{width:100%;height:80px;object-fit:cover;border-radius:10px;cursor:pointer;transition:0.3s;}
+.gallery img{width:100%;height:80px;object-fit:cover;border-radius:10px;cursor:pointer;transition:transform .3s;}
 .gallery img:hover{transform:scale(1.05);}
 .map iframe{width:100%;height:220px;border-radius:10px;border:0;}
-.qr img{width:130px;margin-top:10px;background:#fff;padding:6px;border-radius:10px;}
+.qr img{width:130px;margin-top:10px;border-radius:10px;}
 .popup{display:none;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:#fff;color:#000;padding:20px;border-radius:15px;width:95%;max-width:400px;z-index:2000;box-shadow:0 8px 25px rgba(0,0,0,0.6);}
 .popup h3{text-align:center;margin-bottom:12px;color:#2b0000;font-size:18px;}
 .popup input,.popup select{width:100%;padding:8px;margin:6px 0;border-radius:6px;border:1px solid #ccc;font-size:14px;}
@@ -170,7 +167,8 @@ All devotees are cordially invited to participate and receive divine blessings. 
 <section id="location">
 <h2 id="locationTitle">Location</h2>
 <div class="map">
-<iframe loading="lazy" src="https://www.google.com/maps?q=8.946059337154056,76.96567389643423&z=17&output=embed"></iframe>
+<iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+src="https://www.google.com/maps?q=8.946059337154056,76.96567389643423&z=17&output=embed"></iframe>
 </div>
 <br>
 <a href="https://www.google.com/maps/dir/?api=1&destination=8.946059337154056,76.96567389643423" target="_blank" style="background:#ffd700;color:#1a0000;padding:10px 20px;border-radius:30px;text-decoration:none;font-weight:bold;">📍 Get Directions</a>
@@ -223,27 +221,6 @@ Send Screenshot on WhatsApp
 <p>✉ ayilaramadathiltemple@gmail.com</p>
 
 </div>
-</section>
-<section id="devoteeCounter">
-<h2>🙏 Devotee Visits</h2>
-
-<div class="card" style="text-align:center;">
-
-<p style="font-size:18px;">Total Devotees Visited</p>
-
-<div style="margin:15px 0;">
-<img 
-src="https://hitwebcounter.com/counter/counter.php?page=AYILARA2026&style=0038&nbdigits=6&type=page&initCount=100"
-alt="Devotee Counter"
-style="border-radius:8px;">
-</div>
-
-<p style="font-size:14px;">
-Thank you for visiting the temple website 🙏
-</p>
-
-</div>
-</section>
 
 <footer>
 <p>🙏 “A devotional creation by Shaji R Palazhi.” 🙏</p>
@@ -262,7 +239,7 @@ Thank you for visiting the temple website 🙏
 // ===== Lazy Load =====
 document.addEventListener("DOMContentLoaded", function(){
 
-let lazyImages=[].slice.call(document.querySelectorAll("img.lazy"));
+let lazyImages=[...document.querySelectorAll("img.lazy")];
 
 if("IntersectionObserver" in window){
 let observer=new IntersectionObserver(function(entries,obs){
@@ -281,7 +258,11 @@ lazyImages.forEach(img=>observer.observe(img));
 lazyImages.forEach(img=>img.src=img.dataset.src);
 }
 
-setTimeout(()=>document.getElementById("chantText").style.opacity=1,1000);
+let chant=document.getElementById("chantText");
+setTimeout(()=>{
+chant.style.transition="opacity 2s";
+chant.style.opacity=1;
+},800);
 
 });
 
@@ -296,10 +277,17 @@ if(dateField) dateField.setAttribute("min",today);
 // ===== Slider =====
 let slides=document.querySelectorAll('.slide'), index=0;
 function nextSlide(){slides[index].classList.remove('active'); index=(index+1)%slides.length; slides[index].classList.add('active');}
-let sliderInterval=setInterval(nextSlide,3500);
-document.querySelector('.slider').addEventListener('mouseenter',()=>clearInterval(sliderInterval));
-document.querySelector('.slider').addEventListener('mouseleave',()=>sliderInterval=setInterval(nextSlide,3500));
+let slider=document.querySelector('.slider');
 
+if(slider){
+let sliderInterval=setInterval(nextSlide,3500);
+
+slider.addEventListener('mouseenter',()=>clearInterval(sliderInterval));
+
+slider.addEventListener('mouseleave',()=>{
+sliderInterval=setInterval(nextSlide,3500);
+});
+}
 // ===== Lightbox =====
 let galleryImgs=document.querySelectorAll('.gallery img');
 let lightbox=document.createElement('div'); lightbox.className='lightbox';
