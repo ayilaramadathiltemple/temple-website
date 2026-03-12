@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
 <meta property="og:url" content="https://www.ayilaramadathiltemple.org">
 <link rel="canonical" href="https://www.ayilaramadathiltemple.org">
 <meta property="og:title" content="Ayilara Madathil Sree Bhadra Bhagavathi Temple">
@@ -191,7 +192,7 @@ All devotees are cordially invited to participate and receive divine blessings. 
 
 <h3>📱 Donate via UPI</h3>
 
-<a href="upi://pay?pa=118924144014105@cnrb&pn=Ayilara%20Madathil%20Temple&am=100&cu=INR&tn=Temple%20Donation"
+<a href="upi://pay?pa=118924144014105@cnrb&pn=Ayilara%20Madathil%20Temple&cu=INR&tn=Temple%20Donation"
 style="display:inline-block;padding:10px 20px;background:#ffd700;color:#1a0000;border-radius:25px;text-decoration:none;font-weight:bold;margin-top:10px;">
 💳 Pay with UPI App
 </a>
@@ -223,9 +224,32 @@ Send Screenshot on WhatsApp
 
 </div>
 </section>
+<section id="devoteeCounter">
+<h2>🙏 Devotee Visits</h2>
+
+<div class="card" style="text-align:center;">
+
+<p style="font-size:18px;">Total Devotees Visited</p>
+
+<div style="margin:15px 0;">
+<img 
+src="https://hitwebcounter.com/counter/counter.php?page=AYILARA2026&style=0038&nbdigits=6&type=page&initCount=100"
+alt="Devotee Counter"
+style="border-radius:8px;">
+</div>
+
+<p style="font-size:14px;">
+Thank you for visiting the temple website 🙏
+</p>
+
+</div>
+</section>
+
 <footer>
-<p>© 2026 Ayilara Madathil Sree Bhadra Bhagavathi Temple</p>
 <p>🙏 “A devotional creation by Shaji R Palazhi.” 🙏</p>
+
+<p>© 2026 Ayilara Madathil Sree Bhadra Bhagavathi Temple</p>
+<p>Ayilara P.O, Ayilara, Anchal,Kollam - 691312, Keralam, India</p>
 </footer>
 
 <!-- Speaker / Bhajan Button -->
@@ -267,6 +291,8 @@ let today=new Date().toISOString().split("T")[0];
 let dateField=document.getElementById("date");
 if(dateField) dateField.setAttribute("min",today);
 },500);
+
+
 // ===== Slider =====
 let slides=document.querySelectorAll('.slide'), index=0;
 function nextSlide(){slides[index].classList.remove('active'); index=(index+1)%slides.length; slides[index].classList.add('active');}
@@ -404,7 +430,7 @@ popup.innerHTML=`<h3 id="popupTitle">Pooja Booking</h3>
 <option value="Revati">രേവതി / Revati</option>
 </select>
 </div>
-<input type="number" id="donationAmount" placeholder="Enter amount to donate" style="display:none;">
+<input type="number" id="donationAmount" min="1" placeholder="Enter amount to donate" style="display:none;">
 <div class="summary-card">
 <h4>Booking Summary</h4>
 <p id="summaryText">Please fill the form to see booking details</p>
@@ -431,7 +457,8 @@ function togglePooja(){
 function updateSummary(){
   let pooja=document.getElementById("pooja");
   let poojaAmt=parseInt(pooja?.selectedOptions[0]?.dataset.amount || 0);
- let donation=Math.max(0,parseInt(document.getElementById("donationAmount")?.value || 0));
+ let donation=parseInt(document.getElementById("donationAmount")?.value || 0);
+if(isNaN(donation)) donation=0;
   let name=document.getElementById("name").value||"Not Provided";
   let date=document.getElementById("date").value||"Not Selected";
   let donateOnly=document.getElementById("donateOnly").checked;
@@ -501,13 +528,7 @@ let upiURL=`upi://pay?pa=${upiID}&pn=Ayilara%20Madathil%20Temple&tr=${Date.now()
 document.getElementById("payNowBtn").onclick = function(){
 
 // direct redirect
-window.location.href = upiURL;
-
-// fallback
-setTimeout(function(){
-window.open(upiURL,"_self");
-},400);
-
+window.open(upiURL, "_blank");
 };
 
 let whatsappMessage=
