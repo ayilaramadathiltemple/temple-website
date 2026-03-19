@@ -1,6 +1,9 @@
 
 <html lang="en">
 <head>
+<link rel="preload" as="image" href="banner1.jpg">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#2b0000">
 <link rel="icon" href="temple-icon.png" type="image/png">
 <meta property="og:url" content="https://www.ayilaramadathiltemple.org">
 <link rel="canonical" href="https://www.ayilaramadathiltemple.org">
@@ -12,7 +15,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ayilar Madathil Sree Bhadra Bhagavathi Temple</title>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Malayalam:wght@400;600&display=swap" rel="stylesheet">
+
 <style>
+
 img.lazy{background:#3a0000;display:block;}
 *{margin:0;padding:0;box-sizing:border-box;}
 body{font-family:'Noto Sans Malayalam',system-ui,-apple-system,Segoe UI,Roboto;background:#1a0000;color:#fff;line-height:1.6;scroll-behavior:smooth;}
@@ -68,7 +73,59 @@ section h2{font-size:20px;}
 .gallery img{height:70px;}
 .map iframe{height:180px;}
 }
+
+.lang-en, .lang-ml {
+  transition: opacity 0.3s ease;
+}
+
+/* Hidden state */
+.lang-hide {
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+}
+
+/* Visible state */
+.lang-show {
+  opacity: 1;
+  position: relative;
+}
+
+/* ===== SPECIAL POOJAS DESIGN ===== */
+#special-poojas{
+  background:linear-gradient(145deg,#2b0000,#1a0000);
+  border-radius:12px;
+  margin-top:20px;
+  padding:20px;
+  box-shadow:0 6px 20px rgba(0,0,0,0.6);
+}
+
+#special-poojas h2{
+  text-align:center;
+  margin-bottom:15px;
+}
+
+#special-poojas ol{
+  padding-left:20px;
+}
+
+#special-poojas li{
+  background:#1f0000;
+  margin-bottom:12px;
+  padding:12px;
+  border-radius:10px;
+  border-left:4px solid #ffd700;
+  transition:0.3s;
+}
+
+#special-poojas li:hover{
+  transform:translateX(5px);
+}
+#special-poojas{
+  text-align:left; /* important fix */
+}
 </style>
+
 <meta name="description" content="Ayilara Madathil Sree Bhadra Bhagavathi Temple official website. Book pooja online, donate via UPI and view temple festival details.">
 
 <meta name="keywords" content="Ayilara Madathil Temple, Bhadra Bhagavathi Temple, Kerala Temple, Pooja Booking, Temple Donation">
@@ -125,16 +182,50 @@ section h2{font-size:20px;}
 
 <div class="card" id="timingsText">
 
-<p>🕔 <b>6:00 AM</b> – Nada Thurakkal (നട തുറക്കൽ)</p>
-<p>🔥 <b>6:30 AM</b> – Ganapathi Homam (ഗണപതി ഹോമം)</p>
-<p>🌼 <b>7:00 AM</b> – Morning Pooja (പ്രഭാത പൂജ)</p>
-<p>🌞 <b>9:30 AM</b> – Ucha Pooja (ഉച്ച പൂജ)</p>
-<p>🔔 <b>5:00 PM</b> – Temple Reopens (നട തുറക്കൽ)</p>
-<p>🪔 <b>6:30 PM</b> – Deeparadhana (ദീപാരാധന)</p>
-<p>🌙 <b>7:30 PM</b> – Athazha Pooja (അത്താഴ പൂജ)</p>
-<p>🚪 <b>8:00 PM</b> – Nada Adakkal (നട അടയ്ക്കൽ)</p>
+<p>🕔 <b>6:00 AM</b> – Nada Thurakkal</p>
+<p>🔥 <b>6:30 AM</b> – Ganapathi Homam</p>
+<p>🌼 <b>7:00 AM</b> – Morning Pooja</p>
+<p>🌞 <b>9:30 AM</b> – Ucha Pooja</p>
+<p>🔔 <b>5:00 PM</b> – Temple Reopens</p>
+<p>🪔 <b>6:30 PM</b> – Deeparadhana</p>
+<p>🌙 <b>7:30 PM</b> – Athazha Pooja</p>
+<p>🚪 <b>8:00 PM</b> – Nada Adakkal</p>
 
 </div>
+</section>
+<section id="special-poojas" style="padding:20px; text-align:left;">
+
+<!-- ENGLISH -->
+<div class="lang-en lang-show">
+<h2>🛕 Special Poojas</h2>
+
+<ol>
+<li><strong>Karyasidhi Ponkaala</strong> – Conducted on Every Tuesday.</li>
+
+<li><strong>Ayilya Pooja</strong> – Every month on the day of Ayilyam.</li>
+<li><strong>Manchirat Nercha</strong> –Every Friday.</li>
+<li><strong>Ramayanaparayanam</strong> –From the first of Karkidakam.</li>
+<li><strong>Mankalathil Pongala</strong> –On the day of Chothi in the month of Meenam.</li>
+<li><strong>Naagarootu</strong> –On the day of Ayilyam in the month of Kanni.</li>
+
+</ol>
+</div>
+
+<!-- MALAYALAM -->
+<div class="lang-ml lang-hide" style="font-family:'Noto Sans Malayalam', sans-serif;">
+<h2>🛕 പ്രത്യേക പൂജകൾ</h2>
+
+<ol>
+<li><strong>കാര്യസിദ്ധി പൊങ്കാല</strong> – എല്ലാ ചൊവ്വാഴ്ചയും. </li>
+<li><strong>ആയില്യ പൂജ</strong> – എല്ലാ മാസവും ആയില്യം നാളിൽ. </li>
+<li><strong>മൺചിരാത് നേർച്ച </strong> – എല്ലാ വെള്ളിയാഴ്ചയും .</li>
+<li><strong>രാമായണപാരായണം </strong> – കർക്കിടകം ഒന്നാം തീയതിമുതൽ .</li>
+<li><strong>മൺകലത്തിൽ പൊങ്കാല  </strong> – മീനമാസത്തിലെ ചോതിനാളിൽ  .</li>
+<li><strong>നാഗരൂട്ട്  </strong> – കന്നിമാസത്തിലെ ആയില്യംനാളിൽ  .</li>
+
+</ol>
+</div>
+
 </section>
 
 <!-- Festival -->
@@ -219,6 +310,7 @@ Send Screenshot on WhatsApp
 
 <p>📞 +91 9633559256</p>
 <p>✉ ayilaramadathiltemple@gmail.com</p>
+<p>Ayilara P.O, Ayilara, Anchal, Kollam- 691312</p>
 
 </div>
 
@@ -255,7 +347,10 @@ obs.unobserve(entry.target);
 lazyImages.forEach(img=>observer.observe(img));
 
 }else{
-lazyImages.forEach(img=>img.src=img.dataset.src);
+lazyImages.forEach(img=>{
+  img.src = img.dataset.src;
+  img.onload = ()=> img.style.background = "none";
+});
 }
 
 let chant=document.getElementById("chantText");
@@ -295,19 +390,21 @@ lightbox.innerHTML='<span class="nav prev">&#10094;</span><img><span class="nav 
 let lightboxImg=lightbox.querySelector('img'), currentIndex=0;
 galleryImgs.forEach((img,i)=>img.addEventListener('click',()=>{
     currentIndex=i;
-    lightboxImg.src = img.src || img.dataset.src;
+    lightboxImg.src = img.src ? img.src : img.dataset.src;
     lightbox.style.display='flex';
 }));
 lightbox.querySelector('.close').onclick=()=>lightbox.style.display='none';
 lightbox.querySelector('.next').onclick=()=>{
 currentIndex=(currentIndex+1)%galleryImgs.length;
-lightboxImg.src = galleryImgs[currentIndex].src || galleryImgs[currentIndex].dataset.src;
-};
+lightboxImg.src = galleryImgs[currentIndex].src 
+  ? galleryImgs[currentIndex].src 
+  : galleryImgs[currentIndex].dataset.src;};
 
 lightbox.querySelector('.prev').onclick=()=>{
 currentIndex=(currentIndex+galleryImgs.length-1)%galleryImgs.length;
-lightboxImg.src = galleryImgs[currentIndex].src || galleryImgs[currentIndex].dataset.src;
-};
+lightboxImg.src = galleryImgs[currentIndex].src 
+  ? galleryImgs[currentIndex].src 
+  : galleryImgs[currentIndex].dataset.src;};
 // ===== Bhajan =====
 let bhajanAudio = document.getElementById('bhajanAudio');
 let bhajanBtn = document.getElementById('bhajanBtn');
@@ -337,54 +434,54 @@ popup.innerHTML=`<h3 id="popupTitle">Pooja Booking</h3>
 <label><input type="checkbox" id="donateOnly" onchange="togglePooja()"> Donate Only</label>
 <div id="poojaSection">
 <select id="pooja">
-<option value=" Ganapathihomam  " data-amount="350"> Ganapathihomam  / ഗണപതിഹോമം - ₹350</option>
-<option value=" Archana  " data-amount="10"> Archana  / അർച്ചന - ₹10</option>
-<option value=" chatti vilakku  " data-amount="5"> chatti vilakku / ചട്ടി വിളക്ക്- ₹5</option>
-<option value=" Pinvilakku " data-amount="10"> Pinvilakku / പിൻവിളക്ക് - ₹10</option>
-<option value=" Naranga Vilakku " data-amount="10"> Naranga Vilakku /നാരങ്ങ വിളക്ക്- ₹10</option>
-<option value=" Charadu Pooja " data-amount="20"> Charadu Pooja/	ചരടു പൂജ- ₹20</option>
-<option value=" Ponkala " data-amount="25"> Ponkala	/പൊങ്കാല- ₹25</option>
-<option value=" Chavi Pooja " data-amount="20"> Chavi Pooja/ചാവി പൂജ- ₹20</option>
-<option value=" Pushpanjali " data-amount="25"> Pushpanjali/പുഷ്പാഞ്ജലി- ₹25</option>
-<option value=" Bhagyasuktharchana " data-amount="25"> Bhagyasuktharchana/ഭാഗ്യസൂക്താർച്ചന- ₹25</option>
-<option value=" Sreesookatarchana " data-amount="25"> Sreesookatarchana/ശ്രീസൂകതാർച്ചന- ₹25</option>
-<option value=" Dhanwantharymantrarchana " data-amount="25"> Dhanwantharymantrarchana/ധന്വന്തരിമന്ത്രാർച്ചന- ₹25</option>
-<option value=" Swayamvararchan " data-amount="25"> Swayamvararchan/സ്വയംവരാർച്ചന- ₹25</option>
-<option value=" sathrusamharachan " data-amount="25"> sathrusamharachan/ശത്രുസംഹാരച്ചൻ- ₹25</option>
-<option value=" Aikyamathya Sooktharchana " data-amount="25"> Aikyamathya Sooktharchana/ഐക്യമത്യ സൂക്താർച്ചന- ₹25</option>
-<option value=" Lalitha sahasranamarchana " data-amount="25"> Lalitha sahasranamarchana/ലളിത സഹസ്രനാമാർച്ചന- ₹25</option>
-<option value=" Purushsooktharchana " data-amount="25"> Purushsooktharchana/പുരുഷസൂക്താർച്ചന- ₹25</option>
-<option value=" Rakthapushpanjali " data-amount="50"> Rakthapushpanjali/രക്തപുഷ്പാഞ്ജലി- ₹50</option>
-<option value=" Rakthapushparchana " data-amount="25"> Rakthapushparchana/രക്തപുഷ്പാർച്ചന- ₹25</option>
-<option value=" Karikabhishekam " data-amount="25"> Karikabhishekam/കരിക്കഭിഷേകം- ₹25</option>
-<option value=" Kumkumaarchana " data-amount="25"> Kumkumaarchana/കുങ്കുമാർച്ചന- ₹25</option>
-<option value=" Vella Nivedyam " data-amount="40"> Vella Nivedyam/വെള്ള നിവേദ്യം- ₹40</option>
-<option value=" Kettu Nira " data-amount="51"> Kettu Nira/കെട്ടു നിറ- ₹51</option>
-<option value=" Pattusamarpanam " data-amount="50"> Pattusamarpanam/പട്ടുസമർപ്പണം- ₹50</option>
-<option value=" Sharkarapayasam " data-amount="50"> Sharkarapayasam/ശർക്കരപായസം- ₹50</option>
-<option value=" Kudumbarchana " data-amount="50"> Kudumbarchana/കുടുംബാർച്ചന- ₹50</option>
-<option value=" Kadumpayasam " data-amount="50"> Kadumpayasam/കടുംപായസം- ₹50</option>
-<option value=" Trimaduram " data-amount="50"> Trimaduram/ത്രിമധുരം- ₹50</option>
-<option value=" Aval nivedyam " data-amount="50"> Aval nivedyam/അവൽ നിവേദ്യം- ₹50</option>
-<option value=" Malar nivedyam " data-amount="50">Malar nivedyam/മലർ നിവേദ്യം- ₹50</option>
-<option value=" Vahanapooja" data-amount="101">Vahanapooja/വാഹനപൂജ- ₹101</option>
-<option value=" Tulabharam" data-amount="101">Tulabharam/തുലാഭാരം- ₹101</option>
-<option value=" Chorunu" data-amount="101">Chorunu/ചോറുണു- ₹101</option>
-<option value=" Bhagavathiseva" data-amount="250">Bhagavathiseva/ഭഗവതിസേവ- ₹250</option>
-<option value=" Mukhacharthu(1)" data-amount="350">Mukhacharthu(1)/മുഖച്ചാർത്തു(1)- ₹350</option>
-<option value=" Muzhukkappu(1)" data-amount="700">Muzhukkappu(1)/മുഴുക്കാപ്പ്(1)- ₹700</option>
-<option value=" Kumkumabhishekam" data-amount="1001">Kumkumabhishekam/കുങ്കുമാഭിഷേകം- ₹1001</option>
-<option value=" Vivaham" data-amount="2500">Vivaham/വിവാഹം- ₹2500</option>
-<option value=" Nityapooja" data-amount="2500">Nityapooja/നിത്യപൂജ- ₹2500</option>
-<option value=" Vishnu Sahasranamarchana" data-amount="25">Vishnu Sahasranamarchana/വിഷ്ണു സഹസ്രനാമാർച്ചന- ₹25</option>
-<option value=" Ashwaruda Manthrarchana" data-amount="25">Ashwaruda Manthrarchana/അശ്വരുഡ മന്ത്രാർച്ചന- ₹25</option>
-<option value=" Shankaranarayana Manthrarchana" data-amount="25">Shankaranarayana Manthrarchana/ശങ്കരനാരായണമന്ത്രാർച്ചന- ₹25</option>
-<option value=" Ney Vilaku" data-amount="25">Ney Vilaku/നെയ് വിളക്ക്- ₹25</option>
-<option value=" Pithrupooja" data-amount="25">Pithrupooja/പിതൃപൂജ- ₹25</option>
-<option value=" Vidyagopalamantrarchana" data-amount="25">Vidyagopalamantrarchana/വിദ്യാഗോപാലമന്ത്രാർച്ചന- ₹25</option>
-<option value=" Mukkuti Pushpanjali" data-amount="25">Mukkuti Pushpanjali/മുക്കുറ്റി പുഷ്പാഞ്ജലി- ₹25</option>
-<option value=" Karukahomam" data-amount="350">Karukahomam/കറുകഹോമം- ₹350</option>
-<option value=" Unniappam Moodal" data-amount="8500">Unniappam Moodal/ഉണ്ണിയപ്പം മൂടൽ- ₹8500</option>
+<option value="Ganapathihomam"data-amount="350"> Ganapathihomam  / ഗണപതിഹോമം - ₹350</option>
+<option value="Archana"data-amount="10"> Archana  / അർച്ചന - ₹10</option>
+<option value="Chattivilakku"data-amount="5"> Chatti vilakku/ചട്ടി വിളക്ക്- ₹5</option>
+<option value="Pinvilakku"data-amount="10"> Pinvilakku / പിൻ വിളക്ക് - ₹10</option>
+<option value="NarangaVilakku"data-amount="10"> Naranga Vilakku /നാരങ്ങ വിളക്ക്- ₹10</option>
+<option value="CharaduPooja"data-amount="20"> Charadu Pooja/ചരടു പൂജ- ₹20</option>
+<option value="Ponkala"data-amount="25"> Ponkala/പൊങ്കാല- ₹25</option>
+<option value="ChaviPooja"data-amount="20"> Chavi Pooja/ചാവി പൂജ- ₹20</option>
+<option value="Pushpanjali"data-amount="25"> Pushpanjali/പുഷ്പാഞ്ജലി- ₹25</option>
+<option value="Bhagyasuktharchana"data-amount="25"> Bhagyasuktharchana/ഭാഗ്യസൂക്താർച്ചന- ₹25</option>
+<option value="Sreesookatarchana"data-amount="25"> Sreesookatarchana/ശ്രീസൂകതാർച്ചന- ₹25</option>
+<option value="Dhanwantharymantrarchana"data-amount="25"> Dhanwantharymantrarchana/ധന്വന്തരിമന്ത്രാർച്ചന- ₹25</option>
+<option value="Swayamvararchan"data-amount="25"> Swayamvararchan/സ്വയംവരാർച്ചന- ₹25</option>
+<option value="Sathrusamharachan"data-amount="25"> Sathrusamharachan/ശത്രുസംഹാരച്ചൻ- ₹25</option>
+<option value="AikyamathyaSooktharchana"data-amount="25"> Aikyamathya Sooktharchana/ഐക്യമത്യ സൂക്താർച്ചന- ₹25</option>
+<option value="Lalithasahasranamarchana"data-amount="25"> Lalitha sahasranamarchana/ലളിത സഹസ്രനാമാർച്ചന- ₹25</option>
+<option value="Purushsooktharchana"data-amount="25"> Purushsooktharchana/പുരുഷസൂക്താർച്ചന- ₹25</option>
+<option value="Rakthapushpanjali"data-amount="50"> Rakthapushpanjali/രക്തപുഷ്പാഞ്ജലി- ₹50</option>
+<option value="Rakthapushparchana"data-amount="25"> Rakthapushparchana/രക്തപുഷ്പാർച്ചന- ₹25</option>
+<option value="Karikabhishekam"data-amount="25"> Karikabhishekam/കരിക്കഭിഷേകം- ₹25</option>
+<option value="Kumkumaarchana"data-amount="25"> Kumkumaarchana/കുങ്കുമാർച്ചന- ₹25</option>
+<option value="VellaNivedyam"data-amount="40"> Vella Nivedyam/വെള്ള നിവേദ്യം- ₹40</option>
+<option value="KettuNira"data-amount="51"> Kettu Nira/കെട്ടു നിറ- ₹51</option>
+<option value="Pattusamarpanam"data-amount="50"> Pattusamarpanam/പട്ടുസമർപ്പണം- ₹50</option>
+<option value="Sharkarapayasam"data-amount="50"> Sharkarapayasam/ശർക്കരപായസം- ₹50</option>
+<option value="Kudumbarchana"data-amount="50"> Kudumbarchana/കുടുംബാർച്ചന- ₹50</option>
+<option value="Kadumpayasam"data-amount="50"> Kadumpayasam/കടുംപായസം- ₹50</option>
+<option value="Trimaduram"data-amount="50"> Trimaduram/ത്രിമധുരം- ₹50</option>
+<option value="Avalnivedyam"data-amount="50"> Aval nivedyam/അവൽ നിവേദ്യം- ₹50</option>
+<option value="Malarnivedyam"data-amount="50">Malar nivedyam/മലർ നിവേദ്യം- ₹50</option>
+<option value="Vahanapooja"data-amount="101">Vahanapooja/വാഹനപൂജ- ₹101</option>
+<option value="Tulabharam"data-amount="101">Tulabharam/തുലാഭാരം- ₹101</option>
+<option value="Chorunu"data-amount="101">Chorunu/ചോറുണു- ₹101</option>
+<option value="Bhagavathiseva"data-amount="250">Bhagavathiseva/ഭഗവതിസേവ- ₹250</option>
+<option value="Mukhacharthu(1)"data-amount="350">Mukhacharthu(1)/മുഖച്ചാർത്തു(1)- ₹350</option>
+<option value="Muzhukkappu(1)"data-amount="700">Muzhukkappu(1)/മുഴുക്കാപ്പ്(1)- ₹700</option>
+<option value="Kumkumabhishekam"data-amount="1001">Kumkumabhishekam/കുങ്കുമാഭിഷേകം- ₹1001</option>
+<option value="Vivaham"data-amount="2500">Vivaham/വിവാഹം- ₹2500</option>
+<option value="Nityapooja"data-amount="2500">Nitya Pooja/നിത്യപൂജ- ₹2500</option>
+<option value="VishnuSahasranamarchana"data-amount="25">Vishnu Sahasranamarchana/വിഷ്ണു സഹസ്രനാമാർച്ചന- ₹25</option>
+<option value="AshwarudaManthrarchana"data-amount="25">Ashwaruda Manthrarchana/അശ്വരുഡ മന്ത്രാർച്ചന- ₹25</option>
+<option value="ShankaranarayanaManthrarchana"data-amount="25">Shankaranarayana Manthrarchana/ശങ്കരനാരായണമന്ത്രാർച്ചന- ₹25</option>
+<option value="NeyVilaku"data-amount="25">Ney Vilaku/നെയ് വിളക്ക്- ₹25</option>
+<option value="Pithrupooja"data-amount="25">Pithru Pooja/പിതൃ പൂജ- ₹25</option>
+<option value="Vidyagopalamantrarchana"data-amount="25">Vidyagopalamantrarchana/വിദ്യാഗോപാലമന്ത്രാർച്ചന- ₹25</option>
+<option value="MukkutiPushpanjali"data-amount="25">Mukkuti Pushpanjali/മുക്കുറ്റി പുഷ്പാഞ്ജലി- ₹25</option>
+<option value="Karukahomam"data-amount="350">Karuka Homam/കറുക ഹോമം- ₹350</option>
+<option value="Unniappam Moodal"data-amount="8500">Unniappam Moodal/ഉണ്ണിയപ്പം മൂടൽ- ₹8500</option>
 
 	
 </select>
@@ -418,7 +515,7 @@ popup.innerHTML=`<h3 id="popupTitle">Pooja Booking</h3>
 <option value="Revati">രേവതി / Revati</option>
 </select>
 </div>
-<input type="number" id="donationAmount" min="1" placeholder="Enter amount to donate" style="display:none;">
+<input type="number" id="donationAmount" min="1" placeholder="Enter amount to donate">
 <div class="summary-card">
 <h4>Booking Summary</h4>
 <p id="summaryText">Please fill the form to see booking details</p>
@@ -443,18 +540,27 @@ function togglePooja(){
 
 // ===== Summary Update =====
 function updateSummary(){
+  let donateOnly=document.getElementById("donateOnly").checked;
+
   let pooja=document.getElementById("pooja");
   let poojaAmt=parseInt(pooja?.selectedOptions[0]?.dataset.amount || 0);
- let donation=parseInt(document.getElementById("donationAmount")?.value || 0);
-if(isNaN(donation)) donation=0;
-  let name=document.getElementById("name").value||"Not Provided";
-  let date=document.getElementById("date").value||"Not Selected";
-  let donateOnly=document.getElementById("donateOnly").checked;
-  document.getElementById("totalAmount").innerText=donateOnly?donation:poojaAmt+donation;
-  document.getElementById("summaryText").innerHTML=
-      donateOnly
-      ? `Donation Only: ₹${donation}`
-      : `Name: ${name}<br>Date: ${date}<br>Pooja: ${pooja.value}<br>Amount: ₹${poojaAmt+donation}`;
+
+  let donation=parseInt(document.getElementById("donationAmount")?.value || 0);
+  if(isNaN(donation)) donation=0;
+
+  let name=document.getElementById("name").value || "Not Provided";
+  let date=document.getElementById("date").value || "Not Selected";
+
+  let total = donateOnly ? donation : (poojaAmt + donation);
+
+  document.getElementById("totalAmount").innerText = total;
+
+  let poojaText = pooja?.selectedOptions[0]?.text.split('-')[0];
+
+document.getElementById("summaryText").innerHTML =
+donateOnly
+? `Donation Only: ₹${donation}`
+: `Name: ${name}<br>Date: ${date}<br>Pooja: ${poojaText}<br>Amount: ₹${total}`;
 }
 setTimeout(()=>{
 document.getElementById("pooja")?.addEventListener('change',updateSummary);
@@ -493,8 +599,13 @@ e.preventDefault();
 
 let name=document.getElementById("name").value.trim();
 let address=document.getElementById("address").value.trim();
+function cleanInput(str){
+  return str.replace(/[<>\"'`]/g, "").trim();
+}
+name = cleanInput(name);
+address = cleanInput(address);
 let date=document.getElementById("date").value;
-let total=parseInt(document.getElementById("totalAmount").innerText)||0;
+let total = Number(document.getElementById("totalAmount").innerText) || 0;
 let donateOnly=document.getElementById("donateOnly").checked;
 let pooja=document.getElementById("pooja").value;
 let nakshatra=document.getElementById("nakshatra").value;
@@ -502,21 +613,40 @@ let nakshatra=document.getElementById("nakshatra").value;
 let upiID="118924144014105@cnrb";
 let templePhone="919633559256"; // correct international format
 
-if(!name || total<=0){
-alert("Please complete all details.");
+if(!name || !address || !date || total<=0){
+alert("Please fill all details correctly.");
 return;
 }
 
+let poojaText = document.getElementById("pooja")?.selectedOptions[0]?.text.split('-')[0];
+
 let note=donateOnly
 ? `Donation by ${name}`
-: `Pooja: ${pooja} | Nakshatra: ${nakshatra} | Name: ${name} | Date: ${date}`;
+: `Pooja: ${poojaText} | Nakshatra: ${nakshatra} | Name: ${name} | Date: ${date}`;
 
 let upiURL=`upi://pay?pa=${upiID}&pn=Ayilara%20Madathil%20Temple&tr=${Date.now()}&am=${total}&cu=INR&tn=${encodeURIComponent(note)}`;
 
 document.getElementById("payNowBtn").onclick = function(){
 
-// direct redirect
-window.open(upiURL, "_blank");
+if(total <= 0){
+  alert("Invalid amount. Please select pooja or donation.");
+  return;
+}
+
+// disable
+this.disabled = true;
+this.innerText = "Processing...";
+
+setTimeout(()=>{
+  window.location.href = upiURL;
+},300);
+
+// ✅ reset after 5 sec (in case user returns)
+setTimeout(()=>{
+  this.disabled = false;
+  this.innerText = "💳 Pay Now";
+},5000);
+
 };
 
 let whatsappMessage=
@@ -525,9 +655,9 @@ let whatsappMessage=
 Name: ${name}
 Address: ${address}
 Amount: ₹${total}
-${donateOnly?"Donation Only":"Pooja: "+pooja+"\nNakshatra: "+nakshatra+"\nDate: "+date}
+${donateOnly?"Donation Only":"Pooja: "+poojaText+"\nNakshatra: "+nakshatra+"\nDate: "+date}
 
-Payment done via UPI.`;
+Please complete payment and send screenshot 🙏`;
 
 let whatsappURL=`https://wa.me/${templePhone}?text=${encodeURIComponent(whatsappMessage)}`;
 
@@ -538,10 +668,14 @@ window.open(whatsappURL,'_blank');
 successPopup.querySelector("#successMsg").innerHTML=
 `Thank you <b>${name}</b> 🙏<br><br>
 Amount: ₹${total}<br>
-${donateOnly?"Donation":"Pooja: "+pooja+" | Nakshatra: "+nakshatra}<br><br>
+${donateOnly?"Donation":"Pooja: "+poojaText+" | Nakshatra: "+nakshatra}<br><br>
 Click Pay Now to complete UPI payment.`;
 
 successPopup.style.display="block";
+
+setTimeout(()=>{
+  successPopup.scrollIntoView({behavior:'smooth', block:'center'});
+},100);
 
 document.getElementById("bookingForm").reset();
 updateSummary();
@@ -553,7 +687,18 @@ closeBooking();
 // ===== Language Toggle =====
 let englishLang=true;
 function toggleLang(){
-  englishLang=!englishLang;
+  englishLang = !englishLang;
+
+document.querySelectorAll('.lang-en').forEach(el => {
+  el.classList.remove('lang-show','lang-hide');
+  el.classList.add(englishLang ? 'lang-show' : 'lang-hide');
+});
+
+document.querySelectorAll('.lang-ml').forEach(el => {
+  el.classList.remove('lang-show','lang-hide');
+  el.classList.add(englishLang ? 'lang-hide' : 'lang-show');
+});
+
   document.getElementById("templeTitle").innerHTML = englishLang
     ? '🛕 Ayilara Madathil Sree Bhadra Bhagavathi Temple<br><span style="font-size:14px;">അയിലറ മഠത്തിൽ ശ്രീ ഭദ്രാ ഭഗവതി ക്ഷേത്രം</span>'
     : '🛕 അയിലറ മഠത്തിൽ ശ്രീ ഭദ്രാ ഭഗവതി ക്ഷേത്രം<br><span style="font-size:14px;">Ayilara Madathil Sree Bhadra Bhagavathi Temple</span>';
@@ -569,10 +714,10 @@ function toggleLang(){
     :"വിശ്വാസത്തിന്റെയും ദൈവികമായ കൃപയുടെയും അഭയസ്ഥാനം, ഭക്തർ സുരക്ഷ, സമൃദ്ധി, ആത്മീയം പ്രാപിക്കുന്നു.";
   document.getElementById("aboutTitle").innerText = englishLang?"About the Temple":"ക്ഷേത്രത്തെക്കുറിച്ച്";
   document.getElementById("aboutText").innerText = englishLang
-    ?"Nestled in peaceful surroundings, Ayilara Madathil Sree Bhadra Bhagavathi Temple is a sacred center dedicated to Sree Bhadra Bhagavathi, the divine Mother of strength, protection, and prosperity. The temple’s serene ambience, traditional Kerala architecture, and timeless rituals offer devotees spiritual solace and blessings. Annual festivals and poojas bring the community together in devotion, making it a place of faith, peace, and divine grace."
-    :"ശാന്തമായ പരിസരങ്ങളിലെ, ആയിലറ മഠത്തിൽ ശ്രീ ഭദ്രാ ഭഗവതി ക്ഷേത്രം ശക്തിയുടെ, സംരക്ഷണത്തിന്റെ, സമൃദ്ധിയുടെ ദൈവമാതാവായ ശ്രീ ഭദ്രാ ഭഗവതിക്ക് സമർപ്പിച്ച ഒരു പുണ്യകേന്ദ്രമാണ്. വർഷാന്ത്യ ഉത്സവങ്ങളും പൂജകളും സമൂഹത്തെ ഭക്തിയിൽ ഒന്നിപ്പിക്കുന്നു.";
+    ?"The ancient and famous temple, named after its five chambers, is a sacred place where the eight-fold blessings of the goddess Ailara are bestowed on the forehead like sandalwood powder, the bestower of blessings on the lips, and the meritorious deity of many thousands, Sri Bhadra Bhagavati, who shines with the virtue of seeing, is equally important, Sri Maha Vishnu, the destroyer of all obstacles, Sri Maha Ganapathi, and other sub-deities shower blessings on the devotees. Annual festivals and poojas bring the community together in devotion, making it a place of faith, peace, and divine grace."
+    :"അതിപുരാതനവും ക്ഷേത്രപ്രസിദ്ധവും അഞ്ച് അറകളാൽ നാമകരണം ചെയ്തിട്ടുള്ള അയിലറയുടെ തിരുനെറ്റിയിൽ ചന്ദനപൊട്ടുപോലെ അഷ്ട ഐശ്വര്യ പ്രദായിനിയും വിളിപ്പുറത്തു അനുഗ്രഹദായികയും അനേകായിരങ്ങൾക്ക് ദർശന പുണ്യവുമായി പ്രശോഭിക്കുന്ന ശ്രീ ഭദ്രാ ഭഗവതിയും തുല്യ പ്രാധാന്യത്തിൽ വാണരുളുന്ന ശ്രീ മഹാവിഷ്ണുവും സർവ്വവിഘ്ന വിനാശകനായ ശ്രീ മഹാ ഗണപതിയും മറ്റു ഉപദേവി ദേവന്മാരും സജ്ജനങ്ങൾക്ക് അനുഗ്രഹ ആശിസുകൾ ചൊരിയുന്ന  ഒരു പുണ്യകേന്ദ്രമാണ്. വർഷാന്ത്യ ഉത്സവങ്ങളും പൂജകളും സമൂഹത്തെ ഭക്തിയിൽ ഒന്നിപ്പിക്കുന്നു.";
   document.getElementById("festivalTitle").innerText = englishLang?"Temple Festival":"ക്ഷേത്ര ഉത്സവം";
-  document.getElementById("festivalText").innerText = englishLang?"🌺 Annual Utsavam 2026 🌺 will be celebrated from 📅 31 March 2026 to 04 April 2026 with poojas, rituals, Ghoshayathra and cultural programs. All devotees are cordially invited to participate and receive divine blessings. 🙏.":"🌺 വാർഷിക ഉത്സവം 2026 🌺 2026 മാർച്ച്  31 മുതൽ 2026 ഏപ്രിൽ 04 വരെ പൂജകൾ, അനുഷ്ഠാനങ്ങൾ, ഘോഷയാത്ര, സാംസ്കാരിക പരിപാടികൾ എന്നിവയോടെ ആഘോഷിക്കും. എല്ലാ ഭക്തരെയും പങ്കെടുത്ത് ദിവ്യാനുഗ്രഹം പ്രാപിക്കാൻ സ്നേഹപൂർവ്വം ക്ഷണിക്കുന്നു. 🙏.";
+  document.getElementById("festivalText").innerText = englishLang?"🌺 Annual Festival 2026 🌺 will be celebrated from 31st March 2026 to 04th April 2026 with Poojas, rituals, processions and cultural programs. All devotees are cordially invited to participate and receive divine blessings. 🙏":"🌺 വാർഷിക ഉത്സവം 2026 🌺 2026 മാർച്ച്  31 മുതൽ 2026 ഏപ്രിൽ 04 വരെ പൂജകൾ, അനുഷ്ഠാനങ്ങൾ, ഘോഷയാത്ര, സാംസ്കാരിക പരിപാടികൾ എന്നിവയോടെ ആഘോഷിക്കും. എല്ലാ ഭക്തരെയും പങ്കെടുത്ത് ദിവ്യാനുഗ്രഹം പ്രാപിക്കാൻ സ്നേഹപൂർവ്വം ക്ഷണിക്കുന്നു. 🙏.";
   document.getElementById("galleryTitle").innerText = englishLang?"Gallery":"ഗാലറി";
   document.getElementById("locationTitle").innerText = englishLang?"Location":"സ്ഥലം";
   document.getElementById("donationTitle").innerText = englishLang?"Bank & UPI Donation":"ബാങ്ക് & UPI സംഭാവന";
