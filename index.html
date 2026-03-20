@@ -1,9 +1,6 @@
 
 <html lang="en">
 <head>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<meta name="description" content="Ayilara Madathil Sree Bhadra Bhagavathi Temple official website. Book pooja online, view timings, donate via UPI, and participate in temple festivals.">
 <link rel="preload" as="image" href="banner1.jpg">
 <meta name="robots" content="index, follow">
 <meta name="theme-color" content="#2b0000">
@@ -16,7 +13,7 @@
 <meta property="og:image" content="banner1.jpg">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ayilara Madathil Temple | Pooja Booking & Donations</title>
+<title>Ayilar Madathil Sree Bhadra Bhagavathi Temple</title>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Malayalam:wght@400;600&display=swap" rel="stylesheet">
 
 <style>
@@ -67,20 +64,6 @@ footer{background:#2b0000;padding:18px;text-align:center;margin-top:30px;font-si
 #totalAmount{color:#ffd700;font-weight:bold;font-size:15px;}
 .bhajan-btn{position:fixed;bottom:15px;left:15px;background:#ffd700;border:none;border-radius:50%;width:50px;height:50px;font-size:24px;cursor:pointer;z-index:1000;}
 @media(max-width:480px){
-  #aboutText,
-  #festivalText {
-    text-align: justify;
-    text-justify: inter-word;
-  }
-
-  .lang-ml p {
-    text-align: justify;
-    line-height: 1.9;
-    letter-spacing: 0.3px;
-  }
-
-}
-
 header h1{font-size:18px;}
 .hero-text h2{font-size:20px;}
 .popup h3{font-size:16px;}
@@ -89,15 +72,6 @@ header h1{font-size:18px;}
 section h2{font-size:20px;}
 .gallery img{height:70px;}
 .map iframe{height:180px;}
-}
-
-#aboutText,
-#festivalText {
-  word-break: break-word;
-}
-.card p {
-  text-align: justify;
-  hyphens: auto;
 }
 
 .lang-en, .lang-ml {
@@ -117,11 +91,6 @@ section h2{font-size:20px;}
   position: relative;
 }
 
-.card p::first-letter {
-  font-size: 22px;
-  font-weight: bold;
-  color: #ffd700;
-}
 /* ===== SPECIAL POOJAS DESIGN ===== */
 #special-poojas{
   background:linear-gradient(145deg,#2b0000,#1a0000);
@@ -152,6 +121,9 @@ section h2{font-size:20px;}
 #special-poojas li:hover{
   transform:translateX(5px);
 }
+#special-poojas{
+  text-align:left; /* important fix */
+}
 .devotional-text {
   font-weight: bold;
   color: #FFD700; /* Gold color */
@@ -162,10 +134,6 @@ section h2{font-size:20px;}
     text-align: center;
   }
 }
-#special-poojas{
-  text-align:left; /* important fix */
-}
-
 </style>
 
 <meta name="keywords" content="Ayilara Madathil Temple, Bhadra Bhagavathi Temple, Kerala Temple, Pooja Booking, Temple Donation">
@@ -271,9 +239,8 @@ section h2{font-size:20px;}
 
 <!-- Festival -->
 <section id="festival">
-
 <h2 id="festivalTitle">🛕Temple Festival🛕</h2>
-<div class="card"<p id="festivalText">🌺***** Annual Festival 2026 *****🌺 will be celebrated from 📅 31st March 2026 to 04th April 2026 🛕 with Poojas, rituals, processions and cultural programs. All devotees are cordially invited to participate and receive divine blessings. 🙏"</p></div>
+<div class="card" id="festivalText">🌺***** Annual Festival 2026 *****🌺 will be celebrated from 📅 31st March 2026 to 04th April 2026 🛕 with Poojas, rituals, processions and cultural programs. All devotees are cordially invited to participate and receive divine blessings. 🙏"</div>
 </section>
 
 <!-- Gallery -->
@@ -354,7 +321,7 @@ Send Screenshot on WhatsApp
 <p>Ayilara P.O, Ayilara, Anchal, Kollam- 691312</p>
 
 </div>
-</section>
+
 <footer>
 <p class="devotional-text">🙏 “A devotional creation by Shaji R Palazhi.” 🙏</p>
 <p>© 2026 Ayilara Madathil Sree Bhadra Bhagavathi Temple</p>
@@ -644,7 +611,7 @@ e.preventDefault();
 let name=document.getElementById("name").value.trim();
 let address=document.getElementById("address").value.trim();
 function cleanInput(str){
-  return str.replace(/[^a-zA-Z0-9\s.,-]/g, "").trim();
+return str.replace(/[<>\"'`;(){}]/g, "").trim();
 }
 name = cleanInput(name);
 address = cleanInput(address);
@@ -686,7 +653,7 @@ document.getElementById("payNowBtn").onclick = function(){
 
   if(isMobile){
     // ✅ Try opening UPI app
-window.location.href = upiURL;
+      window.open(upiURL, '_self');
 
     // ⏳ Fallback if not opened
 setTimeout(()=>{
