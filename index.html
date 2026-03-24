@@ -1,7 +1,9 @@
 
 <html lang="en">
 <head>
-<link rel="icon" type="image/png" href="https://www.ayilaramadathiltemple.org/favicon.png">
+<link rel="icon" href="https://www.ayilaramadathiltemple.org/favicon.png" type="image/png">
+<link rel="shortcut icon" href="https://www.ayilaramadathiltemple.org/favicon.ico">
+<link rel="apple-touch-icon" href="https://www.ayilaramadathiltemple.org/favicon.png">
 <link rel="preload" as="image" href="banner1.jpg">
 <meta name="robots" content="index, follow">
 <meta name="theme-color" content="#2b0000">
@@ -10,11 +12,20 @@
 <meta property="og:title" content="Ayilara Madathil Sree Bhadra Bhagavathi Temple">
 <meta property="og:description" content="Official temple website. Book pooja online and donate via UPI.">
 <meta property="og:type" content="website">
-<meta property="og:image" content="banner1.jpg">
+<meta property="og:image" content="https://www.ayilaramadathiltemple.org/banner1.jpg">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ayilar Madathil Sree Bhadra Bhagavathi Temple</title>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Malayalam:wght@400;600&display=swap" rel="stylesheet">
+
+<meta http-equiv="Content-Security-Policy" content="
+default-src 'self';
+img-src 'self' data: https:;
+script-src 'self' 'unsafe-inline' https:;
+style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+font-src https://fonts.gstatic.com;
+frame-src https://www.google.com;
+">
 
 <style>
 
@@ -137,10 +148,6 @@ section h2{font-size:20px;}
   }
 }
 .footer-text {
-  white-space: nowrap;     /* force single line */
-  text-align: center;
-}
-.footer-text {
   white-space: nowrap;
   text-align: center;
   font-size: clamp(10px, 3vw, 16px);
@@ -184,9 +191,9 @@ section h2{font-size:20px;}
 <!-- Slider -->
 <div class="slider">
 
-<div class="slide active"><img data-src="banner1.jpg" loading="lazy" alt="Temple Banner 1" class="lazy"></div>
-<div class="slide"><img data-src="banner2.jpg" loading="lazy" alt="Temple Banner 2" class="lazy"></div>
-<div class="slide"><img data-src="banner3.jpg" loading="lazy" alt="Temple Banner 3" class="lazy"></div>
+<div class="slide active"><img data-src="banner1.jpg" loading="lazy" decoding="async" class="lazy"></div>
+<div class="slide"><img data-src="banner2.jpg" loading="lazy" decoding="async" class="lazy"></div>
+<div class="slide"><img data-src="banner3.jpg" loading="lazy" decoding="async" class="lazy"></div>
 <div class="hero-text"><h2 id="heroTitle">A divine abode of faith and grace, where devotees seek protection, prosperity, and spiritual peace.</h2></div>
 </div>
 
@@ -251,7 +258,7 @@ section h2{font-size:20px;}
 <!-- Festival -->
 <section id="festival">
 <h2 id="festivalTitle">🛕Temple Festival🛕</h2>
-<div class="card" id="festivalText">🌺***** Annual Festival 2026 *****🌺 will be celebrated from 📅 31st March 2026 to 04th April 2026 🛕 with Poojas, rituals, processions and cultural programs. All devotees are cordially invited to participate and receive divine blessings. 🙏"</div>
+<div class="card" id="festivalText">🌺***** Annual Festival 2026 *****🌺 will be celebrated from 📅 31st March 2026 to 04th April 2026 🛕 with Poojas, rituals, processions and cultural programs. All devotees are cordially invited to participate and receive divine blessings. 🙏 </div>
 </section>
 
 <!-- Gallery -->
@@ -332,11 +339,12 @@ Send Screenshot on WhatsApp
 <p>Ayilara P.O, Ayilara, Anchal, Kollam- 691312</p>
 
 </div>
-
+</section>
 <footer>
 <p class="devotional-text">🙏 “A devotional creation by Shaji R Palazhi.” 🙏</p>
 <p class="footer-text">© 2026 Ayilara Madathil Sree Bhadra Bhagavathi Temple</p>
 <p>Ayilara P.O, Ayilara, Anchal,Kollam - 691312, Keralam, India</p>
+
 </footer>
 
 <!-- Speaker / Bhajan Button -->
@@ -448,7 +456,7 @@ let popup=document.createElement('div'); popup.className='popup';
 popup.innerHTML=`<h3 id="popupTitle">Pooja Booking</h3>
 <form id="bookingForm">
 <input type="text" id="name" placeholder="Your Name" required>
-<input type="text" id="address" placeholder="Address (for donation)" required>
+<input type="text" id="address" placeholder="Address (optional)">
 <input type="date" id="date" required>
 <label><input type="checkbox" id="donateOnly" onchange="togglePooja()"> Donate Only</label>
 <div id="poojaSection">
@@ -622,7 +630,7 @@ e.preventDefault();
 let name=document.getElementById("name").value.trim();
 let address=document.getElementById("address").value.trim();
 function cleanInput(str){
-return str.replace(/[<>\"'`;(){}]/g, "").trim();
+return str.replace(/[^a-zA-Z0-9\s.,@()-]/g, "").trim();
 }
 name = cleanInput(name);
 address = cleanInput(address);
@@ -752,7 +760,9 @@ document.querySelectorAll('.lang-ml').forEach(el => {
     ?"The ancient and famous temple, named after its five chambers, is a sacred place where the eight-fold blessings of the goddess Ailara are bestowed on the forehead like sandalwood powder, the bestower of blessings on the lips, and the meritorious deity of many thousands, Sri Bhadra Bhagavati, who shines with the virtue of seeing, is equally important, Sri Maha Vishnu, the destroyer of all obstacles, Sri Maha Ganapathi, and other sub-deities shower blessings on the devotees. Annual festivals and poojas bring the community together in devotion, making it a place of faith, peace, and divine grace."
     :"അതിപുരാതനവും ക്ഷേത്രപ്രസിദ്ധവും അഞ്ച് അറകളാൽ നാമകരണം ചെയ്തിട്ടുള്ള അയിലറയുടെ തിരുനെറ്റിയിൽ ചന്ദനപൊട്ടുപോലെ അഷ്ട ഐശ്വര്യ പ്രദായിനിയും വിളിപ്പുറത്തു അനുഗ്രഹദായികയും അനേകായിരങ്ങൾക്ക് ദർശന പുണ്യവുമായി പ്രശോഭിക്കുന്ന ശ്രീ ഭദ്രാ ഭഗവതിയും തുല്യ പ്രാധാന്യത്തിൽ വാണരുളുന്ന ശ്രീ മഹാവിഷ്ണുവും സർവ്വവിഘ്ന വിനാശകനായ ശ്രീ മഹാ ഗണപതിയും മറ്റു ഉപദേവി ദേവന്മാരും സജ്ജനങ്ങൾക്ക് അനുഗ്രഹ ആശിസുകൾ ചൊരിയുന്ന  ഒരു പുണ്യകേന്ദ്രമാണ്. വർഷാന്ത്യ ഉത്സവങ്ങളും പൂജകളും സമൂഹത്തെ ഭക്തിയിൽ ഒന്നിപ്പിക്കുന്നു.";
   document.getElementById("festivalTitle").innerText = englishLang?"Temple Festival":"ക്ഷേത്ര ഉത്സവം";
-  document.getElementById("festivalText").innerText = englishLang?"🌺***** Annual Festival 2026 *****🌺 will be celebrated from 📅 31st March 2026 to 04th April 2026 🛕 with Poojas, rituals, processions and cultural programs. All devotees are cordially invited to participate and receive divine blessings. 🙏":"🌺***** വാർഷിക ഉത്സവം 2026***** 🌺 2026 മാർച്ച്  31 മുതൽ 2026 ഏപ്രിൽ 04 വരെ 🛕 പൂജകൾ, അനുഷ്ഠാനങ്ങൾ, ഘോഷയാത്ര, സാംസ്കാരിക പരിപാടികൾ എന്നിവയോടെ ആഘോഷിക്കും. എല്ലാ ഭക്തരെയും പങ്കെടുത്ത് ദിവ്യാനുഗ്രഹം പ്രാപിക്കാൻ സ്നേഹപൂർവ്വം ക്ഷണിക്കുന്നു. 🙏.";
+  document.getElementById("festivalText").innerText = englishLang? "🌺***** Annual Festival 2026 *****🌺 will be celebrated from 📅 31st March 2026 to 04th April 2026 🛕 with Poojas, rituals, processions and cultural programs. All devotees are cordially invited to participate and receive divine blessings. 🙏"
+: "🌺***** വാർഷിക ഉത്സവം 2026 *****🌺 2026 മാർച്ച് 31 മുതൽ 2026 ഏപ്രിൽ 04 വരെ 🛕 പൂജകൾ, അനുഷ്ഠാനങ്ങൾ, ഘോഷയാത്ര, സാംസ്കാരിക പരിപാടികൾ എന്നിവയോടെ ആഘോഷിക്കും. എല്ലാ ഭക്തരെയും പങ്കെടുത്ത് ദിവ്യാനുഗ്രഹം പ്രാപിക്കാൻ സ്നേഹപൂർവ്വം ക്ഷണിക്കുന്നു. 🙏";
+
   document.getElementById("galleryTitle").innerText = englishLang?"Gallery":"ഗാലറി";
   document.getElementById("locationTitle").innerText = englishLang?"Location":"സ്ഥലം";
   document.getElementById("donationTitle").innerText = englishLang?"Bank & UPI Donation":"ബാങ്ക് & UPI സംഭാവന";
