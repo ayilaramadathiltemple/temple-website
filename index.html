@@ -152,6 +152,13 @@ section h2{font-size:20px;}
   text-align: center;
   font-size: clamp(10px, 3vw, 16px);
 }
+footer {
+  margin-bottom: 100px;
+}
+body {
+  padding-bottom: 100px;
+}
+
 </style>
 
 <meta name="keywords" content="Ayilara Madathil Temple, Bhadra Bhagavathi Temple, Kerala Temple, Pooja Booking, Temple Donation">
@@ -457,8 +464,15 @@ popup.innerHTML=`<h3 id="popupTitle">Pooja Booking</h3>
 <form id="bookingForm">
 <input type="text" id="name" placeholder="Your Name" required>
 <input type="text" id="address" placeholder="Address (optional)">
+<label style="font-size:13px;color:#555;">Select Date</label>
 <input type="date" id="date" required>
-<label><input type="checkbox" id="donateOnly" onchange="togglePooja()"> Donate Only</label>
+
+
+<label style="display:flex; align-items:center; gap:8px; font-weight:bold; font-size:15px;">
+  <input type="checkbox" id="donateOnly" onchange="togglePooja()" style="width:18px; height:18px;">
+  Donate Only
+</label>
+
 <div id="poojaSection">
 <select id="pooja">
 <option value="Ganapathihomam"data-amount="350"> Ganapathihomam  / ഗണപതിഹോമം - ₹350</option>
