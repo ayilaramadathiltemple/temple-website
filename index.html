@@ -61,22 +61,8 @@ section h2{color:#ffd700;margin-bottom:15px;font-size:22px;}
 .popup button{width:100%;padding:10px;margin-top:8px;background:#ffd700;border:none;border-radius:6px;font-weight:bold;cursor:pointer;transition:0.3s;font-size:14px;}
 .popup button:hover{transform:scale(1.03);}
 .close-btn{background:#900;color:#fff;}
-
-.floating-btn {
-  position: fixed;
-  bottom: 90px;
-  right: 20px;
-  background: #ffd700;
-  color: #2b0000;
-  padding: 12px 18px;
-  border-radius: 35px;
-  font-weight: bold;
-  cursor: pointer;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
-  transition: transform 0.3s ease;
-  z-index: 1000;
-}
-
+.floating{position:fixed;bottom:15px;right:15px;background:#ffd700;color:#2b0000;padding:12px 18px;border-radius:35px;font-weight:bold;cursor:pointer;box-shadow:0 4px 12px rgba(0,0,0,0.5);transition:0.3s;font-size:14px;}
+.floating:hover{transform:scale(1.05);}
 footer{background:#2b0000;padding:18px;text-align:center;margin-top:30px;font-size:13px;line-height:1.4;position:relative;}
 .lightbox{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.95);justify-content:center;align-items:center;z-index:3000;flex-direction:column;}
 .lightbox img{max-width:90%;max-height:80%;border-radius:10px;transition:0.3s;}
@@ -87,15 +73,13 @@ footer{background:#2b0000;padding:18px;text-align:center;margin-top:30px;font-si
 .summary-card h4{color:#ffd700;margin-bottom:8px;text-align:center;font-size:14px;}
 .summary-card p{margin:4px 0;color:#fff;font-size:13px;}
 #totalAmount{color:#ffd700;font-weight:bold;font-size:15px;}
-.bhajan-btn{position:fixed;bottom:20px;left:15px;background:#ffd700;border:none;border-radius:50%;width:50px;height:50px;font-size:24px;cursor:pointer;z-index:1000;}
+.bhajan-btn{position:fixed;bottom:15px;left:15px;background:#ffd700;border:none;border-radius:50%;width:50px;height:50px;font-size:24px;cursor:pointer;z-index:1000;}
 @media(max-width:480px){
 header h1{font-size:18px;}
 .hero-text h2{font-size:20px;}
 .popup h3{font-size:16px;}
 .popup input,.popup select,.popup button{font-size:13px;padding:7px;}
-
-.floating-btn{padding:10px 14px;font-size:13px;}
-
+.floating{padding:10px 14px;font-size:13px;}
 section h2{font-size:20px;}
 .gallery img{height:70px;}
 .map iframe{height:180px;}
@@ -168,42 +152,12 @@ section h2{font-size:20px;}
   text-align: center;
   font-size: clamp(10px, 3vw, 16px);
 }
-
-body {
-  padding-bottom: env(safe-area-inset-bottom);
-}
-
-button:active {
-  transform: scale(0.97);
-}
-html {
-  scroll-padding-top: 80px;
-}
-input, select {
-  outline: none;
-}
-
-input:focus, select:focus {
-  border-color: #ffd700;
-  box-shadow: 0 0 5px rgba(255,215,0,0.5);
-}
-
 footer {
-  padding: 18px;
-}
-html, body {
-  overflow-x: hidden;
+  margin-bottom: 100px;
 }
 body {
-  padding-bottom: env(safe-area-inset-bottom);
+  padding-bottom: 100px;
 }
-.bhajan-btn {
-  bottom: calc(15px + env(safe-area-inset-bottom));
-}
-.floating-btn {
-  bottom: calc(90px + env(safe-area-inset-bottom));
-}
-
 
 </style>
 
@@ -504,49 +458,19 @@ bhajanBtn.addEventListener('click', () => {
     bhajanBtn.innerText = "🔊";
   }
 });
-
-
-const btn = document.querySelector('.floating-btn');
-
-if (btn) {
-  let lastScroll = 0;
-
-  window.addEventListener('scroll', () => {
-    let currentScroll = window.pageYOffset;
-
-    if (currentScroll > lastScroll) {
-      btn.style.transform = "translateY(100px)";
-    } else {
-      btn.style.transform = "translateY(0)";
-    }
-
-    lastScroll = currentScroll;
-  });
-}
-
-
-window.addEventListener("click", function(e){
-  if (typeof popup !== "undefined" && e.target === popup) {
-    popup.style.display = "none";
-  }
-  if (typeof successPopup !== "undefined" && e.target === successPopup) {
-    successPopup.style.display = "none";
-  }
-});
-
 // ===== Booking Popup =====
 let popup=document.createElement('div'); popup.className='popup';
 popup.innerHTML=`<h3 id="popupTitle">Pooja Booking</h3>
 <form id="bookingForm">
 <input type="text" id="name" placeholder="Your Name" required>
 <input type="text" id="address" placeholder="Address (optional)">
+<label style="font-size:13px;color:#555;">Select Date</label>
+<input type="date" id="date" required>
 
-<label style="font-size:13px;color:#555;">📅 Select Date</label>
-<input type="date" id="date" required style="color:#000;">
 
-<label style="display:flex; align-items:center; gap:10px; font-size:15px; font-weight:700; margin:8px 0;">
+<label style="display:flex; align-items:center; gap:8px; font-weight:bold; font-size:15px;">
   <input type="checkbox" id="donateOnly" onchange="togglePooja()" style="width:18px; height:18px;">
-  <span>Donate Only</span>
+  Donate Only
 </label>
 
 <div id="poojaSection">
@@ -643,7 +567,7 @@ popup.innerHTML=`<h3 id="popupTitle">Pooja Booking</h3>
 </form>`;
 document.body.appendChild(popup);
 
-let floatBtn=document.createElement('div'); floatBtn.className='floating-btn'; floatBtn.innerText='🛕 Book Pooja'; floatBtn.onclick=openBooking; document.body.appendChild(floatBtn);
+let floatBtn=document.createElement('div'); floatBtn.className='floating'; floatBtn.innerText='🛕 Book Pooja'; floatBtn.onclick=openBooking; document.body.appendChild(floatBtn);
 
 function openBooking(){popup.style.display='block'; togglePooja(); updateSummary();}
 function closeBooking(){popup.style.display='none';}
@@ -733,7 +657,7 @@ let nakshatra=document.getElementById("nakshatra").value;
 let upiID="118924144014105@cnrb";
 let templePhone="919633559256"; // correct international format
 
-if(!name || !date || total<=0){
+if(!name || !date || total<=0 || (!donateOnly && !address)){
   alert("Please fill all details correctly.");
   return;
 }
@@ -745,23 +669,6 @@ let note=donateOnly
 : `Pooja: ${poojaText} | Nakshatra: ${nakshatra} | Name: ${name} | Date: ${date}`;
 
 let upiURL=`upi://pay?pa=${upiID}&pn=Ayilara%20Madathil%20Temple&tr=${Date.now()}&am=${total}&cu=INR&tn=${encodeURIComponent(note)}`;
-
-let whatsappMessage=
-`🛕 Ayilara Madathil Temple Booking
-
-Name: ${name}
-Address: ${address}
-Amount: ₹${total}
-${donateOnly?"Donation Only":"Pooja: "+poojaText+"\nNakshatra: "+nakshatra+"\nDate: "+date}
-
-Please complete payment and send screenshot 🙏`;
-
-let whatsappURL=`https://wa.me/${templePhone}?text=${encodeURIComponent(whatsappMessage)}`;
-
-document.getElementById("whatsappBtn").onclick=function(){
-window.open(whatsappURL,'_blank');
-};
-
 
 document.getElementById("payNowBtn").onclick = function(){
 
@@ -779,17 +686,14 @@ document.getElementById("payNowBtn").onclick = function(){
 
   if(isMobile){
     // ✅ Try opening UPI app
-      window.location.href = upiURL;
+      window.open(upiURL, '_self');
 
     // ⏳ Fallback if not opened
 setTimeout(()=>{
   if(document.visibilityState === "visible"){
-    if(confirm("UPI app not opened.\n\nPress OK to open WhatsApp for confirmation or Cancel to use QR code.")){
-      window.open(whatsappURL,'_blank');
-    }
+    alert("UPI app may not have opened.\n\n👉 Please use QR code or WhatsApp option.");
   }
 },2000);
-
 
   } else {
     // ❌ Desktop fallback
@@ -801,6 +705,21 @@ setTimeout(()=>{
     this.disabled = false;
     this.innerText = "💳 Pay Now";
   },5000);
+};
+let whatsappMessage=
+`🛕 Ayilara Madathil Temple Booking
+
+Name: ${name}
+Address: ${address}
+Amount: ₹${total}
+${donateOnly?"Donation Only":"Pooja: "+poojaText+"\nNakshatra: "+nakshatra+"\nDate: "+date}
+
+Please complete payment and send screenshot 🙏`;
+
+let whatsappURL=`https://wa.me/${templePhone}?text=${encodeURIComponent(whatsappMessage)}`;
+
+document.getElementById("whatsappBtn").onclick=function(){
+window.open(whatsappURL,'_blank');
 };
 
 successPopup.querySelector("#successMsg").innerHTML=
