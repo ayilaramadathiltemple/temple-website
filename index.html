@@ -64,7 +64,7 @@ section h2{color:#ffd700;margin-bottom:15px;font-size:22px;}
 
 .floating-btn {
   position: fixed;
-  bottom: 70px;
+  bottom: 90px;
   right: 20px;
   background: #ffd700;
   color: #2b0000;
@@ -87,7 +87,7 @@ footer{background:#2b0000;padding:18px;text-align:center;margin-top:30px;font-si
 .summary-card h4{color:#ffd700;margin-bottom:8px;text-align:center;font-size:14px;}
 .summary-card p{margin:4px 0;color:#fff;font-size:13px;}
 #totalAmount{color:#ffd700;font-weight:bold;font-size:15px;}
-.bhajan-btn{position:fixed;bottom:15px;left:15px;background:#ffd700;border:none;border-radius:50%;width:50px;height:50px;font-size:24px;cursor:pointer;z-index:1000;}
+.bhajan-btn{position:fixed;bottom:20px;left:15px;background:#ffd700;border:none;border-radius:50%;width:50px;height:50px;font-size:24px;cursor:pointer;z-index:1000;}
 @media(max-width:480px){
 header h1{font-size:18px;}
 .hero-text h2{font-size:20px;}
@@ -168,12 +168,9 @@ section h2{font-size:20px;}
   text-align: center;
   font-size: clamp(10px, 3vw, 16px);
 }
-footer {
-  padding-bottom: 200px;
-}
 
 body {
-  padding-bottom: 180px;
+  padding-bottom: env(safe-area-inset-bottom);
 }
 
 button:active {
@@ -190,6 +187,23 @@ input:focus, select:focus {
   border-color: #ffd700;
   box-shadow: 0 0 5px rgba(255,215,0,0.5);
 }
+
+footer {
+  padding: 18px;
+}
+html, body {
+  overflow-x: hidden;
+}
+body {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+.bhajan-btn {
+  bottom: calc(15px + env(safe-area-inset-bottom));
+}
+.floating-btn {
+  bottom: calc(90px + env(safe-area-inset-bottom));
+}
+
 
 </style>
 
