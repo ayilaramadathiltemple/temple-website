@@ -709,6 +709,7 @@ let total = Number(document.getElementById("totalAmount").innerText) || 0;
 let donateOnly=document.getElementById("donateOnly").checked;
 let pooja=document.getElementById("pooja").value;
 let nakshatra=document.getElementById("nakshatra").value;
+let nakshatraText = document.getElementById("nakshatra")?.selectedOptions[0]?.text || "";
 
 let upiID="118924144014105@cnrb";
 let templePhone="919633559256"; // correct international format
@@ -723,7 +724,7 @@ let poojaText = document.getElementById("pooja")?.selectedOptions[0]?.text.split
 let note = donateOnly
 ? `Donation by ${name}`
 : `Pooja: ${poojaText}
-Nakshatra: 🌟 ${nakshatraText}
+Nakshatra: ${nakshatraText}
 Name: ${name}
 Date: ${date}`;
 
@@ -732,38 +733,18 @@ let upiURL=`upi://pay?pa=${upiID}&pn=Ayilara%20Madathil%20Temple&tr=${Date.now()
 document.getElementById("payNowBtn").onclick = function(){
 
   if(total <= 0){
-    alert("Invalid amount. Please select pooja or donation.");
+    alert("Invalid amount.");
     return;
   }
 
-  // Disable button
-  this.disabled = true;
-  this.innerText = "Opening UPI App...";
-
-  // Detect mobile device
   let isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
 
   if(isMobile){
-    // ✅ Try opening UPI app
-      window.open(upiURL, '_self');
-
-    // ⏳ Fallback if not opened
-setTimeout(()=>{
-  if(document.visibilityState === "visible"){
-    alert("UPI app may not have opened.\n\n👉 Please use QR code or WhatsApp option.");
-  }
-},2000);
-
+    window.location.href = upiURL;
   } else {
-    // ❌ Desktop fallback
-    alert("UPI apps work only on mobile 📱. Please scan QR code or use WhatsApp option.");
+    alert("Please use mobile phone for UPI payment 📱");
   }
 
-  // 🔁 Reset button after 5 sec
-  setTimeout(()=>{
-    this.disabled = false;
-    this.innerText = "💳 Pay Now";
-  },5000);
 };
 
 let whatsappMessage =
