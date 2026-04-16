@@ -185,8 +185,56 @@ img.lazy {
   background: #3a0000 url('loader.gif') center center no-repeat;
 }
 
-
 }
+
+#splash {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  overflow: hidden; /* ✅ IMPORTANT */
+}
+
+#splash img {
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+  animation: zoomIn 4s ease-out forwards; /* ⏱ slower */
+}
+
+@keyframes zoomIn {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* 🎬 Controlled zoom */
+@keyframes zoomIn {
+  0% {
+    transform: scale(0.9); /* start slightly small */
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1);   /* only zoom to fit, not exceed */
+    opacity: 1;
+  }
+}
+
+
+
 </style>
 
 <meta name="keywords" content="Ayilara Madathil Temple, Bhadra Bhagavathi Temple, Kerala Temple, Pooja Booking, Temple Donation">
@@ -215,7 +263,12 @@ gtag('config', 'G-XXXX');
 </script>
 
 </head>
+
 <body>
+
+<div id="splash">
+  <img src="Flash Page.jpeg" alt="Temple Flash">
+</div>
 
 <header>
 <h1 id="templeTitle">🛕 Ayilara Madathil Sree Bhadra Bhagavathi Temple<br><span style="font-size:14px;">അയിലറ മഠത്തിൽ ശ്രീ ഭദ്രാ ഭഗവതി ക്ഷേത്രം</span></h1>
@@ -412,6 +465,19 @@ Send Screenshot on WhatsApp
 </audio>
 
 <script>
+window.addEventListener("load", function() {
+  setTimeout(() => {
+    let splash = document.getElementById("splash");
+    splash.classList.add("hide");
+
+    setTimeout(() => {
+      splash.style.display = "none";
+    }, 1000);
+
+  }, 2500);
+});
+
+
 // ===== Lazy Load =====
 document.addEventListener("DOMContentLoaded", function(){
 
@@ -509,6 +575,9 @@ bhajanBtn.addEventListener('click', () => {
     bhajanBtn.innerText = "🔊";
   }
 });
+
+
+
 // ===== Booking Popup =====
 let popup=document.createElement('div'); popup.className='popup';
 popup.innerHTML=`<h3 id="popupTitle">Pooja Booking / പൂജ ബുക്കിംഗ്</h3>
@@ -887,6 +956,7 @@ updateSummary();
 </script>
 
 <button id="topBtn" style="position:fixed;bottom:80px;right:15px;padding:10px;border-radius:50%;background:#ffd700;border:none;display:none;">⬆</button>
+
 
 </body>
 </html>
