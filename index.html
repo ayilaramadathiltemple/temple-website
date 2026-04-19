@@ -504,38 +504,27 @@ window.addEventListener("load", () => {
   setTimeout(() => {
     flash.classList.add("show");
 
-    // Auto close after 3 seconds
-    setTimeout(() => {
-      flash.classList.remove("show");
-    }, 5000);
-
   }, 2000);
-
-// Tap handling (image = open booking with donation)
 flash.addEventListener("click", (e) => {
 
+  // If IMAGE clicked → open booking + donation
   if (e.target.tagName === "IMG") {
-
-    flash.classList.remove("show");
 
     openBooking();
 
     setTimeout(() => {
       document.getElementById("donateOnly").checked = true;
-      togglePooja();   // activate donation mode
-
-      // OPTIONAL: preset donation amount
-      // document.getElementById("donationAmount").value = 100;
-      // updateSummary();
-
+      togglePooja();
     }, 200);
 
-  } else {
-    // Tap outside → just close
-    flash.classList.remove("show");
   }
 
+  // Close popup (for both image & outside tap)
+  flash.classList.remove("show");
 });
+
+const flashImg = document.querySelector("#flashAd img");
+
 
 
 
