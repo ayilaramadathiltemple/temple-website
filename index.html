@@ -105,6 +105,86 @@ section h2{font-size:20px;}
   position: relative;
 }
 
+/* FLASH AD ANIMATION */
+#flashAd{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.9);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  z-index:5000;
+
+  opacity:0;
+  visibility:hidden;
+  transition:opacity 0.5s ease;
+}
+
+#flashAd{
+  background:rgba(0,0,0,0.75); /* slightly transparent */
+  padding:15px;
+}
+
+#flashAd.show{
+  opacity:1;
+  visibility:visible;
+}
+
+
+#flashAd img{
+  width:90%;
+  max-width:380px;   /* limits size on mobile */
+  height:auto;
+  border-radius:12px;
+  box-shadow:0 0 25px rgba(0,0,0,0.8);
+
+  transform:scale(0.7);
+  transition:transform 0.5s ease;
+}  
+
+#flashAd.show img{
+  transform:scale(1); /* zoom-in effect */
+
+}
+
+#closeFlash{
+  position:absolute;
+  top:20px;
+  right:20px;
+  font-size:26px;
+  color:#fff;
+  cursor:pointer;
+  background:#900;
+  width:40px;
+  height:40px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  border-radius:50%;
+  z-index:6000; /* IMPORTANT */
+}
+#closeFlash:hover{
+  background:#ff0000;
+  transform:scale(1.1);
+}
+
+@media(max-width:480px){
+  #flashAd img{
+    width:85%;
+    max-width:300px;   /* smaller for phones */
+  }
+
+  #closeFlash{
+    width:35px;
+    height:35px;
+    font-size:20px;
+    top:10px;
+    right:10px;
+  }
+}
 /* ===== SPECIAL POOJAS DESIGN ===== */
 #special-poojas{
   background:linear-gradient(145deg,#2b0000,#1a0000);
@@ -186,76 +266,6 @@ img.lazy {
 }
 
 }
-
-#splash {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: #000;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-  overflow: hidden; /* ✅ IMPORTANT */
-}
-
-#splash img {
-  max-width: 90%;
-  max-height: 90%;
-  object-fit: contain;
-}
-
-@keyframes zoomIn {
-  0% {
-    transform: scale(0.8);
-    opacity: 0;
-  }
-  50% {
-    opacity: 1;
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-
-/* 🎬 Controlled zoom */
-@keyframes zoomIn {
-  0% {
-    transform: scale(0.9); /* start slightly small */
-    opacity: 0.8;
-  }
-  100% {
-    transform: scale(1);   /* only zoom to fit, not exceed */
-    opacity: 1;
-  }
-}
-
-#floatingSplashBtn {
-  position: fixed;
-  bottom: 80px;
-  right: 15px;
-  width: 65px;
-  height: 65px;
-  border-radius: 50%;
-  overflow: hidden;
-  z-index: 1500;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
-  cursor: pointer;
-}
-
-#floatingSplashBtn img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.zoomAnim {
-  animation: zoomIn 4s ease-out forwards;
-}
-
-
 </style>
 
 <meta name="keywords" content="Ayilara Madathil Temple, Bhadra Bhagavathi Temple, Kerala Temple, Pooja Booking, Temple Donation">
@@ -283,17 +293,10 @@ gtag('js', new Date());
 gtag('config', 'G-XXXX');
 </script>
 
+
+
 </head>
-
 <body>
-
-<div id="floatingSplashBtn">
-  <img src="Flash Page.jpeg">
-</div>
-
-<div id="splash">
-  <img src="Flash Page.jpeg" alt="Temple Flash">
-</div>
 
 <header>
 <h1 id="templeTitle">🛕 Ayilara Madathil Sree Bhadra Bhagavathi Temple<br><span style="font-size:14px;">അയിലറ മഠത്തിൽ ശ്രീ ഭദ്രാ ഭഗവതി ക്ഷേത്രം</span></h1>
@@ -490,38 +493,59 @@ Send Screenshot on WhatsApp
 </audio>
 
 <script>
-window.addEventListener("load", function() {
+
+window.addEventListener("load", () => {
+  const flash = document.getElementById("flashAd");
+  const closeBtn = document.getElementById("closeFlash");
+
+  if (!flash) return;
+
+  // Show after 1 seconds
   setTimeout(() => {
-    let splash = document.getElementById("splash");
-    splash.classList.add("hide");
+    flash.classList.add("show");
+
+    // Auto close after 3 seconds
+    setTimeout(() => {
+      flash.classList.remove("show");
+    }, 5000);
+
+  }, 2000);
+
+// Tap handling (image = open booking with donation)
+flash.addEventListener("click", (e) => {
+
+  if (e.target.tagName === "IMG") {
+
+    flash.classList.remove("show");
+
+    openBooking();
 
     setTimeout(() => {
-      splash.style.display = "none";
-    }, 1000);
+      document.getElementById("donateOnly").checked = true;
+      togglePooja();   // activate donation mode
 
-  }, 2500);
-});
+      // OPTIONAL: preset donation amount
+      // document.getElementById("donationAmount").value = 100;
+      // updateSummary();
 
-window.addEventListener("DOMContentLoaded", () => {
-  let splash = document.getElementById("splash");
-  let splashImg = splash.querySelector("img");
-  let btn = document.getElementById("floatingSplashBtn");
+    }, 200);
 
- btn.onclick = function() {
-  splash.style.display = "flex";
-
-  splashImg.classList.remove("zoomAnim");
-  void splashImg.offsetWidth; // 🔥 forces reflow
-
-  splashImg.classList.add("zoomAnim");
-
-  setTimeout(() => {
-    splash.style.display = "none";
-  }, 4000);
-};
+  } else {
+    // Tap outside → just close
+    flash.classList.remove("show");
+  }
 
 });
 
+
+
+  // Manual close
+  if (closeBtn) {
+    closeBtn.addEventListener("click", () => {
+      flash.classList.remove("show");
+    });
+  }
+});
 
 // ===== Lazy Load =====
 document.addEventListener("DOMContentLoaded", function(){
@@ -620,9 +644,6 @@ bhajanBtn.addEventListener('click', () => {
     bhajanBtn.innerText = "🔊";
   }
 });
-
-
-
 // ===== Booking Popup =====
 let popup=document.createElement('div'); popup.className='popup';
 popup.innerHTML=`<h3 id="popupTitle">Pooja Booking / പൂജ ബുക്കിംഗ്</h3>
@@ -1001,6 +1022,12 @@ updateSummary();
 </script>
 
 <button id="topBtn" style="position:fixed;bottom:80px;right:15px;padding:10px;border-radius:50%;background:#ffd700;border:none;display:none;">⬆</button>
+
+<div id="flashAd">
+  <span id="closeFlash">✖</span>
+  <img src="Flash Page.jpeg" alt="Temple Ad">
+</div>
+
 
 
 </body>
