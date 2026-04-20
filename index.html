@@ -112,7 +112,7 @@ section h2{font-size:20px;}
   left:0;
   width:100%;
   height:100%;
-  background:rgba(0,0,0,0.9);
+  background:rgba(0,0,0,0.75);
   display:flex;
   justify-content:center;
   align-items:center;
@@ -121,11 +121,6 @@ section h2{font-size:20px;}
   opacity:0;
   visibility:hidden;
   transition:opacity 0.5s ease;
-}
-
-#flashAd{
-  background:rgba(0,0,0,0.75); /* slightly transparent */
-  padding:15px;
 }
 
 #flashAd.show{
@@ -494,46 +489,52 @@ Send Screenshot on WhatsApp
 
 <script>
 
-window.addEventListener("load", () => {
+document.addEventListener("DOMContentLoaded", () => {
   const flash = document.getElementById("flashAd");
   const closeBtn = document.getElementById("closeFlash");
 
   if (!flash) return;
 
-  // Show after 1 seconds
+  // Show after 2 sec
   setTimeout(() => {
     flash.classList.add("show");
-
   }, 2000);
-flash.addEventListener("click", (e) => {
 
-  // If IMAGE clicked → open booking + donation
-  if (e.target.tagName === "IMG") {
+  // ✅ IMAGE click → open booking ONLY
+  const flashImg = flash.querySelector("img");
 
-    openBooking();
+  if (flashImg) {
+    flashImg.addEventListener("click", (e) => {
+  e.stopPropagation();
 
-    setTimeout(() => {
-      document.getElementById("donateOnly").checked = true;
+  // 🔥 CLOSE flash FIRST
+  flash.classList.remove("show");
+
+  openBooking();
+
+  setTimeout(() => {
+    let donateBox = document.getElementById("donateOnly");
+    if (donateBox) {
+      donateBox.checked = true;
       togglePooja();
-    }, 200);
+    }
+  }, 200);
+});
 
   }
 
-  // Close popup (for both image & outside tap)
-  flash.classList.remove("show");
-});
-
-const flashImg = document.querySelector("#flashAd img");
-
-
-
-
-  // Manual close
+  // ✅ CLOSE button ONLY
   if (closeBtn) {
-    closeBtn.addEventListener("click", () => {
+    closeBtn.addEventListener("click", (e) => {
+      e.stopPropagation(); // IMPORTANT
       flash.classList.remove("show");
     });
   }
+
+  // 🚫 BLOCK background click (do nothing)
+  flash.addEventListener("click", (e) => {
+    e.stopPropagation();
+  });
 });
 
 // ===== Lazy Load =====
@@ -1014,7 +1015,7 @@ updateSummary();
 
 <div id="flashAd">
   <span id="closeFlash">✖</span>
-  <img src="Flash Page.jpeg" alt="Temple Ad">
+  <img src="flash-page.jpeg" alt="Temple Ad">
 </div>
 
 
