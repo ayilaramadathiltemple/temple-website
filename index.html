@@ -852,12 +852,14 @@ if(!name || !date || total<=0){
 
 let poojaText = document.getElementById("pooja")?.selectedOptions[0]?.text.split('-')[0];
 
-let cleanNote = donateOnly
-  ? `Donation ${name}`
-  : `Pooja ${poojaText} ${name}`;
+let note = donateOnly
+? `Donation by ${name}`
+: `Pooja: ${poojaText}
+Nakshatra: ${nakshatraText}
+Name: ${name}
+Date: ${date}`;
 
-
-let upiURL = `upi://pay?pa=${upiID}&pn=AyilaraTemple&am=${total}&cu=INR&tn=${encodeURIComponent(cleanNote)}`;
+let upiURL=`upi://pay?pa=${upiID}&pn=Ayilara%20Madathil%20Temple&tr=${Date.now()}&am=${total}&cu=INR&tn=${encodeURIComponent(note)}`;
 
 document.getElementById("upiFallback").href = upiURL;
 
@@ -875,7 +877,7 @@ document.getElementById("payNowBtn").onclick = function(){
   upiLink.style.display = "none";
   document.body.appendChild(upiLink);
 
-  window.location.href = upiURL;
+  upiLink.click();
   opened = true;
 
   setTimeout(()=>{
@@ -923,14 +925,6 @@ setTimeout(()=>{
 document.getElementById("bookingForm").reset();
 updateSummary();
 closeBooking();
-
-// Clean note (VERY IMPORTANT)
-let cleanNote = donateOnly
-  ? `Donation ${name}`
-  : `Pooja ${poojaText} ${name}`;
-
-// Final UPI URL (SAFE FORMAT)
-let upiURL = `upi://pay?pa=${upiID}&pn=AyilaraTemple&am=${total}&cu=INR&tn=${encodeURIComponent(cleanNote)}`;
 
 }
 });
