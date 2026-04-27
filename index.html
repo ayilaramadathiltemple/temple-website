@@ -849,11 +849,14 @@ document.addEventListener("submit", function(e){
 
     // ===== NOTE =====
     let note = donateOnly
-      ? `Donation by ${name}`
-      : `Pooja: ${poojaText} | Nakshatra: ${nakshatraText} | Name: ${name} | Date: ${date}`;
+  ? `Donation - ${name}`
+  : `${poojaText} - ${name}`;
 
     // ===== SAFE UPI URL =====
-    let upiURL = `upi://pay?pa=${upiID}&pn=${encodeURIComponent("Ayilara Madathil Temple")}&am=${total}&cu=INR&tn=${encodeURIComponent(note)}`;
+    let upiURL = `upi://pay?pa=${upiID}&pn=${encodeURIComponent("Ayilara Temple")}&cu=INR&tn=${encodeURIComponent(note)}`;
+
+window.location.href = `upi://pay?pa=${upiID}&pn=${encodeURIComponent("Ayilara Temple")}`;
+window.location.href = `upi://pay?pa=${upiID}&pn=${encodeURIComponent("Ayilara Temple")}&am=${total}&cu=INR`;
 
     // ===== SUCCESS POPUP CONTENT =====
     successPopup.querySelector("#successMsg").innerHTML = `
