@@ -853,18 +853,19 @@ document.addEventListener("submit", function(e){
   : `${poojaText} - ${name}`;
 
     // ===== SAFE UPI URL =====
-    let upiURL = `upi://pay?pa=${upiID}`;
+    let upiURL = `intent://pay?pa=${upiID}&pn=AyilaraTemple&cu=INR#Intent;scheme=upi;end`;
 
-window.location.href = `upi://pay?pa=${upiID}&pn=${encodeURIComponent("Ayilara Temple")}`;
-window.location.href = `upi://pay?pa=${upiID}&pn=${encodeURIComponent("Ayilara Temple")}&am=${total}&cu=INR`;
+window.location.href = `intent://pay?pa=${upiID}&pn=AyilaraTemple&cu=INR#Intent;scheme=upi;package=com.google.android.apps.nbu.paisa.user;end`;
+window.location.href = `intent://pay?pa=${upiID}&pn=AyilaraTemple&cu=INR#Intent;scheme=upi;package=com.phonepe.app;end`;
+
 
     // ===== SUCCESS POPUP CONTENT =====
     successPopup.querySelector("#successMsg").innerHTML = `
-Thank you <b>${name}</b> 🙏<br><br>
-Please enter amount manually: ₹${total}<br><br>
-UPI ID: ${upiID}<br><br>
-Click below to open UPI app
-`;
+      Thank you <b>${name}</b> 🙏<br><br>
+      Amount: ₹${total}<br>
+      ${donateOnly ? "Donation" : "Pooja: " + poojaText + " | Nakshatra: " + nakshatraText}<br><br>
+      Click below to complete payment
+    `;
 
     // ===== SET PAY BUTTON (DIRECT METHOD) =====
     let payBtn = document.getElementById("payNowBtn");
