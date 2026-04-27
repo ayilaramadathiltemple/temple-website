@@ -823,64 +823,74 @@ style="display:block;text-align:center;margin-bottom:10px;color:#25D366;font-wei
 
 document.body.appendChild(successPopup);
 // ===== Process Booking =====
-document.addEventListener("submit", function(e){
-  if(e.target && e.target.id === "bookingForm"){
+document.addEventListener("submit",function(e){
+if(e.target && e.target.id==="bookingForm"){
 
-    e.preventDefault();
+e.preventDefault();
 
-    // ===== GET VALUES =====
-    let name = document.getElementById("name").value.trim();
-    let address = document.getElementById("address").value.trim();
-    let date = document.getElementById("date").value;
-    let total = Number(document.getElementById("totalAmount").innerText) || 0;
+let name=document.getElementById("name").value.trim();
+let address=document.getElementById("address").value.trim();
+function cleanInput(str){
+return str.replace(/[^a-zA-Z0-9\s.,@()-]/g, "").trim();
+}
+name = cleanInput(name);
+address = cleanInput(address);
+let date=document.getElementById("date").value;
+let total = Number(document.getElementById("totalAmount").innerText) || 0;
+let donateOnly=document.getElementById("donateOnly").checked;
+let pooja=document.getElementById("pooja").value;
+let nakshatra=document.getElementById("nakshatra").value;
+let nakshatraText = document.getElementById("nakshatra")?.selectedOptions[0]?.text || "";
 
-    let donateOnly = document.getElementById("donateOnly").checked;
-    let poojaText = document.getElementById("pooja")?.selectedOptions[0]?.text.split('-')[0] || "";
-    let nakshatraText = document.getElementById("nakshatra")?.selectedOptions[0]?.text || "";
+let upiID="118924144014105@cnrb";
+let templePhone="919633559256"; // correct international format
 
-    let upiID = "118924144014105@cnrb";
-    let templePhone = "919633559256";
+if(!name || !date || total<=0){
+  alert("Please fill all details correctly.");
+  return;
+}
 
-    // ===== VALIDATION =====
-    if(!name || !date || total <= 0 || isNaN(total)){
-      alert("Please fill all details correctly.");
-      return;
+let poojaText = document.getElementById("pooja")?.selectedOptions[0]?.text.split('-')[0];
+
+let note = donateOnly
+? `Donation by ${name}`
+: `Pooja: ${poojaText}
+Nakshatra: ${nakshatraText}
+Name: ${name}
+Date: ${date}`;
+
+let upiURL=`upi://pay?pa=${upiID}&pn=Ayilara%20Madathil%20Temple&tr=${Date.now()}&am=${total}&cu=INR&tn=${encodeURIComponent(note)}`;
+
+document.getElementById("upiFallback").href = upiURL;
+
+document.getElementById("payNowBtn").onclick = function(){
+
+  if(total <= 0){
+    alert("Invalid amount.");
+    return;
+  }
+
+  let opened = true;
+
+  let upiLink = document.createElement("a");
+  upiLink.href = upiURL;
+  upiLink.style.display = "none";
+  document.body.appendChild(upiLink);
+
+  upiLink.click();
+  opened = true;
+
+  setTimeout(()=>{
+    if(!opened){
+      alert("If UPI app didn't open, please scan QR code or use another app.");
     }
+  },2000);
 
-    // ===== NOTE =====
-    let note = donateOnly
-  ? `Donation - ${name}`
-  : `${poojaText} - ${name}`;
+  document.body.removeChild(upiLink);
+};
 
-    // ===== SAFE UPI URL =====
-    let upiURL = `intent://pay?pa=${upiID}&pn=AyilaraTemple&cu=INR#Intent;scheme=upi;end`;
-
-window.location.href = `intent://pay?pa=${upiID}&pn=AyilaraTemple&cu=INR#Intent;scheme=upi;package=com.google.android.apps.nbu.paisa.user;end`;
-window.location.href = `intent://pay?pa=${upiID}&pn=AyilaraTemple&cu=INR#Intent;scheme=upi;package=com.phonepe.app;end`;
-
-
-    // ===== SUCCESS POPUP CONTENT =====
-    successPopup.querySelector("#successMsg").innerHTML = `
-      Thank you <b>${name}</b> 🙏<br><br>
-      Amount: ₹${total}<br>
-      ${donateOnly ? "Donation" : "Pooja: " + poojaText + " | Nakshatra: " + nakshatraText}<br><br>
-      Click below to complete payment
-    `;
-
-    // ===== SET PAY BUTTON (DIRECT METHOD) =====
-    let payBtn = document.getElementById("payNowBtn");
-
-    payBtn.onclick = function(){
-      // BEST METHOD → direct open
-     window.open(upiURL, "_self");
-    };
-
-    // ===== FALLBACK LINK =====
-    document.getElementById("upiFallback").href = upiURL;
-
-    // ===== WHATSAPP =====
-    let whatsappMessage =
-`🛕 Ayilara Temple Booking
+let whatsappMessage =
+`🛕 Ayilara Madathil Temple Booking
 
 Name: ${name}
 Address: ${address}
@@ -889,36 +899,36 @@ Amount: ₹${total}
 ${donateOnly
 ? "Type: Donation"
 : `Pooja: ${poojaText}
-Nakshatra: ${nakshatraText}
+Nakshatra: 🌟 ${nakshatraText}
 Date: ${date}`}
 
-🙏 I have completed the payment. Please confirm.`;
+🙏 Kindly complete the payment and share the screenshot for confirmation.`;
 
-    let whatsappURL = `https://wa.me/${templePhone}?text=${encodeURIComponent(whatsappMessage)}`;
+let whatsappURL=`https://wa.me/${templePhone}?text=${encodeURIComponent(whatsappMessage)}`;
 
-    document.getElementById("whatsappBtn").onclick = function(){
-      window.open(whatsappURL, '_blank');
-    };
-
-    // ===== SHOW POPUP =====
-    successPopup.style.display = "block";
-
-    // RESET FORM
-    document.getElementById("bookingForm").reset();
-    updateSummary();
-    closeBooking();
-  }
-payBtn.onclick = function(){
-
-  if(!/Android|iPhone/i.test(navigator.userAgent)){
-    alert("⚠️ Please use mobile phone for UPI payment.");
-    return;
-  }
-
-  window.open(upiURL, "_self");
+document.getElementById("whatsappBtn").onclick=function(){
+window.open(whatsappURL,'_blank');
 };
 
+successPopup.querySelector("#successMsg").innerHTML=
+`Thank you <b>${name}</b> 🙏<br><br>
+Amount: ₹${total}<br>
+${donateOnly?"Donation":"Pooja: "+poojaText+" | Nakshatra: "+nakshatraText}<br><br>
+Click Pay Now to complete UPI payment.`;
+
+successPopup.style.display="block";
+
+setTimeout(()=>{
+  successPopup.scrollIntoView({behavior:'smooth', block:'center'});
+},100);
+
+document.getElementById("bookingForm").reset();
+updateSummary();
+closeBooking();
+
+}
 });
+
 
 
 // ===== Language Toggle =====
