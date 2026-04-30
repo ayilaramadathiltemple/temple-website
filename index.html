@@ -279,8 +279,6 @@ img.lazy {
 },
 "telephone":"+91 9633559256"
 }
-
-
 </script>
 
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXX"></script>
@@ -291,14 +289,7 @@ gtag('js', new Date());
 gtag('config', 'G-XXXX');
 </script>
 
-<button onclick="copyUPI()">📋 Copy UPI ID</button>
 
-<script>
-function copyUPI(){
-  navigator.clipboard.writeText("118924144014105@cnrb");
-  alert("UPI ID copied. Paste in any UPI app to pay.");
-}
-</script>
 
 </head>
 <body>
@@ -881,19 +872,15 @@ document.addEventListener("submit", function(e){
 
     // ===== SHOW POPUP =====
     successPopup.style.display = "block";
-setTimeout(() => {
-  alert("💡 Tip: If payment fails, use Retry or pay manually via UPI ID.");
-}, 500);
+
 
 
     // ===== PAY BUTTON =====
     document.getElementById("payNowBtn").onclick = function () {
 
-  // ✅ Show message BEFORE opening UPI
-  alert("🛕 Kindly complete your payment in the UPI app.\n\n⚠️ If payment fails:\n• Tap 'Retry Payment'\n• Or copy UPI ID and pay manually\n• Or check 'Pending/History' in your UPI app\n\n🙏 After payment, please send screenshot on WhatsApp.");
-
-  // ✅ Open UPI app (better method)
-  window.location.href = upiURL;
+  let link = document.createElement("a");
+  link.href = upiURL;
+  link.click();
 
 };
 
