@@ -800,9 +800,10 @@ successPopup.className = 'popup';
 successPopup.style.display = 'none';
 
 successPopup.innerHTML = `
-<h3>Booking Successful 🙏</h3>
+<h3>Complete Your Payment 🙏</h3>
 
 <div id="successMsg" style="text-align:center;margin-bottom:15px;"></div>
+
 <p style="color:red;font-size:13px;text-align:center;">
 ⚠️ Use mobile phone for UPI payment. Desktop may not work.
 </p>
@@ -811,6 +812,7 @@ successPopup.innerHTML = `
 style="display:block;width:100%;background:#ffd700;color:#000;padding:10px;border-radius:8px;margin-bottom:10px;font-weight:bold;border:none;">
 💳 Pay Now
 </button>
+
 <a id="upiFallback"
 style="display:block;text-align:center;margin-bottom:10px;color:#25D366;font-weight:bold;">
 📱 Open UPI App (Backup)
@@ -842,8 +844,18 @@ document.addEventListener("submit", function(e){
     let templePhone = "919633559256";
 
     // ===== VALIDATION =====
-    if(!name || !date || total <= 0 || isNaN(total)){
-      alert("Please fill all details correctly.");
+    if (!name) {
+      alert("Please enter your name");
+      return;
+    }
+
+    if (!date) {
+      alert("Please select a date");
+      return;
+    }
+
+    if (!total || total <= 0 || isNaN(total)) {
+      alert("Invalid amount");
       return;
     }
 
@@ -852,26 +864,26 @@ document.addEventListener("submit", function(e){
       ? `Donation by ${name}`
       : `Pooja: ${poojaText} | Nakshatra: ${nakshatraText} | Name: ${name} | Date: ${date}`;
 
-    // ===== SAFE UPI URL =====
-    let upiURL = `upi://pay?pa=${upiID}&pn=${encodeURIComponent("Ayilara Madathil Temple")}&am=${total}&cu=INR&tn=${encodeURIComponent(note)}`;
+    let upiURL = `upi://pay?pa=${upiID}&pn=Ayilara%20Madathil%20Temple&am=${total}&cu=INR&tn=${encodeURIComponent(note)}`;
 
-    // ===== SUCCESS POPUP CONTENT =====
-    successPopup.querySelector("#successMsg").innerHTML = `
-      Thank you <b>${name}</b> 🙏<br><br>
-      Amount: ₹${total}<br>
-      ${donateOnly ? "Donation" : "Pooja: " + poojaText + " | Nakshatra: " + nakshatraText}<br><br>
-      Click below to complete payment
-    `;
+    // ===== SHOW POPUP =====
+    successPopup.style.display = "block";
 
-    // ===== SET PAY BUTTON (DIRECT METHOD) =====
-    let payBtn = document.getElementById("payNowBtn");
+    // ===== PAY BUTTON =====
+    document.getElementById("payNowBtn").onclick = function () {
 
-    payBtn.onclick = function(){
-      // BEST METHOD → direct open
-     window.open(upiURL, "_self");
+      let isMobile = /Android|iPhone|iPad/i.test(navigator.userAgent);
+
+      if (!isMobile) {
+        alert("UPI works only on mobile");
+        return;
+      }
+
+      // 🔥 DIRECT REDIRECT (BEST FIX)
+      window.location.href = upiURL;
     };
 
-    // ===== FALLBACK LINK =====
+    // ===== FALLBACK =====
     document.getElementById("upiFallback").href = upiURL;
 
     // ===== WHATSAPP =====
@@ -888,32 +900,17 @@ ${donateOnly
 Nakshatra: ${nakshatraText}
 Date: ${date}`}
 
-🙏 I have completed the payment. Please confirm.`;
-
-    let whatsappURL = `https://wa.me/${templePhone}?text=${encodeURIComponent(whatsappMessage)}`;
+🙏 Payment done. Please confirm.`;
 
     document.getElementById("whatsappBtn").onclick = function(){
-      window.open(whatsappURL, '_blank');
+      window.open(`https://wa.me/${templePhone}?text=${encodeURIComponent(whatsappMessage)}`, '_blank');
     };
 
-    // ===== SHOW POPUP =====
-    successPopup.style.display = "block";
-
-    // RESET FORM
+    // RESET
     document.getElementById("bookingForm").reset();
     updateSummary();
     closeBooking();
   }
-payBtn.onclick = function(){
-
-  if(!/Android|iPhone/i.test(navigator.userAgent)){
-    alert("⚠️ Please use mobile phone for UPI payment.");
-    return;
-  }
-
-  window.open(upiURL, "_self");
-};
-
 });
 
 
