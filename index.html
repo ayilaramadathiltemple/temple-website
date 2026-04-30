@@ -448,7 +448,10 @@ style="display:inline-block;padding:10px 20px;background:#25D366;color:#fff;bord
 <h3>📷 Scan QR Code</h3>
 
 <div class="qr">
-<img data-src="upi-qr.png" loading="lazy" alt="UPI QR" class="lazy">
+<a id="qrPayLink">
+  <img data-src="upi-qr.png" loading="lazy" alt="UPI QR" class="lazy" style="cursor:pointer;">
+</a>
+<p style="font-size:13px;margin-top:5px;">Tap QR to Pay</p>
 </div>
 
 <p style="margin-top:10px;"><b>UPI ID:</b> 118924144014105@cnrb</p>
@@ -912,6 +915,22 @@ Date: ${date}`}
     updateSummary();
     closeBooking();
   }
+});
+
+document.addEventListener("DOMContentLoaded", function(){
+
+  const qrLink = document.getElementById("qrPayLink");
+
+  if(qrLink){
+    const upiID = "118924144014105@cnrb";
+
+    const upiURL = `upi://pay?pa=${upiID}&pn=Ayilara%20Madathil%20Temple&cu=INR`;
+
+    qrLink.onclick = function(){
+      window.location.href = upiURL;
+    };
+  }
+
 });
 
 
