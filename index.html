@@ -1,1023 +1,395 @@
-
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta property="og:site_name" content="Ayilara Temple">
-<meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="https://www.ayilaramadathiltemple.org/favicon.png" type="image/png">
-<link rel="shortcut icon" href="https://www.ayilaramadathiltemple.org/favicon.ico">
-<link rel="apple-touch-icon" href="https://www.ayilaramadathiltemple.org/favicon.png">
-<link rel="preload" as="image" href="banner1.jpg">
-<meta name="robots" content="index, follow">
-<meta name="theme-color" content="#2b0000">
-<meta name="description" content="Ayilara Madathil Sree Bhadra Bhagavathi Temple official website. Book pooja online, donate via UPI, view timings and Notice details.">
-<meta property="og:url" content="https://www.ayilaramadathiltemple.org">
-<link rel="canonical" href="https://www.ayilaramadathiltemple.org">
-<meta property="og:title" content="Ayilara Madathil Sree Bhadra Bhagavathi Temple">
-<meta property="og:description" content="Official temple website. Book pooja online and donate via UPI.">
-<meta property="og:type" content="website">
-<meta property="og:image" content="https://www.ayilaramadathiltemple.org/banner1.jpg">
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ayilara Madathil Sree Bhadra Bhagavathi Temple | Kollam Temple | Pooja Booking</title>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Malayalam:wght@400;600&display=swap" rel="stylesheet">
-
-<meta http-equiv="Content-Security-Policy" content="
-default-src 'self';
-img-src 'self' data: https:;
-script-src 'self' 'unsafe-inline' https:;
-style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
-font-src https://fonts.gstatic.com;
-frame-src https://www.google.com;
-">
-
-<style>
-
-img.lazy{background:#3a0000;display:block;}
-*{margin:0;padding:0;box-sizing:border-box;}
-body{font-family:'Noto Sans Malayalam',system-ui,-apple-system,Segoe UI,Roboto;background:#1a0000;color:#fff;line-height:1.6;scroll-behavior:smooth;}
-header{background:#2b0000;padding:12px;text-align:center;position:sticky;top:0;z-index:1000;box-shadow:0 2px 10px rgba(0,0,0,0.6);}
-header h1{color:#ffd700;font-size:20px;line-height:1.4;}
-nav{margin-top:8px;display:flex;flex-wrap:wrap;justify-content:center;gap:5px;}
-nav a{color:#fff;margin:3px 5px;text-decoration:none;font-size:13px;font-weight:500;cursor:pointer;transition:0.3s;}
-nav a:hover{color:#ffd700;}
-.book-btn{background:#ffd700;color:#2b0000 !important;padding:6px 14px;border-radius:25px;transition:0.3s;font-size:13px;}
-.book-btn:hover{transform:scale(1.05);}
-.lang-btn{border:1px solid #ffd700;padding:5px 12px;border-radius:20px;cursor:pointer;transition:0.3s;font-size:13px;}
-.lang-btn:hover{background:#ffd700;color:#1a0000;}
-.slider{position:relative;height:260px;overflow:hidden;border-radius:8px;}
-.slide{position:absolute;width:100%;height:100%;opacity:0;transition:opacity 1s ease-in-out;}
-.slide img{width:100%;height:100%;object-fit:cover;filter:brightness(60%);}
-.active{opacity:1}
-.hero-text{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center;padding:0 10px;}
-.hero-text h2{color:#ffd700;font-size:24px;text-shadow:2px 2px 6px rgba(0,0,0,0.7);}
-section{padding:40px 15px;max-width:1000px;margin:auto;text-align:center;}
-section h2{color:#ffd700;margin-bottom:15px;font-size:22px;}
-.card{background:#2b0000;padding:20px;border-radius:12px;margin-top:15px;text-align:left;box-shadow:0 4px 12px rgba(0,0,0,0.4);}
-.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(100px,1fr));gap:8px;margin-top:15px;}
-.gallery img{width:100%;height:80px;object-fit:cover;border-radius:10px;cursor:pointer;transition:transform .3s;}
-.gallery img:hover{transform:scale(1.05);}
-.map iframe{width:100%;height:220px;border-radius:10px;border:0;}
-.qr img{width:130px;margin-top:10px;border-radius:10px;}
-.popup{display:none;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:#fff;color:#000;padding:20px;border-radius:15px;width:95%;max-width:400px;z-index:2000;box-shadow:0 8px 25px rgba(0,0,0,0.6);}
-.popup h3{text-align:center;margin-bottom:12px;color:#2b0000;font-size:18px;}
-.popup input,.popup select{width:100%;padding:8px;margin:6px 0;border-radius:6px;border:1px solid #ccc;font-size:14px;}
-.popup button{width:100%;padding:10px;margin-top:8px;background:#ffd700;border:none;border-radius:6px;font-weight:bold;cursor:pointer;transition:0.3s;font-size:14px;}
-.popup button:hover{transform:scale(1.03);}
-.close-btn{background:#900;color:#fff;}
-.floating{position:fixed;bottom:15px;right:15px;background:#ffd700;color:#2b0000;padding:12px 18px;border-radius:35px;font-weight:bold;cursor:pointer;box-shadow:0 4px 12px rgba(0,0,0,0.5);transition:0.3s;font-size:14px;}
-.floating:hover{transform:scale(1.05);}
-footer{background:#2b0000;padding:18px;text-align:center;margin-top:30px;font-size:13px;line-height:1.4;position:relative;}
-.lightbox{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.95);justify-content:center;align-items:center;z-index:3000;flex-direction:column;}
-.lightbox img{max-width:90%;max-height:80%;border-radius:10px;transition:0.3s;}
-.lightbox .nav{position:absolute;top:50%;font-size:40px;color:#ffd700;cursor:pointer;padding:12px;user-select:none;}
-.lightbox .prev{left:15px;} .lightbox .next{right:15px;}
-.lightbox .close{position:absolute;top:15px;right:20px;font-size:28px;color:#fff;cursor:pointer;}
-.summary-card{background:#2b0000;padding:12px;border-radius:10px;box-shadow:0 4px 12px rgba(0,0,0,0.4);color:#fff;margin-top:8px;}
-.summary-card h4{color:#ffd700;margin-bottom:8px;text-align:center;font-size:14px;}
-.summary-card p{margin:4px 0;color:#fff;font-size:13px;}
-#totalAmount{color:#ffd700;font-weight:bold;font-size:15px;}
-.bhajan-btn{position:fixed;bottom:15px;left:15px;background:#ffd700;border:none;border-radius:50%;width:50px;height:50px;font-size:24px;cursor:pointer;z-index:1000;}
-@media(max-width:480px){
-header h1{font-size:18px;}
-.hero-text h2{font-size:20px;}
-.popup h3{font-size:16px;}
-.popup input,.popup select,.popup button{font-size:13px;padding:7px;}
-.floating{padding:10px 14px;font-size:13px;}
-section h2{font-size:20px;}
-.gallery img{height:70px;}
-.map iframe{height:180px;}
-}
-
-.lang-en, .lang-ml {
-  transition: opacity 0.3s ease;
-}
-
-/* Hidden state */
-.lang-hide {
-  opacity: 0;
-  pointer-events: none;
-  position: absolute;
-}
-
-/* Visible state */
-.lang-show {
-  opacity: 1;
-  position: relative;
-}
-
-/* FLASH AD ANIMATION */
-#flashAd{
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  background:rgba(0,0,0,0.75);
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  z-index:5000;
-
-  opacity:0;
-  visibility:hidden;
-  transition:opacity 0.5s ease;
-}
-
-#flashAd.show{
-  opacity:1;
-  visibility:visible;
-}
-
-
-#flashAd img{
-  width:90%;
-  max-width:380px;   /* limits size on mobile */
-  height:auto;
-  border-radius:12px;
-  box-shadow:0 0 25px rgba(0,0,0,0.8);
-
-  transform:scale(0.7);
-  transition:transform 0.5s ease;
-}  
-
-#flashAd.show img{
-  transform:scale(1); /* zoom-in effect */
-
-}
-
-#closeFlash{
-  position:absolute;
-  top:20px;
-  right:20px;
-  font-size:26px;
-  color:#fff;
-  cursor:pointer;
-  background:#900;
-  width:40px;
-  height:40px;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  border-radius:50%;
-  z-index:6000; /* IMPORTANT */
-}
-#closeFlash:hover{
-  background:#ff0000;
-  transform:scale(1.1);
-}
-
-@media(max-width:480px){
-  #flashAd img{
-    width:85%;
-    max-width:300px;   /* smaller for phones */
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO & Performance Optimization -->
+  <title>Ayilara Madathil Sree Bhadra Bhagavathi Temple | Kollam Temple | Pooja Booking</title>
+  <meta name="description" content="Ayilara Madathil Sree Bhadra Bhagavathi Temple official website. Book pooja online, donate via UPI, view timings and Notice details.">
+  <meta name="keywords" content="Ayilara Madathil Temple, Bhadra Bhagavathi Temple, Kerala Temple, Pooja Booking, Temple Donation, Ayilara Temple, Kollam Temple">
+  <meta name="author" content="Ayilara Madathil Temple">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#3a0007">
+  
+  <!-- Canonical & Open Graph Metadata -->
+  <link rel="canonical" href="https://www.ayilaramadathiltemple.org">
+  <meta property="og:site_name" content="Ayilara Temple">
+  <meta property="og:url" content="https://www.ayilaramadathiltemple.org">
+  <meta property="og:title" content="Ayilara Madathil Sree Bhadra Bhagavathi Temple">
+  <meta property="og:description" content="Official temple website. Book pooja online and donate via UPI.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://www.ayilaramadathiltemple.org/banner1.jpg">
+  
+  <meta name="twitter:card" content="summary_large_image">
+  
+  <!-- Icons -->
+  <link rel="icon" href="https://www.ayilaramadathiltemple.org/favicon.png" type="image/png">
+  <link rel="shortcut icon" href="https://www.ayilaramadathiltemple.org/favicon.ico">
+  <link rel="apple-touch-icon" href="https://www.ayilaramadathiltemple.org/favicon.png">
+  
+  <!-- Preloads -->
+  <link rel="preload" as="image" href="banner1.jpg">
+  
+  <!-- Security Policy -->
+  <meta http-equiv="Content-Security-Policy" content="
+    default-src 'self';
+    img-src 'self' data: https:;
+    script-src 'self' 'unsafe-inline' https:;
+    style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+    font-src https://fonts.gstatic.com;
+    frame-src https://www.google.com;
+  ">
+  
+  <!-- Structured Schema Data (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HinduTemple",
+    "name": "Ayilara Madathil Sree Bhadra Bhagavathi Temple",
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "India",
+      "addressLocality": "Ayilara",
+      "addressRegion": "Keralam",
+      "postalCode": "691312"
+    },
+    "telephone": "+91 9633559256"
   }
+  </script>
 
-  #closeFlash{
-    width:35px;
-    height:35px;
-    font-size:20px;
-    top:10px;
-    right:10px;
-  }
-}
-/* ===== SPECIAL POOJAS DESIGN ===== */
-#special-poojas{
-  background:linear-gradient(145deg,#2b0000,#1a0000);
-  border-radius:12px;
-  margin-top:20px;
-  padding:20px;
-  box-shadow:0 6px 20px rgba(0,0,0,0.6);
-}
+  <!-- Global Site Tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXX');
+  </script>
 
-#special-poojas h2{
-  text-align:center;
-  margin-bottom:15px;
-}
-
-#special-poojas ol{
-  padding-left:20px;
-}
-
-#special-poojas li{
-  background:#1f0000;
-  margin-bottom:12px;
-  padding:12px;
-  border-radius:10px;
-  border-left:4px solid #ffd700;
-  transition:0.3s;
-}
-
-#special-poojas li:hover{
-  transform:translateX(5px);
-}
-#special-poojas{
-  text-align:left; /* important fix */
-}
-.devotional-text {
-  font-weight: bold;
-  text-align: center;
-  white-space: nowrap;
-  font-size: clamp(12px, 3.5vw, 18px); /* increased size */
-  color: #FFD700;
-}
-@media(max-width:480px){
-  .devotional-text {
-    font-size: 14px;
-  }
-}
-.footer-text {
-  white-space: nowrap;
-  text-align: center;
-  font-size: clamp(10px, 3vw, 16px);
-}
-footer {
-  margin-bottom: 0px;
-}
-body {
-  padding-bottom: 80px;
-}
-@media(max-width:480px){
-  body {
-    padding-bottom: 75px;
-  }
-
-  footer {
-    margin-bottom: 0px;
-    padding: 12px;
-    line-height: 1.3;
-  }
-}
-html, body {
-  overflow-x: hidden;
-}
-input, select, button {
-  font-size: 16px;
-}
-button:active {
-  transform: scale(0.97);
-}
-
-img.lazy {
-  background: #3a0000 url('loader.gif') center center no-repeat;
-}
-
-}
-</style>
-
-<meta name="keywords" content="Ayilara Madathil Temple, Bhadra Bhagavathi Temple, Kerala Temple, Pooja Booking, Temple Donation">
-
-<meta name="author" content="Ayilara Madathil Temple">
-
-<script type="application/ld+json">
-{
-"@context":"https://schema.org",
-"@type":"HinduTemple",
-"name":"Ayilara Madathil Sree Bhadra Bhagavathi Temple",
-"address":{
-"@type":"PostalAddress",
-"addressCountry":"India"
-},
-"telephone":"+91 9633559256"
-}
-</script>
-
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXX"></script>
-<script>
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', 'G-XXXX');
-</script>
-
-
-
+  <!-- External Modern Styles -->
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-<header>
-<h1 id="templeTitle">🛕 Ayilara Madathil Sree Bhadra Bhagavathi Temple<br><span style="font-size:14px;">അയിലറ മഠത്തിൽ ശ്രീ ഭദ്രാ ഭഗവതി ക്ഷേത്രം</span></h1>
-<nav>
-<a href="#about" id="navAbout">About</a>
-<a href="#Notice" id="navSpecialRituals">Notice</a>
-<a href="#gallery" id="navGallery">Gallery</a>
-<a href="#location" id="navLocation">Location</a>
-<a href="#donation" id="navDonate">Donation</a>
-<a class="book-btn" onclick="openBooking()" id="navBook">Pooja Booking</a>
-<a class="lang-btn" onclick="toggleLang()" id="langBtn">മലയാളം</a>
-</nav>
-</header>
-
-<div id="chantText" style="text-align:center;color:#ffd700;font-size:18px;margin:10px 0;opacity:0;">🛕ഓം ശ്രീ ഭദ്ര ഭഗവതി നമ:🛕/🛕 Om Shree Bhadra Bhagavathi Namaha🛕</div>
-
-<!-- Slider -->
-<div class="slider">
-
-<div class="slide active"><img data-src="banner1.jpg" loading="lazy" decoding="async" class="lazy"></div>
-<div class="slide"><img data-src="banner2.jpg" loading="lazy" decoding="async" class="lazy"></div>
-<div class="slide"><img data-src="banner3.jpg" loading="lazy" decoding="async" class="lazy"></div>
-<div class="hero-text"><h2 id="heroTitle">A divine abode of faith and grace, where devotees seek protection, prosperity, and spiritual peace.</h2></div>
-</div>
-
-<!-- About -->
-<section id="about">
-<h2 id="aboutTitle">🛕About the Temple🛕</h2>
-<div class="card"><p id="aboutText">"The ancient and famous temple, named after its five chambers, is a sacred place where the eight-fold blessings of the goddess Ailara are bestowed on the forehead like sandalwood powder, the bestower of blessings on the lips, and the meritorious deity of many thousands, Sri Bhadra Bhagavati, who shines with the virtue of seeing, is equally important, Sri Maha Vishnu, the destroyer of all obstacles, Sri Maha Ganapathi, and other sub-deities shower blessings on the devotees. Annual Notice and poojas bring the community together in devotion, making it a place of faith, peace, and divine grace."
-</p></div>
-</section>
-<!-- Temple Daily Pooja Timings -->
-<section id="timings">
-<h2 id="timingsTitle">🛕Daily Pooja Timings🛕</h2>
-
-<div class="card" id="timingsText">
-
-<p>🕔 <b>5:45 AM</b> – Nada Thurakkal</p>
-<p>🔥 <b>6:15 AM</b> – Ganapathi Homam</p>
-<p>🌼 <b>7:00 AM</b> – Morning Pooja</p>
-<p>🌞 <b>9:30 AM</b> – Ucha Pooja</p>
-<p>🔔 <b>5:00 PM</b> – Temple Reopens</p>
-<p>🪔 <b>6:30 PM</b> – Deeparadhana</p>
-<p>🌙 <b>7:30 PM</b> – Athazha Pooja</p>
-<p>🚪 <b>8:00 PM</b> – Nada Adakkal</p>
-
-</div>
-</section>
-<section id="special-poojas" style="padding:20px; text-align:left;">
-
-<!-- ENGLISH -->
-<div class="lang-en lang-show">
-<h2>🛕 Special Poojas 🛕</h2>
-
-<ol>
-<li><strong>Karyasidhi Ponkaala</strong> – Conducted on Every Tuesday.</li>
-
-<li><strong>Ayilya Pooja</strong> – Every month on the day of Ayilyam.</li>
-<li><strong>Manchirat Nercha</strong> –Every Friday.</li>
-<li><strong>Ramayanaparayanam</strong> –From the first of Karkidakam.</li>
-<li><strong>Mankalathil Pongala</strong> –On the day of Chothi in the month of Meenam.</li>
-<li><strong>Naagarootu</strong> –On the day of Ayilyam in the month of Kanni.</li>
-
-</ol>
-</div>
-
-<!-- MALAYALAM -->
-<div class="lang-ml lang-hide" style="font-family:'Noto Sans Malayalam', sans-serif;">
-<h2>🛕 പ്രത്യേക പൂജകൾ🛕</h2>
-
-<ol>
-<li><strong>കാര്യസിദ്ധി പൊങ്കാല</strong> – എല്ലാ ചൊവ്വാഴ്ചയും. </li>
-<li><strong>ആയില്യ പൂജ</strong> – എല്ലാ മാസവും ആയില്യം നാളിൽ. </li>
-<li><strong>മൺചിരാത് നേർച്ച </strong> – എല്ലാ വെള്ളിയാഴ്ചയും .</li>
-<li><strong>രാമായണപാരായണം </strong> – കർക്കിടകം ഒന്നാം തീയതിമുതൽ .</li>
-<li><strong>മൺകലത്തിൽ പൊങ്കാല  </strong> – മീനമാസത്തിലെ ചോതിനാളിൽ  .</li>
-<li><strong>നാഗരൂട്ട്  </strong> – കന്നിമാസത്തിലെ ആയില്യംനാളിൽ  .</li>
-
-</ol>
-</div>
-
-</section>
-
-<!-- special-rituals -->
-<section id="Notice">
-<h2 id="special-ritualsTitle">🛕 Notice🛕</h2>
-<div class="card" id="special-ritualsText">Devotees are hereby respectfully informed, in the name of the Goddess, that contributions are being invited for the purchase of property for the Ayilara Madathil Sree Bhadra Bhagavathi Temple. All devotees are requested to participate in this sacred endeavor by making generous donations according to their capacity.
-
-The wholehearted support and cooperation of all devotees are earnestly sought for the successful completion of this noble cause.
-
-– Temple Committee </div>
-</section>
-
-<!-- Gallery -->
-<section id="gallery">
-<h2 id="galleryTitle">Gallery</h2>
-<div class="gallery" id="galleryImages">
-<img data-src="gallery1.jpg" loading="lazy" alt="Gallery 1" class="lazy">
-<img data-src="gallery2.jpg" loading="lazy" alt="Gallery 2" class="lazy">
-<img data-src="gallery3.jpg" loading="lazy" alt="Gallery 3" class="lazy">
-<img data-src="gallery4.jpg" loading="lazy" alt="Gallery 4" class="lazy">
-<img data-src="gallery5.jpg" loading="lazy" alt="Gallery 5" class="lazy">
-<img data-src="gallery6.jpg" loading="lazy" alt="Gallery 6" class="lazy">
-<img data-src="gallery7.jpg" loading="lazy" alt="Gallery 7" class="lazy">
-<img data-src="gallery8.jpg" loading="lazy" alt="Gallery 8" class="lazy">
-<img data-src="gallery9.jpg" loading="lazy" alt="Gallery 9" class="lazy">
-<img data-src="gallery10.jpg" loading="lazy" alt="Gallery 10" class="lazy">
-<img data-src="gallery11.jpg" loading="lazy" alt="Gallery 11" class="lazy">
-<img data-src="gallery12.jpg" loading="lazy" alt="Gallery 12" class="lazy">
-</div>
-</section>
-
-<!-- Location -->
-<section id="location">
-<h2 id="locationTitle">Location</h2>
-<div class="map">
-<iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-src="https://www.google.com/maps?q=8.946059337154056,76.96567389643423&z=17&output=embed"></iframe>
-</div>
-<br>
-<a href="https://www.google.com/maps/dir/?api=1&destination=8.946059337154056,76.96567389643423" target="_blank" style="background:#ffd700;color:#1a0000;padding:10px 20px;border-radius:30px;text-decoration:none;font-weight:bold;">📍 Get Directions</a>
-</section>
-
-<!-- Donation -->
-<section id="donation">
-<h2 id="donationTitle">Bank & UPI Donation</h2>
-
-<div class="card">
-
-<p><b>Bank:</b> CANARA BANK</p>
-<p><b>Branch:</b> Anchal</p>
-<p><b>Account Name:</b> Madathil Sree Bhadra Bhagavathi Temple</p>
-<p><b>Account No:</b> 118924144014105</p>
-<p><b>IFSC:</b> CNRB0002856</p>
-
-<br>
-
-<h3>📱 Donate via UPI</h3>
-
-<a href="upi://pay?pa=118924144014105@cnrb&pn=Ayilara%20Madathil%20Temple&cu=INR&tn=Temple%20Donation"
-style="display:inline-block;padding:10px 20px;background:#ffd700;color:#1a0000;border-radius:25px;text-decoration:none;font-weight:bold;margin-top:10px;">
-💳 Pay with UPI App
-</a>
-
-<br><br>
-
-<a href="upi://pay?pa=118924144014105@cnrb&pn=Ayilara%20Madathil%20Temple&cu=INR"
-style="display:inline-block;padding:10px 20px;background:#25D366;color:#fff;border-radius:25px;text-decoration:none;font-weight:bold;">
-📱 Open UPI App (If above fails)
-</a>
-
-
-<h3>📷 Scan QR Code</h3>
-
-<div class="qr">
-<a id="qrPayLink">
-  <img data-src="upi-qr.png" loading="lazy" alt="UPI QR" class="lazy" style="cursor:pointer;">
-</a>
-<p style="font-size:13px;margin-top:5px;">Tap QR to Pay</p>
-</div>
-
-<p style="margin-top:10px;"><b>UPI ID:</b> 118924144014105@cnrb</p>
-
-<br>
-
-<h3>📲 Send Payment Confirmation</h3>
-
-<a href="https://wa.me/919633559256?text=Namaskaram%20🙏%20I%20have%20made%20a%20donation%20to%20Ayilara%20Madathil%20Temple"
-target="_blank"
-style="display:inline-block;padding:10px 20px;background:#25D366;color:#fff;border-radius:25px;text-decoration:none;font-weight:bold;">
-Send Screenshot on WhatsApp
-</a>
-
-<br><br>
-
-<p>📞 +91 9633559256</p>
-<p>✉ ayilaramadathiltemple@gmail.com</p>
-<p>Ayilara P.O, Ayilara, Anchal, Kollam- 691312</p>
-
-</div>
-</section>
-<footer>
-<p class="devotional-text">🙏 “A devotional creation by Shaji R Palazhi.” 🙏</p>
-<p class="footer-text">© 2026 Ayilara Madathil Sree Bhadra Bhagavathi Temple</p>
-<p>Ayilara P.O, Ayilara, Anchal,Kollam - 691312, Keralam, India</p>
-
-</footer>
-
-<!-- Speaker / Bhajan Button -->
-<button class="bhajan-btn" id="bhajanBtn">🔊</button>
-<audio id="bhajanAudio" loop>
-  <source src="bhajan.mp3" type="audio/mpeg">
-</audio>
-
-<script>
-
-document.addEventListener("DOMContentLoaded", () => {
-  const flash = document.getElementById("flashAd");
-  const closeBtn = document.getElementById("closeFlash");
-
-  if (!flash) return;
-
-  // Show after 2 sec
-  setTimeout(() => {
-    flash.classList.add("show");
-  }, 2000);
-
-  // ✅ IMAGE click → open booking ONLY
-  const flashImg = flash.querySelector("img");
-
-  if (flashImg) {
-    flashImg.addEventListener("click", (e) => {
-  e.stopPropagation();
-
-  // 🔥 CLOSE flash FIRST
-  flash.classList.remove("show");
-
-  openBooking();
-
-  setTimeout(() => {
-    let donateBox = document.getElementById("donateOnly");
-    if (donateBox) {
-      donateBox.checked = true;
-      togglePooja();
-    }
-  }, 200);
-});
-
-  }
-
-  // ✅ CLOSE button ONLY
-  if (closeBtn) {
-    closeBtn.addEventListener("click", (e) => {
-      e.stopPropagation(); // IMPORTANT
-      flash.classList.remove("show");
-    });
-  }
-
-  // 🚫 BLOCK background click (do nothing)
-  flash.addEventListener("click", (e) => {
-  if(e.target === flash){
-    e.stopPropagation();
-  }
-});
-});
-
-// ===== Lazy Load =====
-document.addEventListener("DOMContentLoaded", function(){
-
-let lazyImages=[...document.querySelectorAll("img.lazy")];
-
-if("IntersectionObserver" in window){
-let observer=new IntersectionObserver(function(entries,obs){
-entries.forEach(entry=>{
-if(entry.isIntersecting){
-entry.target.src = entry.target.dataset.src;
-entry.target.onload = () => entry.target.style.background = "none"; // ✅ ADD THIS
-entry.target.classList.remove("lazy");
-obs.unobserve(entry.target);
-}
-});
-});
-
-lazyImages.forEach(img=>observer.observe(img));
-
-}else{
-lazyImages.forEach(img=>{
-  img.src = img.dataset.src;
-  img.onload = ()=> img.style.background = "none";
-});
-}
-
-let chant=document.getElementById("chantText");
-setTimeout(()=>{
-chant.style.transition="opacity 2s";
-chant.style.opacity=1;
-},800);
-
-});
-
-// Set minimum booking date
-setTimeout(()=>{
-let today=new Date().toISOString().split("T")[0];
-let dateField=document.getElementById("date");
-if(dateField) dateField.setAttribute("min",today);
-},500);
-
-
-// ===== Slider =====
-let slides=document.querySelectorAll('.slide'), index=0;
-function nextSlide(){slides[index].classList.remove('active'); index=(index+1)%slides.length; slides[index].classList.add('active');}
-let slider=document.querySelector('.slider');
-
-if(slider){
-let sliderInterval=setInterval(nextSlide,3500);
-
-slider.addEventListener('mouseenter',()=>clearInterval(sliderInterval));
-
-slider.addEventListener('mouseleave',()=>{
-sliderInterval=setInterval(nextSlide,3500);
-});
-}
-// ===== Lightbox =====
-let galleryImgs=document.querySelectorAll('.gallery img');
-let lightbox=document.createElement('div'); lightbox.className='lightbox';
-lightbox.innerHTML='<span class="nav prev">&#10094;</span><img><span class="nav next">&#10095;</span><span class="close">&#10006;</span>'; document.body.appendChild(lightbox);
-let lightboxImg=lightbox.querySelector('img'), currentIndex=0;
-galleryImgs.forEach((img,i)=>img.addEventListener('click',()=>{
-    currentIndex=i;
-    lightboxImg.src = img.src ? img.src : img.dataset.src;
-    lightbox.style.display='flex';
-}));
-lightbox.querySelector('.close').onclick=()=>lightbox.style.display='none';
-lightbox.querySelector('.next').onclick=()=>{
-currentIndex=(currentIndex+1)%galleryImgs.length;
-lightboxImg.src = galleryImgs[currentIndex].src 
-  ? galleryImgs[currentIndex].src 
-  : galleryImgs[currentIndex].dataset.src;};
-
-lightbox.querySelector('.prev').onclick=()=>{
-currentIndex=(currentIndex+galleryImgs.length-1)%galleryImgs.length;
-lightboxImg.src = galleryImgs[currentIndex].src 
-  ? galleryImgs[currentIndex].src 
-  : galleryImgs[currentIndex].dataset.src;};
-// ===== Bhajan =====
-let bhajanAudio = document.getElementById('bhajanAudio');
-let bhajanBtn = document.getElementById('bhajanBtn');
-document.body.addEventListener("click",()=>{
-if(bhajanAudio.paused){
-bhajanAudio.play().catch(()=>{});
-bhajanBtn.innerText="⏸";
-}
-},{once:true});
-
-bhajanBtn.addEventListener('click', () => {
-  if (bhajanAudio.paused) {
-    bhajanAudio.play();
-    bhajanBtn.innerText = "⏸";
-  } else {
-    bhajanAudio.pause();
-    bhajanBtn.innerText = "🔊";
-  }
-});
-// ===== Booking Popup =====
-let popup=document.createElement('div'); popup.className='popup';
-popup.innerHTML=`<h3 id="popupTitle">Donation / Pooja Booking </h3>
-<form id="bookingForm">
-<input type="text" id="name" placeholder="Name/പേര്" required>
-<input type="text" id="address" placeholder="Address/വിലാസം (optional)">
-<label style="font-size:13px;color:#555;">Select Date/തീയതി</label>
-<input type="date" id="date" required>
-
-
-<label style="display:flex; align-items:center; gap:8px; font-weight:bold; font-size:15px;">
-  <input type="checkbox" id="donateOnly" onchange="togglePooja()" style="width:18px; height:18px;">
-  Donation/സംഭാവന
-</label>
-
-<div id="poojaSection">
-<select id="pooja">
-<option value="Ganapathihomam"data-amount="350"> Ganapathihomam  / ഗണപതിഹോമം - ₹350</option>
-<option value="Archana"data-amount="10"> Archana  / അർച്ചന - ₹10</option>
-<option value="Chattivilakku"data-amount="5"> Chatti vilakku/ചട്ടി വിളക്ക്- ₹5</option>
-<option value="Pinvilakku"data-amount="10"> Pinvilakku / പിൻ വിളക്ക് - ₹10</option>
-<option value="NarangaVilakku"data-amount="10"> Naranga Vilakku /നാരങ്ങ വിളക്ക്- ₹10</option>
-<option value="CharaduPooja"data-amount="20"> Charadu Pooja/ചരടു പൂജ- ₹20</option>
-<option value="Ponkala"data-amount="25"> Ponkala/പൊങ്കാല- ₹25</option>
-<option value="ChaviPooja"data-amount="20"> Chavi Pooja/ചാവി പൂജ- ₹20</option>
-<option value="Pushpanjali"data-amount="25"> Pushpanjali/പുഷ്പാഞ്ജലി- ₹25</option>
-<option value="Bhagyasuktharchana"data-amount="25"> Bhagyasuktharchana/ഭാഗ്യസൂക്താർച്ചന- ₹25</option>
-<option value="Sreesookatarchana"data-amount="25"> Sreesookatarchana/ശ്രീസൂകതാർച്ചന- ₹25</option>
-<option value="Dhanwantharymantrarchana"data-amount="25"> Dhanwantharymantrarchana/ധന്വന്തരിമന്ത്രാർച്ചന- ₹25</option>
-<option value="Swayamvararchan"data-amount="25"> Swayamvararchan/സ്വയംവരാർച്ചന- ₹25</option>
-<option value="Sathrusamharachan"data-amount="25"> Sathrusamharachan/ശത്രുസംഹാരച്ചൻ- ₹25</option>
-<option value="AikyamathyaSooktharchana"data-amount="25"> Aikyamathya Sooktharchana/ഐക്യമത്യ സൂക്താർച്ചന- ₹25</option>
-<option value="Lalithasahasranamarchana"data-amount="25"> Lalitha sahasranamarchana/ലളിത സഹസ്രനാമാർച്ചന- ₹25</option>
-<option value="Purushsooktharchana"data-amount="25"> Purushsooktharchana/പുരുഷസൂക്താർച്ചന- ₹25</option>
-<option value="Rakthapushpanjali"data-amount="50"> Rakthapushpanjali/രക്തപുഷ്പാഞ്ജലി- ₹50</option>
-<option value="Rakthapushparchana"data-amount="25"> Rakthapushparchana/രക്തപുഷ്പാർച്ചന- ₹25</option>
-<option value="Karikabhishekam"data-amount="25"> Karikabhishekam/കരിക്കഭിഷേകം- ₹25</option>
-<option value="Kumkumaarchana"data-amount="25"> Kumkumaarchana/കുങ്കുമാർച്ചന- ₹25</option>
-<option value="VellaNivedyam"data-amount="40"> Vella Nivedyam/വെള്ള നിവേദ്യം- ₹40</option>
-<option value="KettuNira"data-amount="51"> Kettu Nira/കെട്ടു നിറ- ₹51</option>
-<option value="Pattusamarpanam"data-amount="50"> Pattusamarpanam/പട്ടുസമർപ്പണം- ₹50</option>
-<option value="Sharkarapayasam"data-amount="50"> Sharkarapayasam/ശർക്കരപായസം- ₹50</option>
-<option value="Kudumbarchana"data-amount="50"> Kudumbarchana/കുടുംബാർച്ചന- ₹50</option>
-<option value="Kadumpayasam"data-amount="50"> Kadumpayasam/കടുംപായസം- ₹50</option>
-<option value="Trimaduram"data-amount="50"> Trimaduram/ത്രിമധുരം- ₹50</option>
-<option value="Avalnivedyam"data-amount="50"> Aval nivedyam/അവൽ നിവേദ്യം- ₹50</option>
-<option value="Malarnivedyam"data-amount="50">Malar nivedyam/മലർ നിവേദ്യം- ₹50</option>
-<option value="Vahanapooja"data-amount="101">Vahanapooja/വാഹനപൂജ- ₹101</option>
-<option value="Tulabharam"data-amount="101">Tulabharam/തുലാഭാരം- ₹101</option>
-<option value="Chorunu"data-amount="101">Chorunu/ചോറുണു- ₹101</option>
-<option value="Bhagavathiseva"data-amount="250">Bhagavathiseva/ഭഗവതിസേവ- ₹250</option>
-<option value="Mukhacharthu(1)"data-amount="350">Mukhacharthu(1)/മുഖച്ചാർത്തു(1)- ₹350</option>
-<option value="Muzhukkappu(1)"data-amount="700">Muzhukkappu(1)/മുഴുക്കാപ്പ്(1)- ₹700</option>
-<option value="Kumkumabhishekam"data-amount="1001">Kumkumabhishekam/കുങ്കുമാഭിഷേകം- ₹1001</option>
-<option value="Vivaham"data-amount="2500">Vivaham/വിവാഹം- ₹2500</option>
-<option value="Nityapooja"data-amount="2500">Nitya Pooja/നിത്യപൂജ- ₹2500</option>
-<option value="VishnuSahasranamarchana"data-amount="25">Vishnu Sahasranamarchana/വിഷ്ണു സഹസ്രനാമാർച്ചന- ₹25</option>
-<option value="AshwarudaManthrarchana"data-amount="25">Ashwaruda Manthrarchana/അശ്വരുഡ മന്ത്രാർച്ചന- ₹25</option>
-<option value="ShankaranarayanaManthrarchana"data-amount="25">Shankaranarayana Manthrarchana/ശങ്കരനാരായണമന്ത്രാർച്ചന- ₹25</option>
-<option value="NeyVilaku"data-amount="25">Ney Vilaku/നെയ് വിളക്ക്- ₹25</option>
-<option value="Pithrupooja"data-amount="25">Pithru Pooja/പിതൃ പൂജ- ₹25</option>
-<option value="Vidyagopalamantrarchana"data-amount="25">Vidyagopalamantrarchana/വിദ്യാഗോപാലമന്ത്രാർച്ചന- ₹25</option>
-<option value="MukkutiPushpanjali"data-amount="25">Mukkuti Pushpanjali/മുക്കുറ്റി പുഷ്പാഞ്ജലി- ₹25</option>
-<option value="Karukahomam"data-amount="350">Karuka Homam/കറുക ഹോമം- ₹350</option>
-<option value="Unniappam Moodal"data-amount="8500">Unniappam Moodal/ഉണ്ണിയപ്പം മൂടൽ- ₹8500</option>
-
-	
-</select>
-<select id="nakshatra">
-<option value="Ashwati">അശ്വതി / Ashwati</option>
-<option value="Bharani">ഭരണി / Bharani</option>
-<option value="Karthika">കാർത്തിക / Karthika</option>
-<option value="Rohini">രോഹിണി / Rohini</option>
-<option value="Makayiram">മകയിരം / Makayiram</option>
-<option value="Thiruvathira">തിരുവാതിര / Thiruvathira</option>
-<option value="Punartham">പുണർതം / Punartham</option>
-<option value="Pooyam">പൂയം / Pooyam</option>
-<option value="Ayilyam">ആയില്യം / Ayilyam</option>
-<option value="Makam">മകം / Makam</option>
-<option value="Pooram">പൂരം / Pooram</option>
-<option value="Uthram">ഉത്രം / Uthram</option>
-<option value="Atham">അത്തം / Atham</option>
-<option value="Chithira">ചിത്തിര / Chithira</option>
-<option value="Chothi">ചോതി / Chothi</option>
-<option value="Vishakham">വിശാഖം / Vishakham</option>
-<option value="Anizham">അനിഴം / Anizham</option>
-<option value="Thrikketta">തൃക്കേട്ട / Thrikketta</option>
-<option value="Moolam">മൂലം / Moolam</option>
-<option value="Pooradam">പൂരാടം / Pooradam</option>
-<option value="Uthradam">ഉത്രാടം / Uthradam</option>
-<option value="Thiruvonam">തിരുവോണം / Thiruvonam</option>
-<option value="Avittam">അവിട്ടം / Avittam</option>
-<option value="Chathayam">ചതയം / Chathayam</option>
-<option value="Pooruruttathi">പൂരുരുട്ടാതി / Pooruruttathi</option>
-<option value="Uthrutathi">ഉത്രട്ടാതി / Uthrutathi</option>
-<option value="Revati">രേവതി / Revati</option>
-</select>
-</div>
-<input type="number" id="donationAmount" min="1" placeholder="Enter amount to donate">
-<div class="summary-card">
-<h4>Booking Summary</h4>
-<p id="summaryText">Please fill the form to see booking details</p>
-<p>Total Amount: ₹<span id="totalAmount">0</span></p>
-</div>
-<button type="submit" id="payBtn">Pay & Confirm</button>
-<button type="button" onclick="closeBooking()" class="close-btn">Close</button>
-</form>`;
-document.body.appendChild(popup);
-
-let floatBtn=document.createElement('div'); floatBtn.className='floating'; floatBtn.innerText='🛕 Book Pooja'; floatBtn.onclick=openBooking; document.body.appendChild(floatBtn);
-
-function openBooking(){popup.style.display='block'; togglePooja(); updateSummary();}
-function closeBooking(){popup.style.display='none';}
-
-function togglePooja(){
-  let donate=document.getElementById("donateOnly").checked;
-  document.getElementById("poojaSection").style.display=donate?"none":"block";
-document.getElementById("donationAmount").value = "";
-  document.getElementById("donationAmount").style.display=donate?"block":"none";
-  updateSummary();
-}
-
-// ===== Summary Update =====
-function updateSummary(){
-  let donateOnly=document.getElementById("donateOnly").checked;
-let nakshatraText = document.getElementById("nakshatra")?.selectedOptions[0]?.text || "Not Selected";
-
-  let pooja=document.getElementById("pooja");
-  let poojaAmt=parseInt(pooja?.selectedOptions[0]?.dataset.amount || 0);
-
-  let donation=parseInt(document.getElementById("donationAmount")?.value || 0);
-  if(isNaN(donation)) donation=0;
-
-  let name=document.getElementById("name").value || "Not Provided";
-  let date=document.getElementById("date").value || "Not Selected";
-
-  let total = donateOnly ? donation : (poojaAmt + donation);
-
-  document.getElementById("totalAmount").innerText = total;
-
-  let poojaText = pooja?.selectedOptions[0]?.text.split('-')[0];
-
-
-document.getElementById("summaryText").innerHTML =
-donateOnly
-? `Name: ${name}<br>
-   Address: ${document.getElementById("address").value || "Not Provided"}<br>
-   Donation: ₹${donation}`
-
-: `Name: ${name}<br>
-   Address: ${document.getElementById("address").value || "Not Provided"}<br>
-   Date: ${date}<br>
-   Nakshatra: 🌟 ${nakshatraText}<br>
-   Pooja: ${poojaText}<br>
-   Amount: ₹${total}`;
-}
-setTimeout(()=>{
-document.getElementById("pooja")?.addEventListener('change',updateSummary);
-document.getElementById("donationAmount")?.addEventListener('input',updateSummary);
-document.getElementById("name")?.addEventListener('input',updateSummary);
-document.getElementById("date")?.addEventListener('input',updateSummary);
-document.getElementById("nakshatra")?.addEventListener('change', updateSummary);
-},200);
- 
-
- // ===== Success Popup =====
-let successPopup = document.createElement('div');
-successPopup.className = 'popup';
-successPopup.style.display = 'none';
-
-successPopup.innerHTML = `
-<h3>Complete Your Payment 🙏</h3>
-
-<div id="successMsg" style="text-align:center;margin-bottom:15px;"></div>
-
-<p style="color:red;font-size:13px;text-align:center;">
-⚠️ Use mobile phone for UPI payment. Desktop may not work.
-</p>
-
-<button id="payNowBtn"
-style="display:block;width:100%;background:#ffd700;color:#000;padding:10px;border-radius:8px;margin-bottom:10px;font-weight:bold;border:none;">
-💳 Pay Now
-</button>
-
-<a id="upiFallback"
-style="display:block;text-align:center;margin-bottom:10px;color:#25D366;font-weight:bold;">
-📱 Open UPI App (Backup)
-</a>
-
-<button id="whatsappBtn">Send WhatsApp Confirmation</button>
-
-<button type="button" onclick="successPopup.style.display='none'" class="close-btn">Close</button>
-`;
-
-document.body.appendChild(successPopup);
-// ===== Process Booking =====
-document.addEventListener("submit", function(e){
-  if(e.target && e.target.id === "bookingForm"){
-
-    e.preventDefault();
-
-    // ===== GET VALUES =====
-    let name = document.getElementById("name").value.trim();
-    let address = document.getElementById("address").value.trim();
-    let date = document.getElementById("date").value;
-    let total = Number(document.getElementById("totalAmount").innerText) || 0;
-
-    let donateOnly = document.getElementById("donateOnly").checked;
-    let poojaText = document.getElementById("pooja")?.selectedOptions[0]?.text.split('-')[0] || "";
-    let nakshatraText = document.getElementById("nakshatra")?.selectedOptions[0]?.text || "";
-
-    let upiID = "118924144014105@cnrb";
-    let templePhone = "919633559256";
-
-    // ===== VALIDATION =====
-    if (!name) {
-      alert("Please enter your name");
-      return;
-    }
-
-    if (!date) {
-      alert("Please select a date");
-      return;
-    }
-
-    if (!total || total <= 0 || isNaN(total)) {
-      alert("Invalid amount");
-      return;
-    }
-
-    // ===== NOTE =====
-    let note = donateOnly
-      ? `Donation by ${name}`
-      : `Pooja: ${poojaText} | Nakshatra: ${nakshatraText} | Name: ${name} | Date: ${date}`;
-
-    let upiURL = `upi://pay?pa=${upiID}&pn=Ayilara%20Madathil%20Temple&am=${total}&cu=INR&tn=${encodeURIComponent(note)}`;
-
-    // ===== SHOW POPUP =====
-    successPopup.style.display = "block";
-
-
-
-    // ===== PAY BUTTON =====
-    document.getElementById("payNowBtn").onclick = function () {
-
-  let link = document.createElement("a");
-  link.href = upiURL;
-  link.click();
-
-};
-
-    // ===== FALLBACK =====
-    document.getElementById("upiFallback").href = upiURL;
-
-    // ===== WHATSAPP =====
-    let whatsappMessage =
-`🛕 Ayilara Temple Booking
-
-Name: ${name}
-Address: ${address}
-Amount: ₹${total}
-
-${donateOnly
-? "Type: Donation"
-: `Pooja: ${poojaText}
-Nakshatra: ${nakshatraText}
-Date: ${date}`}
-
-🙏 Payment done. Please confirm.`;
-
-    document.getElementById("whatsappBtn").onclick = function(){
-      window.open(`https://wa.me/${templePhone}?text=${encodeURIComponent(whatsappMessage)}`, '_blank');
-    };
-
-    // RESET
-    document.getElementById("bookingForm").reset();
-    updateSummary();
-    closeBooking();
-  }
-});
-
-document.addEventListener("DOMContentLoaded", function(){
-
-  const qrLink = document.getElementById("qrPayLink");
-
-  if(qrLink){
-    const upiID = "118924144014105@cnrb";
-
-    const upiURL = `upi://pay?pa=${upiID}&pn=Ayilara%20Madathil%20Temple&cu=INR`;
-
-    qrLink.onclick = function(){
-      window.location.href = upiURL;
-    };
-  }
-
-});
-
-
-// ===== Language Toggle =====
-let englishLang=true;
-function toggleLang(){
-  englishLang = !englishLang;
-
-document.querySelectorAll('.lang-en').forEach(el => {
-  el.classList.remove('lang-show','lang-hide');
-  el.classList.add(englishLang ? 'lang-show' : 'lang-hide');
-});
-
-document.querySelectorAll('.lang-ml').forEach(el => {
-  el.classList.remove('lang-show','lang-hide');
-  el.classList.add(englishLang ? 'lang-hide' : 'lang-show');
-});
-
-  document.getElementById("templeTitle").innerHTML = englishLang
-    ? '🛕 Ayilara Madathil Sree Bhadra Bhagavathi Temple<br><span style="font-size:14px;">അയിലറ മഠത്തിൽ ശ്രീ ഭദ്രാ ഭഗവതി ക്ഷേത്രം</span>'
-    : '🛕 അയിലറ മഠത്തിൽ ശ്രീ ഭദ്രാ ഭഗവതി ക്ഷേത്രം<br><span style="font-size:14px;">Ayilara Madathil Sree Bhadra Bhagavathi Temple</span>';
-  document.getElementById("navAbout").innerText = englishLang?"About":"ക്ഷേത്രത്തെക്കുറിച്ച്";
-  document.getElementById("navSpecialRituals").innerText = englishLang?"Notice":" അറിയിപ്പ്";
-  document.getElementById("navGallery").innerText = englishLang?"Gallery":"ഗാലറി";
-  document.getElementById("navLocation").innerText = englishLang?"Location":"സ്ഥലം";
-  document.getElementById("navDonate").innerText = englishLang?"Donation":"സംഭാവന";
-  document.getElementById("navBook").innerText = englishLang?"Pooja Booking":"പൂജ ബുക്കിംഗ്";
-  document.getElementById("langBtn").innerText = englishLang?"മലയാളം":"English";
-  document.getElementById("heroTitle").innerText = englishLang
-    ?"A divine abode of faith and grace, where devotees seek protection, prosperity, and spiritual peace."
-    :"വിശ്വാസത്തിന്റെയും ദൈവികമായ കൃപയുടെയും അഭയസ്ഥാനം, ഭക്തർ സുരക്ഷ, സമൃദ്ധി, ആത്മീയം പ്രാപിക്കുന്നു.";
-  document.getElementById("aboutTitle").innerText = englishLang?"🛕About the Temple🛕":"🛕ക്ഷേത്രത്തെക്കുറിച്ച്🛕";
-  document.getElementById("aboutText").innerText = englishLang
-    ?"The ancient and famous temple, named after its five chambers, is a sacred place where the eight-fold blessings of the goddess Ailara are bestowed on the forehead like sandalwood powder, the bestower of blessings on the lips, and the meritorious deity of many thousands, Sri Bhadra Bhagavati, who shines with the virtue of seeing, is equally important, Sri Maha Vishnu, the destroyer of all obstacles, Sri Maha Ganapathi, and other sub-deities shower blessings on the devotees. Annual Notice and poojas bring the community together in devotion, making it a place of faith, peace, and divine grace."
-    :"അതിപുരാതനവും ക്ഷേത്രപ്രസിദ്ധവും അഞ്ച് അറകളാൽ നാമകരണം ചെയ്തിട്ടുള്ള അയിലറയുടെ തിരുനെറ്റിയിൽ ചന്ദനപൊട്ടുപോലെ അഷ്ട ഐശ്വര്യ പ്രദായിനിയും വിളിപ്പുറത്തു അനുഗ്രഹദായികയും അനേകായിരങ്ങൾക്ക് ദർശന പുണ്യവുമായി പ്രശോഭിക്കുന്ന ശ്രീ ഭദ്രാ ഭഗവതിയും തുല്യ പ്രാധാന്യത്തിൽ വാണരുളുന്ന ശ്രീ മഹാവിഷ്ണുവും സർവ്വവിഘ്ന വിനാശകനായ ശ്രീ മഹാ ഗണപതിയും മറ്റു ഉപദേവി ദേവന്മാരും സജ്ജനങ്ങൾക്ക് അനുഗ്രഹ ആശിസുകൾ ചൊരിയുന്ന  ഒരു പുണ്യകേന്ദ്രമാണ്. വർഷാന്ത്യ ഉത്സവങ്ങളും പൂജകളും സമൂഹത്തെ ഭക്തിയിൽ ഒന്നിപ്പിക്കുന്നു.";
-  document.getElementById("special-ritualsTitle").innerText = englishLang?"🛕 Notice🛕":"🛕അറിയിപ്പ്🛕";
-  document.getElementById("special-ritualsText").innerText = englishLang?
-
- "Devotees are hereby respectfully informed, in the name of the Goddess, that contributions are being invited for the purchase of property for the Ayilara Madathil Sree Bhadra Bhagavathi Temple. All devotees are requested to participate in this sacred endeavor by making generous donations according to their capacity.The wholehearted support and cooperation of all devotees are earnestly sought for the successful completion of this noble cause.– Temple Committee."
-
-:
-
- "അയിലറ മഠത്തിൽ ശ്രീ ഭദ്ര ഭഗവതി ക്ഷേത്രത്തിലേക്ക് വാസ്തു വാങ്ങുന്നതിനായുള്ള പുണ്യകർമത്തിൽ, ഭക്തജനങ്ങൾ തങ്ങളുടെ ശേഷിയനുസരിച്ച് ഉദാരമായ സംഭാവനകൾ നൽകി പങ്കാളികളാകണമെന്നു ദേവി നാമത്തിൽ ഭക്ത്യാദരപൂർവ്വം അഭ്യർത്ഥിക്കുന്നു.ഈ ധർമ്മ പ്രവർത്തനത്തിൽ എല്ലാ ഭക്തജനങ്ങളുടെയും സഹകരണവും സാന്നിധ്യവും അഭിലഷിക്കുന്നു. – ക്ഷേത്ര കമ്മിറ്റി.";
-
-  document.getElementById("galleryTitle").innerText = englishLang?"Gallery":"ഗാലറി";
-  document.getElementById("locationTitle").innerText = englishLang?"Location":"സ്ഥലം";
-  document.getElementById("donationTitle").innerText = englishLang?"Bank & UPI Donation":"ബാങ്ക് & UPI സംഭാവന";
-document.getElementById("timingsTitle").innerText =
-englishLang ? "🛕 Daily Pooja Timings 🛕" : "🛕ദൈനംദിന പൂജ സമയങ്ങൾ🛕";
-
-document.getElementById("timingsText").innerHTML =
-englishLang
-? `
-<p>🕔 <b>5:45 AM</b> – Nada Thurakkal </p>
-<p>🔥 <b>6:15 AM</b> – Ganapathi Homam</p>
-<p>🌼 <b>7:00 AM</b> – Morning Pooja</p>
-<p>🌞 <b>9:30 AM</b> – Ucha Pooja</p>
-<p>🔔 <b>5:00 PM</b> – Temple Reopens</p>
-<p>🪔 <b>6:30 PM</b> – Deeparadhana</p>
-<p>🌙 <b>7:30 PM</b> – Athazha Pooja</p>
-<p>🚪 <b>8:00 PM</b> – Nada Adakkal</p>
-`
-:
-`
-<p>🕔 <b>5:45 AM</b> – നട തുറക്കൽ</p>
-<p>🔥 <b>6:15 AM</b> – ഗണപതി ഹോമം</p>
-<p>🌼 <b>7:00 AM</b> – പ്രഭാത പൂജ</p>
-<p>🌞 <b>9:30 AM</b> – ഉച്ച പൂജ</p>
-<p>🔔 <b>5:00 PM</b> – ക്ഷേത്രം തുറക്കും</p>
-<p>🪔 <b>6:30 PM</b> – ദീപാരാധന</p>
-<p>🌙 <b>7:30 PM</b> – അത്താഴ പൂജ</p>
-<p>🚪 <b>8:00 PM</b> – നട അടയ്ക്കൽ</p>
-`;
-}
-
-// Initialize
-updateSummary();
-</script>
-
-<button id="topBtn" style="position:fixed;bottom:80px;right:15px;padding:10px;border-radius:50%;background:#ffd700;border:none;display:none;">⬆</button>
-
-<div id="flashAd">
-  <span id="closeFlash">✖</span>
-  <img src="flash-page.jpeg" alt="Temple Ad">
-</div>
-
-
-
+  <!-- Header -->
+  <header>
+    <h1 id="templeTitle">🛕 Ayilara Madathil Sree Bhadra Bhagavathi Temple<br><span>അയിലറ മഠത്തിൽ ശ്രീ ഭദ്രാ ഭഗവതി ക്ഷേത്രം</span></h1>
+    <nav>
+      <a href="#about" id="navAbout">About</a>
+      <a href="#Notice" id="navSpecialRituals">Notice</a>
+      <a href="#gallery" id="navGallery">Gallery</a>
+      <a href="#location" id="navLocation">Location</a>
+      <a href="#donation" id="navDonate">Donation</a>
+      <a class="book-btn" onclick="openBooking()" id="navBook">Pooja Booking</a>
+      <a class="lang-btn" onclick="toggleLang()" id="langBtn">മലയാളം</a>
+    </nav>
+  </header>
+
+  <!-- Devotional Chant -->
+  <div id="chantText">🛕ഓം ശ്രീ ഭദ്ര ഭഗവതി നമ:🛕/🛕 Om Shree Bhadra Bhagavathi Namaha🛕</div>
+
+  <!-- Hero Slider -->
+  <div class="slider">
+    <div class="slide active"><img data-src="banner1.jpg" alt="Temple Banner 1" loading="lazy" decoding="async" class="lazy"></div>
+    <div class="slide"><img data-src="banner2.jpg" alt="Temple Banner 2" loading="lazy" decoding="async" class="lazy"></div>
+    <div class="slide"><img data-src="banner3.jpg" alt="Temple Banner 3" loading="lazy" decoding="async" class="lazy"></div>
+    <div class="hero-text">
+      <h2 id="heroTitle">A divine abode of faith and grace, where devotees seek protection, prosperity, and spiritual peace.</h2>
+    </div>
+  </div>
+
+  <!-- About -->
+  <section id="about">
+    <h2 id="aboutTitle">🛕About the Temple🛕</h2>
+    <div class="card">
+      <p id="aboutText">"The ancient and famous temple, named after its five chambers, is a sacred place where the eight-fold blessings of the goddess Ailara are bestowed on the forehead like sandalwood powder, the bestower of blessings on the lips, and the meritorious deity of many thousands, Sri Bhadra Bhagavati, who shines with the virtue of seeing, is equally important, Sri Maha Vishnu, the destroyer of all obstacles, Sri Maha Ganapathi, and other sub-deities shower blessings on the devotees. Annual Notice and poojas bring the community together in devotion, making it a place of faith, peace, and divine grace."</p>
+    </div>
+  </section>
+
+  <!-- Daily Pooja Timings -->
+  <section id="timings">
+    <h2 id="timingsTitle">🛕Daily Pooja Timings🛕</h2>
+    <div class="card" id="timingsText">
+      <p>🕔 <b>5:45 AM</b> <span>Nada Thurakkal</span></p>
+      <p>🔥 <b>6:15 AM</b> <span>Ganapathi Homam</span></p>
+      <p>🌼 <b>7:00 AM</b> <span>Morning Pooja</span></p>
+      <p>🌞 <b>9:30 AM</b> <span>Ucha Pooja</span></p>
+      <p>🔔 <b>5:00 PM</b> <span>Temple Reopens</span></p>
+      <p>🪔 <b>6:30 PM</b> <span>Deeparadhana</span></p>
+      <p>🌙 <b>7:30 PM</b> <span>Athazha Pooja</span></p>
+      <p>🚪 <b>8:00 PM</b> <span>Nada Adakkal</span></p>
+    </div>
+  </section>
+
+  <!-- Special Poojas -->
+  <section id="special-poojas">
+    <!-- ENGLISH -->
+    <div class="lang-en lang-show">
+      <h2>🛕 Special Poojas 🛕</h2>
+      <ol>
+        <li><strong>Karyasidhi Ponkaala</strong> – Conducted on Every Tuesday.</li>
+        <li><strong>Ayilya Pooja</strong> – Every month on the day of Ayilyam.</li>
+        <li><strong>Manchirat Nercha</strong> – Every Friday.</li>
+        <li><strong>Ramayanaparayanam</strong> – From the first of Karkidakam.</li>
+        <li><strong>Mankalathil Pongala</strong> – On the day of Chothi in the month of Meenam.</li>
+        <li><strong>Naagarootu</strong> – On the day of Ayilyam in the month of Kanni.</li>
+      </ol>
+    </div>
+
+    <!-- MALAYALAM -->
+    <div class="lang-ml lang-hide">
+      <h2>🛕 പ്രത്യേക പൂജകൾ 🛕</h2>
+      <ol>
+        <li><strong>കാര്യസിദ്ധി പൊങ്കാല</strong> – എല്ലാ ചൊവ്വാഴ്ചയും.</li>
+        <li><strong>ആയില്യ പൂജ</strong> – എല്ലാ മാസവും ആയില്യം നാളിൽ.</li>
+        <li><strong>മൺചിരാത് നേർച്ച</strong> – എല്ലാ വെള്ളിയാഴ്ചയും.</li>
+        <li><strong>രാമായണപാരായണം</strong> – കർക്കിടകം ഒന്നാം തീയതിമുതൽ.</li>
+        <li><strong>മൺകലത്തിൽ പൊങ്കാല</strong> – മീനമാസത്തിലെ ചോതിനാളിൽ.</li>
+        <li><strong>നാഗരൂട്ട്</strong> – കന്നിമാസത്തിലെ ആയില്യംനാളിൽ.</li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- Notice -->
+  <section id="Notice">
+    <h2 id="special-ritualsTitle">🛕 Notice 🛕</h2>
+    <div class="card">
+      <p id="special-ritualsText">Devotees are hereby respectfully informed, in the name of the Goddess, that contributions are being invited for the purchase of property for the Ayilara Madathil Sree Bhadra Bhagavathi Temple. All devotees are requested to participate in this sacred endeavor by making generous donations according to their capacity. The wholehearted support and cooperation of all devotees are earnestly sought for the successful completion of this noble cause. – Temple Committee</p>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section id="gallery">
+    <h2 id="galleryTitle">Gallery</h2>
+    <div class="gallery" id="galleryImages">
+      <img data-src="gallery1.jpg" loading="lazy" alt="Ayilara Temple Gallery 1" class="lazy">
+      <img data-src="gallery2.jpg" loading="lazy" alt="Ayilara Temple Gallery 2" class="lazy">
+      <img data-src="gallery3.jpg" loading="lazy" alt="Ayilara Temple Gallery 3" class="lazy">
+      <img data-src="gallery4.jpg" loading="lazy" alt="Ayilara Temple Gallery 4" class="lazy">
+      <img data-src="gallery5.jpg" loading="lazy" alt="Ayilara Temple Gallery 5" class="lazy">
+      <img data-src="gallery6.jpg" loading="lazy" alt="Ayilara Temple Gallery 6" class="lazy">
+      <img data-src="gallery7.jpg" loading="lazy" alt="Ayilara Temple Gallery 7" class="lazy">
+      <img data-src="gallery8.jpg" loading="lazy" alt="Ayilara Temple Gallery 8" class="lazy">
+      <img data-src="gallery9.jpg" loading="lazy" alt="Ayilara Temple Gallery 9" class="lazy">
+      <img data-src="gallery10.jpg" loading="lazy" alt="Ayilara Temple Gallery 10" class="lazy">
+      <img data-src="gallery11.jpg" loading="lazy" alt="Ayilara Temple Gallery 11" class="lazy">
+      <img data-src="gallery12.jpg" loading="lazy" alt="Ayilara Temple Gallery 12" class="lazy">
+    </div>
+  </section>
+
+  <!-- Location Map -->
+  <section id="location">
+    <h2 id="locationTitle">Location</h2>
+    <div class="map">
+      <iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=8.946059337154056,76.96567389643423&z=17&output=embed"></iframe>
+    </div>
+    <br>
+    <a href="https://www.google.com/maps/dir/?api=1&destination=8.946059337154056,76.96567389643423" target="_blank" class="location-btn">📍 Get Directions</a>
+  </section>
+
+  <!-- Donation -->
+  <section id="donation">
+    <h2 id="donationTitle">Bank & UPI Donation</h2>
+    <div class="card">
+      <p><b>Bank:</b> CANARA BANK</p>
+      <p><b>Branch:</b> Anchal</p>
+      <p><b>Account Name:</b> Madathil Sree Bhadra Bhagavathi Temple</p>
+      <p><b>Account No:</b> 118924144014105</p>
+      <p><b>IFSC:</b> CNRB0002856</p>
+
+      <h3>📱 Donate via UPI</h3>
+      <a href="upi://pay?pa=118924144014105@cnrb&pn=Ayilara%20Madathil%20Temple&cu=INR&tn=Temple%20Donation" class="upi-btn">💳 Pay with UPI App</a>
+      <a href="upi://pay?pa=118924144014105@cnrb&pn=Ayilara%20Madathil%20Temple&cu=INR" class="whatsapp-btn" style="background:#25D366;">📱 Open UPI App (If above fails)</a>
+
+      <h3>📷 Scan QR Code</h3>
+      <div class="qr">
+        <a id="qrPayLink">
+          <img data-src="upi-qr.png" loading="lazy" alt="Scan UPI QR Code to Pay" class="lazy">
+        </a>
+        <p style="font-size:12px; margin-top:5px; color: var(--text-muted);">Tap QR to Pay</p>
+      </div>
+      <p><b>UPI ID:</b> 118924144014105@cnrb</p>
+
+      <h3>📲 Send Payment Confirmation</h3>
+      <a href="https://wa.me/919633559256?text=Namaskaram%20🙏%20I%20have%20made%20a%20donation%20to%20Ayilara%20Madathil%20Temple" target="_blank" class="whatsapp-btn">Send Screenshot on WhatsApp</a>
+
+      <div style="margin-top:20px; font-size:14px; border-top:1px dashed rgba(255,215,0,0.15); padding-top:15px;">
+        <p>📞 +91 9633559256</p>
+        <p>✉ ayilaramadathiltemple@gmail.com</p>
+        <p>Ayilara P.O, Ayilara, Anchal, Kollam - 691312</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p class="devotional-text">🙏 “A devotional creation by Shaji R Palazhi.” 🙏</p>
+    <p class="footer-text">© 2026 Ayilara Madathil Sree Bhadra Bhagavathi Temple</p>
+    <p>Ayilara P.O, Ayilara, Anchal, Kollam - 691312, Keralam, India</p>
+  </footer>
+
+  <!-- Floating Elements & Modals (Constructed inside DOM for clean structure and styling) -->
+
+  <!-- Top Scroll Button -->
+  <button id="topBtn" title="Scroll to top">⬆</button>
+
+  <!-- Devotional Bhajan Player -->
+  <button class="bhajan-btn" id="bhajanBtn" title="Toggle Bhajan Audio">🔊</button>
+  <audio id="bhajanAudio" loop>
+    <source src="bhajan.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- Interstitial Promo / Flash Ad -->
+  <div id="flashAd">
+    <span id="closeFlash" title="Close Advertisement">✖</span>
+    <img data-src="flash-page.jpeg" alt="Temple Announcement Ad" class="lazy">
+  </div>
+
+  <!-- Main Booking and Donation Modal -->
+  <div class="popup" id="bookingPopup">
+    <h3 id="popupTitle">Donation / Pooja Booking</h3>
+    <form id="bookingForm">
+      <input type="text" id="name" placeholder="Name / പേര്" required>
+      <input type="text" id="address" placeholder="Address / വിലാസം (optional)">
+      
+      <label for="date">Select Date / തീയതി</label>
+      <input type="date" id="date" required>
+
+      <label style="display:flex; align-items:center; gap:10px; font-weight:600; font-size:14px; margin:12px 0;">
+        <input type="checkbox" id="donateOnly" onchange="togglePooja()">
+        Donation Only / സംഭാവന മാത്രം
+      </label>
+
+      <!-- Pooja options section -->
+      <div id="poojaSection">
+        <label for="pooja">Select Pooja / പൂജ തിരഞ്ഞെടുക്കുക</label>
+        <select id="pooja">
+          <option value="Ganapathihomam" data-amount="350">Ganapathihomam / ഗണപതിഹോമം - ₹350</option>
+          <option value="Archana" data-amount="10">Archana / അർച്ചന - ₹10</option>
+          <option value="Chattivilakku" data-amount="5">Chattivilakku / ചട്ടി വിളക്ക് - ₹5</option>
+          <option value="Pinvilakku" data-amount="10">Pinvilakku / പിൻ വിളക്ക് - ₹10</option>
+          <option value="NarangaVilakku" data-amount="10">Naranga Vilakku / നാരങ്ങ വിളക്ക് - ₹10</option>
+          <option value="CharaduPooja" data-amount="20">Charadu Pooja / ചരടു പൂജ - ₹20</option>
+          <option value="Ponkala" data-amount="25">Ponkala / പൊങ്കാല - ₹25</option>
+          <option value="ChaviPooja" data-amount="20">Chavi Pooja / ചാവി പൂജ - ₹20</option>
+          <option value="Pushpanjali" data-amount="25">Pushpanjali / പുഷ്പാഞ്ജലി - ₹25</option>
+          <option value="Bhagyasuktharchana" data-amount="25">Bhagyasuktharchana / ഭാഗ്യസൂക്താർച്ചന - ₹25</option>
+          <option value="Sreesookatarchana" data-amount="25">Sreesookatarchana / ശ്രീസൂക്താർച്ചന - ₹25</option>
+          <option value="Dhanwantharymantrarchana" data-amount="25">Dhanwantharymantrarchana / ധന്വന്തരിമന്ത്രാർച്ചന - ₹25</option>
+          <option value="Swayamvararchan" data-amount="25">Swayamvararchan / സ്വയംവരാർച്ചന - ₹25</option>
+          <option value="Sathrusamharachan" data-amount="25">Sathrusamharachan / ശത്രുസംഹാരർച്ചന - ₹25</option>
+          <option value="AikyamathyaSooktharchana" data-amount="25">Aikyamathya Sooktharchana / ഐക്യമത്യ സൂക്താർച്ചന - ₹25</option>
+          <option value="Lalithasahasranamarchana" data-amount="25">Lalithasahasranamarchana / ലളിത സഹസ്രനാമാർച്ചന - ₹25</option>
+          <option value="Purushsooktharchana" data-amount="25">Purushsooktharchana / പുരുഷസൂക്താർച്ചന - ₹25</option>
+          <option value="Rakthapushpanjali" data-amount="50">Rakthapushpanjali / രക്തപുഷ്പാഞ്ജലി - ₹50</option>
+          <option value="Rakthapushparchana" data-amount="25">Rakthapushparchana / രക്തപുഷ്പാർച്ചന - ₹25</option>
+          <option value="Karikabhishekam" data-amount="25">Karikabhishekam / കരിക്കഭിഷേകം - ₹25</option>
+          <option value="Kumkumaarchana" data-amount="25">Kumkumaarchana / കുങ്കുമാർച്ചന - ₹25</option>
+          <option value="VellaNivedyam" data-amount="40">Vella Nivedyam / വെള്ള നിവേദ്യം - ₹40</option>
+          <option value="KettuNira" data-amount="51">Kettu Nira / കെട്ടു നിറ - ₹51</option>
+          <option value="Pattusamarpanam" data-amount="50">Pattusamarpanam / പട്ടുസമർപ്പണം - ₹50</option>
+          <option value="Sharkarapayasam" data-amount="50">Sharkarapayasam / ശർക്കരപായസം - ₹50</option>
+          <option value="Kudumbarchana" data-amount="50">Kudumbarchana / കുടുംബാർച്ചന - ₹50</option>
+          <option value="Kadumpayasam" data-amount="50">Kadumpayasam / കടുംപായസം - ₹50</option>
+          <option value="Trimaduram" data-amount="50">Trimaduram / ത്രിമധുരം - ₹50</option>
+          <option value="Avalnivedyam" data-amount="50">Aval Nivedyam / അവൽ നിവേദ്യം - ₹50</option>
+          <option value="Malarnivedyam" data-amount="50">Malar Nivedyam / മലർ നിവേദ്യം - ₹50</option>
+          <option value="Vahanapooja" data-amount="101">Vahanapooja / വാഹനപൂജ - ₹101</option>
+          <option value="Tulabharam" data-amount="101">Tulabharam / തുലാഭാരം - ₹101</option>
+          <option value="Chorunu" data-amount="101">Chorunu / ചോറുണ് - ₹101</option>
+          <option value="Bhagavathiseva" data-amount="250">Bhagavathiseva / ഭഗവതിസേവ - ₹250</option>
+          <option value="Mukhacharthu(1)" data-amount="350">Mukhacharthu (1) / മുഖച്ചാർത്തു (1) - ₹350</option>
+          <option value="Muzhukkappu(1)" data-amount="700">Muzhukkappu (1) / മുഴുക്കാപ്പ് (1) - ₹700</option>
+          <option value="Kumkumabhishekam" data-amount="1001">Kumkumabhishekam / കുങ്കുമാഭിഷേകം - ₹1001</option>
+          <option value="Vivaham" data-amount="2500">Vivaham / വിവാഹം - ₹2500</option>
+          <option value="Nityapooja" data-amount="2500">Nitya Pooja / നിത്യപൂജ - ₹2500</option>
+          <option value="VishnuSahasranamarchana" data-amount="25">Vishnu Sahasranamarchana / വിഷ്ണു സഹസ്രനാമാർച്ചന - ₹25</option>
+          <option value="AshwarudaManthrarchana" data-amount="25">Ashwaruda Manthrarchana / അശ്വാരൂഢ മന്ത്രാർച്ചന - ₹25</option>
+          <option value="ShankaranarayanaManthrarchana" data-amount="25">Shankaranarayana Manthrarchana / ശങ്കരനാരായണമന്ത്രാർച്ചന - ₹25</option>
+          <option value="NeyVilaku" data-amount="25">Ney Vilaku / നെയ് വിളക്ക് - ₹25</option>
+          <option value="Pithrupooja" data-amount="25">Pithru Pooja / പിതൃ പൂജ - ₹25</option>
+          <option value="Vidyagopalamantrarchana" data-amount="25">Vidyagopalamantrarchana / വിദ്യാഗോപാലമന്ത്രാർച്ചന - ₹25</option>
+          <option value="MukkutiPushpanjali" data-amount="25">Mukkuti Pushpanjali / മുക്കുറ്റി പുഷ്പാഞ്ജലി - ₹25</option>
+          <option value="Karukahomam" data-amount="350">Karuka Homam / കറുക ഹോമം - ₹350</option>
+          <option value="Unniappam Moodal" data-amount="8500">Unniappam Moodal / ഉണ്ണിയപ്പം മൂടൽ - ₹8500</option>
+        </select>
+
+        <label for="nakshatra">Select Nakshatra (Star) / നക്ഷത്രം തിരഞ്ഞെടുക്കുക</label>
+        <select id="nakshatra">
+          <option value="Ashwati">അശ്വതി / Ashwati</option>
+          <option value="Bharani">ഭരണി / Bharani</option>
+          <option value="Karthika">കാർത്തിക / Karthika</option>
+          <option value="Rohini">രോഹിണി / Rohini</option>
+          <option value="Makayiram">മകയിരം / Makayiram</option>
+          <option value="Thiruvathira">തിരുവാതിര / Thiruvathira</option>
+          <option value="Punartham">പുണർതം / Punartham</option>
+          <option value="Pooyam">പൂയം / Pooyam</option>
+          <option value="Ayilyam">ആയില്യം / Ayilyam</option>
+          <option value="Makam">മകം / Makam</option>
+          <option value="Pooram">പൂരം / Pooram</option>
+          <option value="Uthram">ഉത്രം / Uthram</option>
+          <option value="Atham">അത്തം / Atham</option>
+          <option value="Chithira">ചിത്തിര / Chithira</option>
+          <option value="Chothi">ചോതി / Chothi</option>
+          <option value="Vishakham">വിശാഖം / Vishakham</option>
+          <option value="Anizham">അനിഴം / Anizham</option>
+          <option value="Thrikketta">തൃക്കേട്ട / Thrikketta</option>
+          <option value="Moolam">മൂലം / Moolam</option>
+          <option value="Pooradam">പൂരാടം / Pooradam</option>
+          <option value="Uthradam">ഉത്രാടം / Uthradam</option>
+          <option value="Thiruvonam">തിരുവോണം / Thiruvonam</option>
+          <option value="Avittam">അവിട്ടം / Avittam</option>
+          <option value="Chathayam">ചതയം / Chathayam</option>
+          <option value="Pooruruttathi">പൂരുരുട്ടാതി / Pooruruttathi</option>
+          <option value="Uthrutathi">ഉത്രട്ടാതി / Uthrutathi</option>
+          <option value="Revati">രേവതി / Revati</option>
+        </select>
+      </div>
+
+      <!-- Donation Only Section -->
+      <div id="donationAmountSection" style="display:none;">
+        <label for="donationAmount">Enter Donation Amount (₹) / തുക നൽകുക</label>
+        <input type="number" id="donationAmount" min="1" placeholder="Enter amount to donate">
+      </div>
+
+      <!-- Form Summary Card -->
+      <div class="summary-card">
+        <h4>Booking Summary</h4>
+        <p id="summaryText">Please fill the form to see booking details</p>
+        <p>Total Amount: ₹<span id="totalAmount">0</span></p>
+      </div>
+
+      <button type="submit" id="payBtn">Pay & Confirm</button>
+      <button type="button" onclick="closeBooking()" class="close-btn">Close</button>
+    </form>
+  </div>
+
+  <!-- Success & UPI Payment Modal -->
+  <div class="popup" id="successPopup">
+    <h3>Complete Your Payment 🙏</h3>
+    <div id="successMsg" style="text-align:center; margin-bottom:15px;"></div>
+    <p style="color:#ffb3b3; font-size:12px; text-align:center; margin-bottom: 12px; font-weight: 500;">
+      ⚠️ Please use a mobile phone for UPI payment. Desktop browsers may not launch the UPI application.
+    </p>
+    <button id="payNowBtn">💳 Pay Now</button>
+    <a id="upiFallback" class="whatsapp-btn" style="display:block; text-align:center; margin-bottom:10px; text-decoration:none;">📱 Open UPI App (Backup)</a>
+    <button id="whatsappBtn" style="background:#25D366; color:white;">Send WhatsApp Confirmation</button>
+    <button type="button" onclick="closeSuccess()" class="close-btn" style="margin-top:10px;">Close</button>
+  </div>
+
+  <!-- Interactive Floating Booking Trigger -->
+  <div class="floating" onclick="openBooking()">🛕 Book Pooja / Donation</div>
+
+  <!-- Gallery Lightbox -->
+  <div class="lightbox" id="galleryLightbox">
+    <span class="close" onclick="closeLightbox()">✖</span>
+    <span class="nav prev" onclick="navigateLightbox(-1)">&#10094;</span>
+    <img id="lightboxImg" src="" alt="Zoomed Temple Image">
+    <span class="nav next" onclick="navigateLightbox(1)">&#10095;</span>
+  </div>
+
+  <!-- External Clean Javascript -->
+  <script src="scripts.js" defer></script>
 </body>
 </html>
