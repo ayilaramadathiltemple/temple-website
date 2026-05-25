@@ -402,19 +402,33 @@ function processBookingSubmission(e) {
     return;
   }
 
-  // Create payment reference note
+  // Create payment reference note (Clean string with no special characters to bypass security filters)
+  let cleanPoojaText = poojaText.replace(/[^a-zA-Z0-9 ]/g, "");
+  let cleanStarText = (nakshatraText.split('/')[1] || nakshatraText).replace(/[^a-zA-Z0-9 ]/g, "").trim();
+  let cleanName = name.replace(/[^a-zA-Z0-9 ]/g, "");
+  
   const paymentNote = donateOnly
-    ? `Donation by ${name}`
-    : `Pooja:${poojaText} | Nakshatra:${nakshatraText.split('/')[1]?.trim() || nakshatraText} | Name:${name} | Date:${date}`;
+    ? `Donation ${cleanName}`
+    : `Pooja ${cleanPoojaText} Star ${cleanStarText} Name ${cleanName}`;
 
-  // Deep Link URI
+  // Deep Link URIs
   const upiURL = `upi://pay?pa=${upiID}&pn=Ayilara%20Madathil%20Temple&am=${total}&cu=INR&tn=${encodeURIComponent(paymentNote.substring(0, 80))}`;
+  const upiSafeURL = `upi://pay?pa=${upiID}&pn=Ayilara%20Madathil%20Temple&cu=INR`;
 
   // Render Checkout Success Popup
   const successModal = document.getElementById("successPopup");
   const successMsg = document.getElementById("successMsg");
 
   if (successMsg) {
+    const errorGuidanceEn = `
+      <p style="color:#ffb3b3; font-size:12.5px; margin-top:12px; text-align:left; border-top:1px dashed rgba(255,215,0,0.15); padding-top:10px; line-height:1.45;">
+        💡 <strong>HDFC/GPay Limit Error?</strong> If 'Fast Pay' fails due to bank limits, return here and tap <strong>'Safe Pay'</strong> below, then enter ₹${total} manually in your payment app.
+      </p>`;
+    const errorGuidanceMl = `
+      <p style="color:#ffb3b3; font-size:12.5px; margin-top:12px; text-align:left; border-top:1px dashed rgba(255,215,0,0.15); padding-top:10px; line-height:1.45;">
+        💡 <strong>ബാങ്ക് ലിമിറ്റ് എറർ?</strong> 'Fast Pay' പരാജയപ്പെടുകയാണെങ്കിൽ, താഴെയുള്ള <strong>'Safe Pay'</strong> ടാപ്പ് ചെയ്ത് ₹${total} എന്നത് മാനുവലായി ടൈപ്പ് ചെയ്യുക.
+      </p>`;
+
     successMsg.innerHTML = `
       <p style="font-size:16px; font-weight:700; color:#ffd700; margin-bottom:10px;">
         ${currentLanguage === 'en' ? 'Pooja/Donation Details Saved!' : 'വിവരങ്ങൾ വിജയകരമായി സംരക്ഷിച്ചു!'}
@@ -424,6 +438,7 @@ function processBookingSubmission(e) {
         ${!donateOnly ? `<strong>${currentLanguage === 'en' ? 'Pooja' : 'പൂജ'}:</strong> ${poojaText}<br>` : ''}
         <strong>${currentLanguage === 'en' ? 'Total Amount' : 'ആകെ തുക'}:</strong> ₹${total}
       </div>
+      ${currentLanguage === 'en' ? errorGuidanceEn : errorGuidanceMl}
     `;
   }
 
@@ -434,6 +449,7 @@ function processBookingSubmission(e) {
   // Set up button actions
   const payNowBtn = document.getElementById("payNowBtn");
   if (payNowBtn) {
+    payNowBtn.innerText = currentLanguage === 'en' ? `💳 Fast Pay (Auto-Fill ₹${total})` : `💳 ഫാസ്റ്റ് പേ (തുക ഓട്ടോഫിൽ)`;
     payNowBtn.onclick = () => {
       const link = document.createElement("a");
       link.href = upiURL;
@@ -443,7 +459,15 @@ function processBookingSubmission(e) {
 
   const fallbackLink = document.getElementById("upiFallback");
   if (fallbackLink) {
-    fallbackLink.href = upiURL;
+    fallbackLink.href = upiSafeURL;
+    fallbackLink.innerHTML = currentLanguage === 'en' 
+      ? "🔒 Safe Pay (Type Amount Manually)" 
+      : "🔒 സേഫ് പേ (തുക ടൈപ്പ് ചെയ്യുക)";
+    fallbackLink.style.background = "transparent";
+    fallbackLink.style.border = "1.5px solid #ffd700";
+    fallbackLink.style.color = "#ffd700";
+    fallbackLink.style.display = "block";
+    fallbackLink.style.textAlign = "center";
   }
 
   // Compose dynamic WhatsApp message template
