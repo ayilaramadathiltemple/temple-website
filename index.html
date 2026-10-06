@@ -9,7 +9,7 @@
 <link rel="preload" as="image" href="banner1.jpg">
 <meta name="robots" content="index, follow">
 <meta name="theme-color" content="#2b0000">
-<meta name="description" content="Ayilara Madathil Sree Bhadra Bhagavathi Temple official website. Book pooja online, donate via UPI, view timings and Notice details.">
+<meta name="description" content="Ayilara Madathil Sree Bhadra Bhagavathi Temple official website. Book pooja online, donate via UPI, view timings and special-rituals details.">
 <meta property="og:url" content="https://www.ayilaramadathiltemple.org">
 <link rel="canonical" href="https://www.ayilaramadathiltemple.org">
 <meta property="og:title" content="Ayilara Madathil Sree Bhadra Bhagavathi Temple">
@@ -105,81 +105,6 @@ section h2{font-size:20px;}
   position: relative;
 }
 
-/* FLASH AD ANIMATION */
-#flashAd{
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  background:rgba(0,0,0,0.75);
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  z-index:5000;
-
-  opacity:0;
-  visibility:hidden;
-  transition:opacity 0.5s ease;
-}
-
-#flashAd.show{
-  opacity:1;
-  visibility:visible;
-}
-
-
-#flashAd img{
-  width:90%;
-  max-width:380px;   /* limits size on mobile */
-  height:auto;
-  border-radius:12px;
-  box-shadow:0 0 25px rgba(0,0,0,0.8);
-
-  transform:scale(0.7);
-  transition:transform 0.5s ease;
-}  
-
-#flashAd.show img{
-  transform:scale(1); /* zoom-in effect */
-
-}
-
-#closeFlash{
-  position:absolute;
-  top:20px;
-  right:20px;
-  font-size:26px;
-  color:#fff;
-  cursor:pointer;
-  background:#900;
-  width:40px;
-  height:40px;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  border-radius:50%;
-  z-index:6000; /* IMPORTANT */
-}
-#closeFlash:hover{
-  background:#ff0000;
-  transform:scale(1.1);
-}
-
-@media(max-width:480px){
-  #flashAd img{
-    width:85%;
-    max-width:300px;   /* smaller for phones */
-  }
-
-  #closeFlash{
-    width:35px;
-    height:35px;
-    font-size:20px;
-    top:10px;
-    right:10px;
-  }
-}
 /* ===== SPECIAL POOJAS DESIGN ===== */
 #special-poojas{
   background:linear-gradient(145deg,#2b0000,#1a0000);
@@ -241,11 +166,10 @@ body {
     padding-bottom: 75px;
   }
 
-  footer {
-    margin-bottom: 0px;
-    padding: 12px;
-    line-height: 1.3;
-  }
+footer {
+margin-bottom: 0px;
+  padding: 12px;
+  line-height: 1.3;
 }
 html, body {
   overflow-x: hidden;
@@ -260,6 +184,7 @@ button:active {
 img.lazy {
   background: #3a0000 url('loader.gif') center center no-repeat;
 }
+
 
 }
 </style>
@@ -289,8 +214,6 @@ gtag('js', new Date());
 gtag('config', 'G-XXXX');
 </script>
 
-
-
 </head>
 <body>
 
@@ -298,7 +221,7 @@ gtag('config', 'G-XXXX');
 <h1 id="templeTitle">🛕 Ayilara Madathil Sree Bhadra Bhagavathi Temple<br><span style="font-size:14px;">അയിലറ മഠത്തിൽ ശ്രീ ഭദ്രാ ഭഗവതി ക്ഷേത്രം</span></h1>
 <nav>
 <a href="#about" id="navAbout">About</a>
-<a href="#Notice" id="navSpecialRituals">Notice</a>
+<a href="#special-rituals" id="navSpecialRituals">Special Rituals</a>
 <a href="#gallery" id="navGallery">Gallery</a>
 <a href="#location" id="navLocation">Location</a>
 <a href="#donation" id="navDonate">Donation</a>
@@ -321,7 +244,7 @@ gtag('config', 'G-XXXX');
 <!-- About -->
 <section id="about">
 <h2 id="aboutTitle">🛕About the Temple🛕</h2>
-<div class="card"><p id="aboutText">"The ancient and famous temple, named after its five chambers, is a sacred place where the eight-fold blessings of the goddess Ailara are bestowed on the forehead like sandalwood powder, the bestower of blessings on the lips, and the meritorious deity of many thousands, Sri Bhadra Bhagavati, who shines with the virtue of seeing, is equally important, Sri Maha Vishnu, the destroyer of all obstacles, Sri Maha Ganapathi, and other sub-deities shower blessings on the devotees. Annual Notice and poojas bring the community together in devotion, making it a place of faith, peace, and divine grace."
+<div class="card"><p id="aboutText">"The ancient and famous temple, named after its five chambers, is a sacred place where the eight-fold blessings of the goddess Ailara are bestowed on the forehead like sandalwood powder, the bestower of blessings on the lips, and the meritorious deity of many thousands, Sri Bhadra Bhagavati, who shines with the virtue of seeing, is equally important, Sri Maha Vishnu, the destroyer of all obstacles, Sri Maha Ganapathi, and other sub-deities shower blessings on the devotees. Annual special rituals and poojas bring the community together in devotion, making it a place of faith, peace, and divine grace."
 </p></div>
 </section>
 <!-- Temple Daily Pooja Timings -->
@@ -377,13 +300,17 @@ gtag('config', 'G-XXXX');
 </section>
 
 <!-- special-rituals -->
-<section id="Notice">
-<h2 id="special-ritualsTitle">🛕 Notice🛕</h2>
-<div class="card" id="special-ritualsText">Devotees are hereby respectfully informed, in the name of the Goddess, that contributions are being invited for the purchase of property for the Ayilara Madathil Sree Bhadra Bhagavathi Temple. All devotees are requested to participate in this sacred endeavor by making generous donations according to their capacity.
+<section id="special-rituals">
+<h2 id="special-ritualsTitle">🛕 Special-Rituals🛕</h2>
+<div class="card" id="special-ritualsText">🌺 Punapratishta Anniversary 2026 🌺
 
-The wholehearted support and cooperation of all devotees are earnestly sought for the successful completion of this noble cause.
+📅 April 19, 2026 (Malayalam: Medam 6, 1201)
 
-– Temple Committee </div>
+It is hereby respectfully informed to all devotees of the Goddess that the Punapratishta Anniversary of the temple has been decided to be celebrated with devotion.
+
+On this auspicious occasion, various poojas, rituals, and special programs have been arranged.
+
+🙏 All devotees are cordially requested to attend the celebrations with their families, participate in the rituals, and receive divine blessings. </div>
 </section>
 
 <!-- Gallery -->
@@ -439,19 +366,10 @@ style="display:inline-block;padding:10px 20px;background:#ffd700;color:#1a0000;b
 
 <br><br>
 
-<a href="upi://pay?pa=118924144014105@cnrb&pn=Ayilara%20Madathil%20Temple&cu=INR"
-style="display:inline-block;padding:10px 20px;background:#25D366;color:#fff;border-radius:25px;text-decoration:none;font-weight:bold;">
-📱 Open UPI App (If above fails)
-</a>
-
-
 <h3>📷 Scan QR Code</h3>
 
 <div class="qr">
-<a id="qrPayLink">
-  <img data-src="upi-qr.png" loading="lazy" alt="UPI QR" class="lazy" style="cursor:pointer;">
-</a>
-<p style="font-size:13px;margin-top:5px;">Tap QR to Pay</p>
+<img data-src="upi-qr.png" loading="lazy" alt="UPI QR" class="lazy">
 </div>
 
 <p style="margin-top:10px;"><b>UPI ID:</b> 118924144014105@cnrb</p>
@@ -488,57 +406,6 @@ Send Screenshot on WhatsApp
 </audio>
 
 <script>
-
-document.addEventListener("DOMContentLoaded", () => {
-  const flash = document.getElementById("flashAd");
-  const closeBtn = document.getElementById("closeFlash");
-
-  if (!flash) return;
-
-  // Show after 2 sec
-  setTimeout(() => {
-    flash.classList.add("show");
-  }, 2000);
-
-  // ✅ IMAGE click → open booking ONLY
-  const flashImg = flash.querySelector("img");
-
-  if (flashImg) {
-    flashImg.addEventListener("click", (e) => {
-  e.stopPropagation();
-
-  // 🔥 CLOSE flash FIRST
-  flash.classList.remove("show");
-
-  openBooking();
-
-  setTimeout(() => {
-    let donateBox = document.getElementById("donateOnly");
-    if (donateBox) {
-      donateBox.checked = true;
-      togglePooja();
-    }
-  }, 200);
-});
-
-  }
-
-  // ✅ CLOSE button ONLY
-  if (closeBtn) {
-    closeBtn.addEventListener("click", (e) => {
-      e.stopPropagation(); // IMPORTANT
-      flash.classList.remove("show");
-    });
-  }
-
-  // 🚫 BLOCK background click (do nothing)
-  flash.addEventListener("click", (e) => {
-  if(e.target === flash){
-    e.stopPropagation();
-  }
-});
-});
-
 // ===== Lazy Load =====
 document.addEventListener("DOMContentLoaded", function(){
 
@@ -638,7 +505,7 @@ bhajanBtn.addEventListener('click', () => {
 });
 // ===== Booking Popup =====
 let popup=document.createElement('div'); popup.className='popup';
-popup.innerHTML=`<h3 id="popupTitle">Donation / Pooja Booking </h3>
+popup.innerHTML=`<h3 id="popupTitle">Pooja Booking / പൂജ ബുക്കിംഗ്</h3>
 <form id="bookingForm">
 <input type="text" id="name" placeholder="Name/പേര്" required>
 <input type="text" id="address" placeholder="Address/വിലാസം (optional)">
@@ -777,7 +644,7 @@ let nakshatraText = document.getElementById("nakshatra")?.selectedOptions[0]?.te
   document.getElementById("totalAmount").innerText = total;
 
   let poojaText = pooja?.selectedOptions[0]?.text.split('-')[0];
-
+document.getElementById("nakshatra")?.addEventListener('change', updateSummary);
 
 document.getElementById("summaryText").innerHTML =
 donateOnly
@@ -797,7 +664,6 @@ document.getElementById("pooja")?.addEventListener('change',updateSummary);
 document.getElementById("donationAmount")?.addEventListener('input',updateSummary);
 document.getElementById("name")?.addEventListener('input',updateSummary);
 document.getElementById("date")?.addEventListener('input',updateSummary);
-document.getElementById("nakshatra")?.addEventListener('change', updateSummary);
 },200);
  
 
@@ -807,10 +673,9 @@ successPopup.className = 'popup';
 successPopup.style.display = 'none';
 
 successPopup.innerHTML = `
-<h3>Complete Your Payment 🙏</h3>
+<h3>Booking Successful 🙏</h3>
 
 <div id="successMsg" style="text-align:center;margin-bottom:15px;"></div>
-
 <p style="color:red;font-size:13px;text-align:center;">
 ⚠️ Use mobile phone for UPI payment. Desktop may not work.
 </p>
@@ -820,11 +685,6 @@ style="display:block;width:100%;background:#ffd700;color:#000;padding:10px;borde
 💳 Pay Now
 </button>
 
-<a id="upiFallback"
-style="display:block;text-align:center;margin-bottom:10px;color:#25D366;font-weight:bold;">
-📱 Open UPI App (Backup)
-</a>
-
 <button id="whatsappBtn">Send WhatsApp Confirmation</button>
 
 <button type="button" onclick="successPopup.style.display='none'" class="close-btn">Close</button>
@@ -832,67 +692,63 @@ style="display:block;text-align:center;margin-bottom:10px;color:#25D366;font-wei
 
 document.body.appendChild(successPopup);
 // ===== Process Booking =====
-document.addEventListener("submit", function(e){
-  if(e.target && e.target.id === "bookingForm"){
+document.addEventListener("submit",function(e){
+if(e.target && e.target.id==="bookingForm"){
 
-    e.preventDefault();
+e.preventDefault();
 
-    // ===== GET VALUES =====
-    let name = document.getElementById("name").value.trim();
-    let address = document.getElementById("address").value.trim();
-    let date = document.getElementById("date").value;
-    let total = Number(document.getElementById("totalAmount").innerText) || 0;
+let name=document.getElementById("name").value.trim();
+let address=document.getElementById("address").value.trim();
+function cleanInput(str){
+return str.replace(/[^a-zA-Z0-9\s.,@()-]/g, "").trim();
+}
+name = cleanInput(name);
+address = cleanInput(address);
+let date=document.getElementById("date").value;
+let total = Number(document.getElementById("totalAmount").innerText) || 0;
+let donateOnly=document.getElementById("donateOnly").checked;
+let pooja=document.getElementById("pooja").value;
+let nakshatra=document.getElementById("nakshatra").value;
+let nakshatraText = document.getElementById("nakshatra")?.selectedOptions[0]?.text || "";
 
-    let donateOnly = document.getElementById("donateOnly").checked;
-    let poojaText = document.getElementById("pooja")?.selectedOptions[0]?.text.split('-')[0] || "";
-    let nakshatraText = document.getElementById("nakshatra")?.selectedOptions[0]?.text || "";
+let upiID="118924144014105@cnrb";
+let templePhone="919633559256"; // correct international format
 
-    let upiID = "118924144014105@cnrb";
-    let templePhone = "919633559256";
+if(!name || !date || total<=0){
+  alert("Please fill all details correctly.");
+  return;
+}
 
-    // ===== VALIDATION =====
-    if (!name) {
-      alert("Please enter your name");
-      return;
-    }
+let poojaText = document.getElementById("pooja")?.selectedOptions[0]?.text.split('-')[0];
 
-    if (!date) {
-      alert("Please select a date");
-      return;
-    }
+let note = donateOnly
+? `Donation by ${name}`
+: `Pooja: ${poojaText}
+Nakshatra: ${nakshatraText}
+Name: ${name}
+Date: ${date}`;
 
-    if (!total || total <= 0 || isNaN(total)) {
-      alert("Invalid amount");
-      return;
-    }
+let upiURL=`upi://pay?pa=${upiID}&pn=Ayilara%20Madathil%20Temple&tr=${Date.now()}&am=${total}&cu=INR&tn=${encodeURIComponent(note)}`;
 
-    // ===== NOTE =====
-    let note = donateOnly
-      ? `Donation by ${name}`
-      : `Pooja: ${poojaText} | Nakshatra: ${nakshatraText} | Name: ${name} | Date: ${date}`;
+document.getElementById("payNowBtn").onclick = function(){
 
-    let upiURL = `upi://pay?pa=${upiID}&pn=Ayilara%20Madathil%20Temple&am=${total}&cu=INR&tn=${encodeURIComponent(note)}`;
+  if(total <= 0){
+    alert("Invalid amount.");
+    return;
+  }
 
-    // ===== SHOW POPUP =====
-    successPopup.style.display = "block";
+  let isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
 
-
-
-    // ===== PAY BUTTON =====
-    document.getElementById("payNowBtn").onclick = function () {
-
-  let link = document.createElement("a");
-  link.href = upiURL;
-  link.click();
+  if(isMobile){
+    window.location.href = upiURL;
+  } else {
+    alert("Please use mobile phone for UPI payment 📱");
+  }
 
 };
 
-    // ===== FALLBACK =====
-    document.getElementById("upiFallback").href = upiURL;
-
-    // ===== WHATSAPP =====
-    let whatsappMessage =
-`🛕 Ayilara Temple Booking
+let whatsappMessage =
+`🛕 Ayilara Madathil Temple Booking
 
 Name: ${name}
 Address: ${address}
@@ -901,37 +757,36 @@ Amount: ₹${total}
 ${donateOnly
 ? "Type: Donation"
 : `Pooja: ${poojaText}
-Nakshatra: ${nakshatraText}
+Nakshatra: 🌟 ${nakshatraText}
 Date: ${date}`}
 
-🙏 Payment done. Please confirm.`;
+🙏 Kindly complete the payment and share the screenshot for confirmation.`;
 
-    document.getElementById("whatsappBtn").onclick = function(){
-      window.open(`https://wa.me/${templePhone}?text=${encodeURIComponent(whatsappMessage)}`, '_blank');
-    };
+let whatsappURL=`https://wa.me/${templePhone}?text=${encodeURIComponent(whatsappMessage)}`;
 
-    // RESET
-    document.getElementById("bookingForm").reset();
-    updateSummary();
-    closeBooking();
-  }
+document.getElementById("whatsappBtn").onclick=function(){
+window.open(whatsappURL,'_blank');
+};
+
+successPopup.querySelector("#successMsg").innerHTML=
+`Thank you <b>${name}</b> 🙏<br><br>
+Amount: ₹${total}<br>
+${donateOnly?"Donation":"Pooja: "+poojaText+" | Nakshatra: "+nakshatraText}<br><br>
+Click Pay Now to complete UPI payment.`;
+
+successPopup.style.display="block";
+
+setTimeout(()=>{
+  successPopup.scrollIntoView({behavior:'smooth', block:'center'});
+},100);
+
+document.getElementById("bookingForm").reset();
+updateSummary();
+closeBooking();
+
+}
 });
 
-document.addEventListener("DOMContentLoaded", function(){
-
-  const qrLink = document.getElementById("qrPayLink");
-
-  if(qrLink){
-    const upiID = "118924144014105@cnrb";
-
-    const upiURL = `upi://pay?pa=${upiID}&pn=Ayilara%20Madathil%20Temple&cu=INR`;
-
-    qrLink.onclick = function(){
-      window.location.href = upiURL;
-    };
-  }
-
-});
 
 
 // ===== Language Toggle =====
@@ -953,7 +808,7 @@ document.querySelectorAll('.lang-ml').forEach(el => {
     ? '🛕 Ayilara Madathil Sree Bhadra Bhagavathi Temple<br><span style="font-size:14px;">അയിലറ മഠത്തിൽ ശ്രീ ഭദ്രാ ഭഗവതി ക്ഷേത്രം</span>'
     : '🛕 അയിലറ മഠത്തിൽ ശ്രീ ഭദ്രാ ഭഗവതി ക്ഷേത്രം<br><span style="font-size:14px;">Ayilara Madathil Sree Bhadra Bhagavathi Temple</span>';
   document.getElementById("navAbout").innerText = englishLang?"About":"ക്ഷേത്രത്തെക്കുറിച്ച്";
-  document.getElementById("navSpecialRituals").innerText = englishLang?"Notice":" അറിയിപ്പ്";
+  document.getElementById("navSpecialRituals").innerText = englishLang?"Special Rituals":"പ്രത്യേക ചടങ്ങുകൾ";
   document.getElementById("navGallery").innerText = englishLang?"Gallery":"ഗാലറി";
   document.getElementById("navLocation").innerText = englishLang?"Location":"സ്ഥലം";
   document.getElementById("navDonate").innerText = englishLang?"Donation":"സംഭാവന";
@@ -964,16 +819,16 @@ document.querySelectorAll('.lang-ml').forEach(el => {
     :"വിശ്വാസത്തിന്റെയും ദൈവികമായ കൃപയുടെയും അഭയസ്ഥാനം, ഭക്തർ സുരക്ഷ, സമൃദ്ധി, ആത്മീയം പ്രാപിക്കുന്നു.";
   document.getElementById("aboutTitle").innerText = englishLang?"🛕About the Temple🛕":"🛕ക്ഷേത്രത്തെക്കുറിച്ച്🛕";
   document.getElementById("aboutText").innerText = englishLang
-    ?"The ancient and famous temple, named after its five chambers, is a sacred place where the eight-fold blessings of the goddess Ailara are bestowed on the forehead like sandalwood powder, the bestower of blessings on the lips, and the meritorious deity of many thousands, Sri Bhadra Bhagavati, who shines with the virtue of seeing, is equally important, Sri Maha Vishnu, the destroyer of all obstacles, Sri Maha Ganapathi, and other sub-deities shower blessings on the devotees. Annual Notice and poojas bring the community together in devotion, making it a place of faith, peace, and divine grace."
+    ?"The ancient and famous temple, named after its five chambers, is a sacred place where the eight-fold blessings of the goddess Ailara are bestowed on the forehead like sandalwood powder, the bestower of blessings on the lips, and the meritorious deity of many thousands, Sri Bhadra Bhagavati, who shines with the virtue of seeing, is equally important, Sri Maha Vishnu, the destroyer of all obstacles, Sri Maha Ganapathi, and other sub-deities shower blessings on the devotees. Annual special rituals and poojas bring the community together in devotion, making it a place of faith, peace, and divine grace."
     :"അതിപുരാതനവും ക്ഷേത്രപ്രസിദ്ധവും അഞ്ച് അറകളാൽ നാമകരണം ചെയ്തിട്ടുള്ള അയിലറയുടെ തിരുനെറ്റിയിൽ ചന്ദനപൊട്ടുപോലെ അഷ്ട ഐശ്വര്യ പ്രദായിനിയും വിളിപ്പുറത്തു അനുഗ്രഹദായികയും അനേകായിരങ്ങൾക്ക് ദർശന പുണ്യവുമായി പ്രശോഭിക്കുന്ന ശ്രീ ഭദ്രാ ഭഗവതിയും തുല്യ പ്രാധാന്യത്തിൽ വാണരുളുന്ന ശ്രീ മഹാവിഷ്ണുവും സർവ്വവിഘ്ന വിനാശകനായ ശ്രീ മഹാ ഗണപതിയും മറ്റു ഉപദേവി ദേവന്മാരും സജ്ജനങ്ങൾക്ക് അനുഗ്രഹ ആശിസുകൾ ചൊരിയുന്ന  ഒരു പുണ്യകേന്ദ്രമാണ്. വർഷാന്ത്യ ഉത്സവങ്ങളും പൂജകളും സമൂഹത്തെ ഭക്തിയിൽ ഒന്നിപ്പിക്കുന്നു.";
-  document.getElementById("special-ritualsTitle").innerText = englishLang?"🛕 Notice🛕":"🛕അറിയിപ്പ്🛕";
+  document.getElementById("special-ritualsTitle").innerText = englishLang?"🛕 Special Rituals🛕":"🛕പ്രത്യേക ചടങ്ങുകൾ🛕";
   document.getElementById("special-ritualsText").innerText = englishLang?
 
- "Devotees are hereby respectfully informed, in the name of the Goddess, that contributions are being invited for the purchase of property for the Ayilara Madathil Sree Bhadra Bhagavathi Temple. All devotees are requested to participate in this sacred endeavor by making generous donations according to their capacity.The wholehearted support and cooperation of all devotees are earnestly sought for the successful completion of this noble cause.– Temple Committee."
+ "🌺 Punapratishta Anniversary 2026 🌺📅 April 19, 2026 (Malayalam: Medam 6, 1201)It is hereby respectfully informed to all devotees of the Goddess that the Punapratishta Anniversary of the temple has been decided to be celebrated with devotion.On this auspicious occasion, various poojas, rituals, and special programs have been arranged.🙏 All devotees are cordially requested to attend the celebrations with their families, participate in the rituals, and receive divine blessings."
 
 :
 
- "അയിലറ മഠത്തിൽ ശ്രീ ഭദ്ര ഭഗവതി ക്ഷേത്രത്തിലേക്ക് വാസ്തു വാങ്ങുന്നതിനായുള്ള പുണ്യകർമത്തിൽ, ഭക്തജനങ്ങൾ തങ്ങളുടെ ശേഷിയനുസരിച്ച് ഉദാരമായ സംഭാവനകൾ നൽകി പങ്കാളികളാകണമെന്നു ദേവി നാമത്തിൽ ഭക്ത്യാദരപൂർവ്വം അഭ്യർത്ഥിക്കുന്നു.ഈ ധർമ്മ പ്രവർത്തനത്തിൽ എല്ലാ ഭക്തജനങ്ങളുടെയും സഹകരണവും സാന്നിധ്യവും അഭിലഷിക്കുന്നു. – ക്ഷേത്ര കമ്മിറ്റി.";
+ "🌺 പുനഃപ്രതിഷ്ഠ വാർഷികം 2026 🌺 📅 2026 ഏപ്രിൽ 19 (മലയാളം: 1201 മേടം 6) ക്ഷേത്രത്തിലെ പുനഃപ്രതിഷ്ഠ വാർഷികം ഭക്തിപൂർവ്വം ആഘോഷിക്കാൻ തീരുമാനിച്ചിരിക്കുന്ന കാര്യം എല്ലാ ദേവി ഭക്തജനങ്ങളെയും സാദരം അറിയിക്കുന്നു. ഈ വിശിഷ്ട ദിനത്തോടനുബന്ധിച്ച് വിവിധ പൂജകൾ, അനുഷ്ഠാനങ്ങൾ, പ്രത്യേക പരിപാടികൾ എന്നിവ ക്രമീകരിച്ചിരിക്കുന്നതാണ്. 🙏 എല്ലാ ദേവി ഭക്തജനങ്ങളെയും കുടുംബസമേതം എത്തിച്ചേരുകയും ചടങ്ങുകളിൽ പങ്കെടുത്തു ദിവ്യാനുഗ്രഹം പ്രാപിക്കണമെന്നു വിനീതമായി അഭ്യർത്ഥിക്കുന്നു.";
 
   document.getElementById("galleryTitle").innerText = englishLang?"Gallery":"ഗാലറി";
   document.getElementById("locationTitle").innerText = englishLang?"Location":"സ്ഥലം";
@@ -1011,13 +866,6 @@ updateSummary();
 </script>
 
 <button id="topBtn" style="position:fixed;bottom:80px;right:15px;padding:10px;border-radius:50%;background:#ffd700;border:none;display:none;">⬆</button>
-
-<div id="flashAd">
-  <span id="closeFlash">✖</span>
-  <img src="flash-page.jpg" alt="Temple Ad">
-</div>
-
-
 
 </body>
 </html>
