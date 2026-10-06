@@ -145,6 +145,11 @@
     .lightbox .prev{left:15px}.lightbox .next{right:15px}
     .lightbox .close{position:absolute;top:15px;right:20px;font-size:28px;color:#fff;cursor:pointer;background:none;border:0}
 
+    #todayStatusCard{border-left:4px solid #ffd700}
+    #todayStatusCard.status-open{border-left-color:#25D366}
+    #todayStatusCard.status-closed{border-left-color:#b33}
+    #todayStatusCard p{margin:5px 0}
+
     .summary-card{background:#2b0000;padding:12px;border-radius:10px;box-shadow:0 4px 12px rgba(0,0,0,.4);color:#fff;margin-top:8px}
     .summary-card h4{color:#ffd700;margin-bottom:8px;text-align:center;font-size:14px}
     .summary-card p{margin:4px 0;color:#fff;font-size:13px}
@@ -263,6 +268,16 @@
   </div>
 </section>
 
+<section id="today-status" aria-live="polite">
+  <h2>🪔 Today at the Temple</h2>
+  <div class="card" id="todayStatusCard">
+    <p id="todayDateText">Checking today's date…</p>
+    <p id="todayOpenStatus"><b>Checking temple status…</b></p>
+    <p id="nextTempleEvent"></p>
+    <p style="font-size:12px;opacity:.85;">Status is based on the daily timings published on this website.</p>
+  </div>
+</section>
+
 <section id="special-poojas">
   <div class="lang-en">
     <h2>🛕 Special Poojas 🛕</h2>
@@ -369,6 +384,7 @@ On this auspicious occasion, various poojas, rituals and special programs have b
   <p class="devotional-text">🙏 “A devotional creation by Shaji R Palazhi.” 🙏</p>
   <p class="footer-text">© 2026 Ayilara Madathil Sree Bhadra Bhagavathi Temple</p>
   <p>Ayilara P.O, Ayilara, Anchal, Kollam - 691312, Kerala, India</p>
+  <p style="font-size:11px;opacity:.8;">Online UPI payments require manual confirmation until a verified payment gateway is connected.</p>
 </footer>
 
 <button class="bhajan-btn" id="bhajanBtn" type="button" aria-label="Play devotional music" aria-pressed="false">🔊</button>
@@ -389,6 +405,11 @@ On this auspicious occasion, various poojas, rituals and special programs have b
 
     <label class="sr-only" for="address">Address</label>
     <input type="text" id="address" maxlength="180" placeholder="Address / വിലാസം (optional)" autocomplete="street-address">
+
+    <label class="sr-only" for="mobile">Mobile number</label>
+    <input type="tel" id="mobile" maxlength="15" inputmode="tel"
+           placeholder="Mobile Number / മൊബൈൽ നമ്പർ"
+           autocomplete="tel" pattern="[0-9+()\- ]{8,15}" required>
 
     <label for="date" style="font-size:13px;color:#555;">Select Date / തീയതി</label>
     <input type="date" id="date">
@@ -491,7 +512,7 @@ On this auspicious occasion, various poojas, rituals and special programs have b
       <p>Total Amount: ₹<span id="totalAmount">0</span></p>
     </div>
 
-    <button type="submit" id="payBtn">Pay & Confirm</button>
+    <button type="submit" id="payBtn">Continue to UPI Payment</button>
     <button type="button" id="closeBookingBtn" class="close-btn">Close</button>
   </form>
 </div>
@@ -501,6 +522,9 @@ On this auspicious occasion, various poojas, rituals and special programs have b
   <div id="successMsg" style="text-align:center;margin-bottom:15px;"></div>
   <p style="color:#a00;font-size:13px;text-align:center;">
     ⚠️ UPI links work best on a mobile device with a UPI app installed.
+  </p>
+  <p style="color:#7a3b00;background:#fff8e1;padding:8px;border-radius:8px;font-size:12px;text-align:center;">
+    Payment is not automatically verified by this static website. Please complete the UPI payment and send the payment screenshot on WhatsApp for temple confirmation.
   </p>
   <button id="payNowBtn" type="button">💳 Pay Now</button>
   <button id="whatsappBtn" type="button">Send WhatsApp Confirmation</button>
@@ -710,12 +734,53 @@ On this auspicious occasion, various poojas, rituals and special programs have b
     };
   }
 
+  function updateTempleStatus() {
+    const now = new Date();
+    const minutes = now.getHours() * 60 + now.getMinutes();
+    const events = [
+      {time:'05:45', label:'Nada Thurakkal'},
+      {time:'06:15', label:'Ganapathi Homam'},
+      {time:'07:00', label:'Morning Pooja'},
+      {time:'09:30', label:'Ucha Pooja'},
+      {time:'17:00', label:'Temple Reopens'},
+      {time:'18:30', label:'Deeparadhana'},
+      {time:'19:30', label:'Athazha Pooja'},
+      {time:'20:00', label:'Nada Adakkal'}
+    ].map(e => {
+      const [h,m] = e.time.split(':').map(Number);
+      return {...e, minutes:h*60+m};
+    });
+
+    const openNow = (minutes >= 5*60+45 && minutes < 10*60) ||
+                    (minutes >= 17*60 && minutes < 20*60);
+    const next = events.find(e => e.minutes > minutes) || events[0];
+    const card = $('todayStatusCard');
+
+    $('todayDateText').textContent = now.toLocaleDateString('en-IN', {
+      weekday:'long', year:'numeric', month:'long', day:'numeric'
+    });
+
+    $('todayOpenStatus').innerHTML = openNow
+      ? '<b>🟢 Open now</b>'
+      : '<b>🔴 Closed now</b>';
+
+    $('nextTempleEvent').textContent =
+      `Next: ${next.label} at ${next.time.replace(':', ':')}`;
+
+    card.classList.toggle('status-open', openNow);
+    card.classList.toggle('status-closed', !openNow);
+  }
+
+  updateTempleStatus();
+  setInterval(updateTempleStatus, 60000);
+
   function updateSummary() {
     const donateOnly = $('donateOnly').checked;
     const pooja = getSelectedPooja();
     const donation = Math.max(0, Number($('donationAmount').value || 0));
     const name = $('name').value.trim() || 'Not Provided';
     const address = $('address').value.trim() || 'Not Provided';
+    const mobile = $('mobile').value.trim() || 'Not Provided';
     const date = $('date').value || 'Not Selected';
     const nakshatraText = $('nakshatra').selectedOptions[0]?.textContent || 'Not Selected';
     const total = donateOnly ? donation : pooja.amount;
@@ -723,8 +788,8 @@ On this auspicious occasion, various poojas, rituals and special programs have b
     $('totalAmount').textContent = String(total);
 
     $('summaryText').innerHTML = donateOnly
-      ? `Name: ${escapeHtml(name)}<br>Address: ${escapeHtml(address)}<br>Donation: ₹${total}`
-      : `Name: ${escapeHtml(name)}<br>Address: ${escapeHtml(address)}<br>Date: ${escapeHtml(date)}<br>Nakshatra: 🌟 ${escapeHtml(nakshatraText)}<br>Pooja: ${escapeHtml(pooja.name)}<br>Amount: ₹${total}`;
+      ? `Name: ${escapeHtml(name)}<br>Mobile: ${escapeHtml(mobile)}<br>Address: ${escapeHtml(address)}<br>Donation: ₹${total}`
+      : `Name: ${escapeHtml(name)}<br>Mobile: ${escapeHtml(mobile)}<br>Address: ${escapeHtml(address)}<br>Date: ${escapeHtml(date)}<br>Nakshatra: 🌟 ${escapeHtml(nakshatraText)}<br>Pooja: ${escapeHtml(pooja.name)}<br>Amount: ₹${total}`;
   }
 
   function escapeHtml(value) {
@@ -737,7 +802,7 @@ On this auspicious occasion, various poojas, rituals and special programs have b
     return String(value).replace(/\s+/g, ' ').trim();
   }
 
-  ['name','address','date','pooja','nakshatra','donationAmount','donateOnly'].forEach((id) => {
+  ['name','address','mobile','date','pooja','nakshatra','donationAmount','donateOnly'].forEach((id) => {
     const el = $(id);
     if (!el) return;
     el.addEventListener(el.type === 'checkbox' || el.tagName === 'SELECT' ? 'change' : 'input', () => {
@@ -751,6 +816,7 @@ On this auspicious occasion, various poojas, rituals and special programs have b
 
     const name = normalizeText($('name').value);
     const address = normalizeText($('address').value);
+    const mobile = normalizeText($('mobile').value);
     const date = $('date').value;
     const donateOnly = $('donateOnly').checked;
     const pooja = getSelectedPooja();
@@ -763,8 +829,20 @@ On this auspicious occasion, various poojas, rituals and special programs have b
       return;
     }
 
+    if (!/^[0-9+()\- ]{8,15}$/.test(mobile)) {
+      alert('Please enter a valid mobile number.');
+      $('mobile').focus();
+      return;
+    }
+
     if (!donateOnly && !date) {
       alert('Please select a pooja date.');
+      $('date').focus();
+      return;
+    }
+
+    if (date && date < getTodayLocalISO()) {
+      alert('Please select today or a future date.');
       $('date').focus();
       return;
     }
@@ -791,6 +869,7 @@ On this auspicious occasion, various poojas, rituals and special programs have b
 `🛕 Ayilara Madathil Temple Booking
 
 Name: ${name}
+Mobile: ${mobile}
 Address: ${address || 'Not provided'}
 Amount: ₹${total}
 ${donateOnly ? 'Type: Donation' : `Pooja: ${pooja.name}
@@ -803,6 +882,7 @@ Date: ${date}`}
 
     $('successMsg').innerHTML =
       `Thank you <b>${escapeHtml(name)}</b> 🙏<br><br>` +
+      `Mobile: ${escapeHtml(mobile)}<br>` +
       `Amount: ₹${total}<br>` +
       `${donateOnly ? 'Donation' : `Pooja: ${escapeHtml(pooja.name)}<br>Nakshatra: ${escapeHtml(nakshatraText)}`}<br><br>` +
       `Click <b>Pay Now</b> to open your UPI app.`;
@@ -886,6 +966,7 @@ On this auspicious occasion, various poojas, rituals and special programs have b
     $('locationTitle').textContent = englishLang ? 'Location' : 'സ്ഥലം';
     $('donationTitle').textContent = englishLang ? 'Bank & UPI Donation' : 'ബാങ്ക് & UPI സംഭാവന';
     $('timingsTitle').textContent = englishLang ? '🛕 Daily Pooja Timings 🛕' : '🛕 ദൈനംദിന പൂജ സമയങ്ങൾ 🛕';
+    $('today-status').querySelector('h2').textContent = englishLang ? '🪔 Today at the Temple' : '🪔 ഇന്ന് ക്ഷേത്രത്തിൽ';
 
     $('timingsText').innerHTML = englishLang
       ? `<p>🕔 <b>5:45 AM</b> – Nada Thurakkal</p>
