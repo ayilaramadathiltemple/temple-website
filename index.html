@@ -6,8 +6,8 @@
 
   <title>Ayilara Madathil Sree Bhadra Bhagavathi Temple | Kollam Temple | Pooja Booking</title>
 
-  <meta name="description" content="Ayilara Madathil Sree Bhadra Bhagavathi Temple official website. Book pooja online, donate via UPI, view timings and special ritual details.">
-  <meta name="keywords" content="Ayilara Madathil Temple, Bhadra Bhagavathi Temple, Kerala Temple, Pooja Booking, Temple Donation">
+  <meta name="description" content="Official website of Ayilara Madathil Sree Bhadra Bhagavathi Temple, Ayilara, Anchal, Kollam, Kerala. View temple timings, special poojas, festival information, location, donations and pooja booking.">
+  <meta name="keywords" content="Ayilara Madathil Temple, Sree Bhadra Bhagavathi Temple, Ayilara Temple, Anchal Temple, Kollam Temple, Kerala Temple, pooja booking, temple donation, Ayilya Pooja, Karyasidhi Ponkala">
   <meta name="author" content="Ayilara Madathil Temple">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#2b0000">
@@ -198,6 +198,34 @@
     @media(prefers-reduced-motion:reduce){
       *{scroll-behavior:auto!important;transition:none!important;animation:none!important}
     }
+
+    .quick-actions{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:15px auto;max-width:1000px;padding:0 15px}
+    .quick-actions a,.quick-actions button{display:flex;align-items:center;justify-content:center;gap:6px;min-height:44px;padding:10px;border-radius:12px;border:1px solid #ffd700;background:#2b0000;color:#fff;text-decoration:none;font-weight:700;font-size:13px}
+    .quick-actions a:hover,.quick-actions button:hover{background:#ffd700;color:#2b0000}
+    .notice-grid,.festival-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:15px}
+    .notice-card,.festival-card{background:#210000;border:1px solid rgba(255,215,0,.35);border-radius:12px;padding:15px;text-align:left}
+    .notice-card strong,.festival-card strong{color:#ffd700;display:block;margin-bottom:5px}
+    .badge{display:inline-block;padding:3px 8px;border-radius:20px;font-size:11px;background:#ffd700;color:#2b0000;font-weight:800;margin-bottom:7px}
+    .status-pill{display:inline-block;padding:4px 10px;border-radius:20px;font-size:12px;font-weight:800}
+    .status-pill.open{background:#25D366;color:#08240f}.status-pill.closed{background:#7a2222;color:#fff}
+    .calendar-note{font-size:12px;color:#555;margin-top:4px}
+    .booking-id{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;background:#f3f3f3;padding:4px 7px;border-radius:6px}
+    .receipt-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
+    .receipt-actions button{margin-top:0!important}
+    .secondary-btn{background:#eee!important;color:#222!important;border:1px solid #ccc!important}
+    .danger-note{font-size:12px;background:#fff4d6;border-left:4px solid #e0a400;padding:9px;border-radius:6px;margin-top:8px}
+    .mobile-nav{display:none}
+    @media(max-width:680px){
+      .quick-actions{grid-template-columns:repeat(2,1fr)}
+      .mobile-nav{display:flex;position:fixed;bottom:0;left:0;right:0;height:62px;background:#2b0000;border-top:1px solid rgba(255,215,0,.45);z-index:1500;justify-content:space-around;padding-bottom:env(safe-area-inset-bottom)}
+      .mobile-nav a,.mobile-nav button{flex:1;border:0;background:none;color:#fff;text-decoration:none;font-size:11px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px}
+      .mobile-nav a:active,.mobile-nav button:active{background:#3b0808}
+      body{padding-bottom:70px}
+      .floating{bottom:78px}
+      #topBtn{bottom:130px}
+      .bhajan-btn{bottom:78px}
+      .receipt-actions{grid-template-columns:1fr}
+    }
   </style>
 
   <script type="application/ld+json">
@@ -214,7 +242,12 @@
       "postalCode":"691312",
       "addressRegion":"Kerala",
       "addressCountry":"IN"
-    }
+    },
+    "geo":{"@type":"GeoCoordinates","latitude":8.946059337154056,"longitude":76.96567389643423},
+    "openingHoursSpecification":[
+      {"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"05:45","closes":"10:00"},
+      {"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"17:00","closes":"20:00"}
+    ]
   }
   </script>
 </head>
@@ -235,6 +268,12 @@
     <button type="button" class="lang-btn" id="langBtn">മലയാളം</button>
   </nav>
 </header>
+<div class="quick-actions" aria-label="Quick actions">
+  <a href="#timings">🕘 Timings</a>
+  <a href="#today-status">🪔 Today</a>
+  <a href="#donation">🙏 Donate</a>
+  <button type="button" id="quickBook">📿 Book Pooja</button>
+</div>
 
 <div id="chantText">🛕 ഓം ശ്രീ ഭദ്ര ഭഗവതി നമ: 🛕 / 🛕 Om Shree Bhadra Bhagavathi Namaha 🛕</div>
 
@@ -275,6 +314,26 @@
     <p id="todayOpenStatus"><b>Checking temple status…</b></p>
     <p id="nextTempleEvent"></p>
     <p style="font-size:12px;opacity:.85;">Status is based on the daily timings published on this website.</p>
+  </div>
+</section>
+
+
+<section id="announcements">
+  <h2>📢 Temple Announcements</h2>
+  <div class="notice-grid">
+    <article class="notice-card"><span class="badge">Important</span><strong>Pooja Booking</strong><p>Online requests are subject to temple confirmation. Please keep your payment screenshot until confirmation.</p></article>
+    <article class="notice-card"><span class="badge">Weekly</span><strong>Karyasidhi Ponkala</strong><p>Every Tuesday. Contact the temple for current arrangements and availability.</p></article>
+    <article class="notice-card"><span class="badge">Monthly</span><strong>Ayilya Pooja</strong><p>Conducted every month on Ayilyam. Dates can vary with the Malayalam calendar.</p></article>
+  </div>
+</section>
+
+<section id="festivals">
+  <h2>🌺 Important Temple Days</h2>
+  <div class="festival-grid">
+    <article class="festival-card"><strong>19 April 2026</strong><p>Punapratishta Anniversary — Medam 6, 1201.</p></article>
+    <article class="festival-card"><strong>Karkidakam</strong><p>Ramayanaparayanam begins from the first day.</p></article>
+    <article class="festival-card"><strong>Meenam — Chothi</strong><p>Mankalathil Pongala.</p></article>
+    <article class="festival-card"><strong>Kanni — Ayilyam</strong><p>Naagarootu.</p></article>
   </div>
 </section>
 
@@ -394,6 +453,15 @@ On this auspicious occasion, various poojas, rituals and special programs have b
 
 <button id="topBtn" type="button" aria-label="Back to top">⬆</button>
 
+
+<nav class="mobile-nav" aria-label="Mobile navigation">
+  <a href="#about">🏠<span>Home</span></a>
+  <a href="#timings">🕘<span>Timings</span></a>
+  <button type="button" id="mobileBook">📿<span>Book</span></button>
+  <a href="#donation">🙏<span>Donate</span></a>
+  <a href="#location">📍<span>Map</span></a>
+</nav>
+
 <div class="popup-backdrop" id="popupBackdrop"></div>
 
 <div class="popup" id="bookingPopup" role="dialog" aria-modal="true" aria-labelledby="popupTitle">
@@ -413,6 +481,7 @@ On this auspicious occasion, various poojas, rituals and special programs have b
 
     <label for="date" style="font-size:13px;color:#555;">Select Date / തീയതി</label>
     <input type="date" id="date">
+    <div class="calendar-note" id="dateHelp">Please choose today or a future date. Final availability is confirmed by the temple.</div>
 
     <label style="display:flex;align-items:center;gap:8px;font-weight:bold;font-size:15px;margin:8px 0;">
       <input type="checkbox" id="donateOnly" style="width:18px;height:18px;margin:0;">
@@ -1009,6 +1078,72 @@ On this auspicious occasion, various poojas, rituals and special programs have b
       if (e.key === 'ArrowLeft') showLightboxImage(currentIndex - 1);
     }
   });
+
+
+  // Enhanced booking helpers
+  let currentBookingId = '';
+  function makeBookingId(){
+    const d = new Date();
+    const stamp = d.getFullYear().toString().slice(-2) + String(d.getMonth()+1).padStart(2,'0') + String(d.getDate()).padStart(2,'0');
+    return `AMT-${stamp}-${Math.random().toString(36).slice(2,7).toUpperCase()}`;
+  }
+
+  function saveBookingDraft(){
+    try{
+      localStorage.setItem('ayilaraBookingDraft', JSON.stringify({
+        name:$('name').value,address:$('address').value,mobile:$('mobile').value,date:$('date').value,
+        pooja:$('pooja').value,nakshatra:$('nakshatra').value,donateOnly:$('donateOnly').checked,
+        donationAmount:$('donationAmount').value
+      }));
+    }catch(e){}
+  }
+  function loadBookingDraft(){
+    try{
+      const d=JSON.parse(localStorage.getItem('ayilaraBookingDraft')||'null'); if(!d)return;
+      ['name','address','mobile','date','pooja','nakshatra','donationAmount'].forEach(id=>{if(d[id]!=null && $(id)) $(id).value=d[id];});
+      if($('donateOnly')) $('donateOnly').checked=!!d.donateOnly;
+      togglePooja(); updateSummary();
+    }catch(e){}
+  }
+  ['name','address','mobile','date','pooja','nakshatra','donationAmount','donateOnly'].forEach(id=>{
+    const el=$(id); if(el) el.addEventListener('change',saveBookingDraft); if(el && ['name','address','mobile','donationAmount'].includes(id)) el.addEventListener('input',saveBookingDraft);
+  });
+
+  const quickBook=$('quickBook'), mobileBook=$('mobileBook');
+  if(quickBook) quickBook.addEventListener('click',openBooking);
+  if(mobileBook) mobileBook.addEventListener('click',openBooking);
+
+  const originalOpenBooking=openBooking;
+  // Restore draft whenever booking dialog opens.
+  window.openBooking = function(){ originalOpenBooking(); loadBookingDraft(); };
+
+  // Patch the existing submit flow with a booking reference without changing payment semantics.
+  const originalSubmit = bookingForm.onsubmit;
+  bookingForm.addEventListener('submit', function(){
+    currentBookingId = makeBookingId();
+    const current = $('successMsg').innerHTML;
+    $('successMsg').innerHTML = current + `<br><br>Booking ID: <span class="booking-id">${escapeHtml(currentBookingId)}</span>`;
+    try{ localStorage.removeItem('ayilaraBookingDraft'); }catch(e){}
+  }, {capture:true});
+
+  $('copyBookingBtn')?.addEventListener('click', async ()=>{
+    if(!currentBookingId)return;
+    try{ await navigator.clipboard.writeText(currentBookingId); alert('Booking ID copied: '+currentBookingId); }
+    catch(e){ alert('Booking ID: '+currentBookingId); }
+  });
+
+  $('printReceiptBtn')?.addEventListener('click', ()=>{
+    const popup=$('successPopup');
+    if(!popup)return;
+    const printWindow=window.open('','_blank','noopener,noreferrer,width=700,height=800');
+    if(!printWindow)return;
+    printWindow.document.write(`<!doctype html><html><head><title>Temple Booking Receipt</title><meta charset="utf-8"><style>body{font-family:Arial,sans-serif;padding:30px;color:#222}h1{color:#7a0000}h2{border-bottom:1px solid #ddd;padding-bottom:8px}.box{padding:15px;border:1px solid #ddd;border-radius:8px}small{color:#666}</style></head><body><h1>🛕 Ayilara Madathil Sree Bhadra Bhagavathi Temple</h1><h2>Booking / Payment Request Receipt</h2><div class="box">${$('successMsg').innerHTML}<p><b>Status:</b> Payment pending manual verification</p></div><p><small>Keep this reference and payment screenshot until the temple confirms your booking.</small></p><script>window.onload=()=>window.print()<\/script></body></html>`);
+    printWindow.document.close();
+  });
+
+  // Update the status card with a human-friendly next-event label.
+  const originalUpdateTempleStatus = updateTempleStatus;
+  if(typeof originalUpdateTempleStatus === 'function') originalUpdateTempleStatus();
 
   togglePooja();
   updateSummary();
