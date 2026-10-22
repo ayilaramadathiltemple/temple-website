@@ -313,7 +313,7 @@
     <p id="todayDateText">Checking today's date…</p>
     <p id="todayOpenStatus"><b>Checking temple status…</b></p>
     <p id="nextTempleEvent"></p>
-    <p style="font-size:12px;opacity:.85;">Status is based on the daily timings published on this website.</p>
+    
   </div>
 </section>
 
@@ -363,18 +363,6 @@
   </div>
 </section>
 
-<section id="special-rituals">
-  <h2 id="specialRitualsTitle">🛕 Special Rituals 🛕</h2>
-  <div class="card ritual-text" id="specialRitualsText">🌺 Punapratishta Anniversary 2026 🌺
-
-📅 April 19, 2026 (Malayalam: Medam 6, 1201)
-
-It is respectfully informed to all devotees that the Punapratishta Anniversary of the temple will be celebrated with devotion.
-
-On this auspicious occasion, various poojas, rituals and special programs have been arranged.
-
-🙏 All devotees are cordially requested to attend the celebrations with their families, participate in the rituals and receive divine blessings.</div>
-</section>
 
 <section id="gallery">
   <h2 id="galleryTitle">Gallery</h2>
@@ -807,14 +795,14 @@ On this auspicious occasion, various poojas, rituals and special programs have b
     const now = new Date();
     const minutes = now.getHours() * 60 + now.getMinutes();
     const events = [
-      {time:'05:45', label:'Nada Thurakkal'},
-      {time:'06:15', label:'Ganapathi Homam'},
-      {time:'07:00', label:'Morning Pooja'},
-      {time:'09:30', label:'Ucha Pooja'},
-      {time:'17:00', label:'Temple Reopens'},
-      {time:'18:30', label:'Deeparadhana'},
-      {time:'19:30', label:'Athazha Pooja'},
-      {time:'20:00', label:'Nada Adakkal'}
+      {time:'05:45', en:'Nada Thurakkal', ml:'നട തുറക്കൽ'},
+      {time:'06:15', en:'Ganapathi Homam', ml:'ഗണപതി ഹോമം'},
+      {time:'07:00', en:'Morning Pooja', ml:'പ്രഭാത പൂജ'},
+      {time:'09:30', en:'Ucha Pooja', ml:'ഉച്ച പൂജ'},
+      {time:'17:00', en:'Temple Reopens', ml:'ക്ഷേത്രം വീണ്ടും തുറക്കും'},
+      {time:'18:30', en:'Deeparadhana', ml:'ദീപാരാധന'},
+      {time:'19:30', en:'Athazha Pooja', ml:'അത്താഴ പൂജ'},
+      {time:'20:00', en:'Nada Adakkal', ml:'നട അടയ്ക്കൽ'}
     ].map(e => {
       const [h,m] = e.time.split(':').map(Number);
       return {...e, minutes:h*60+m};
@@ -822,19 +810,28 @@ On this auspicious occasion, various poojas, rituals and special programs have b
 
     const openNow = (minutes >= 5*60+45 && minutes < 10*60) ||
                     (minutes >= 17*60 && minutes < 20*60);
-    const next = events.find(e => e.minutes > minutes) || events[0];
+    const upcoming = events.find(e => e.minutes > minutes);
+    const next = upcoming || events[0];
+    const nextDate = new Date(now);
+    if (!upcoming) nextDate.setDate(nextDate.getDate() + 1);
     const card = $('todayStatusCard');
+    const isMalayalam = !englishLang;
 
-    $('todayDateText').textContent = now.toLocaleDateString('en-IN', {
+    $('todayDateText').textContent = now.toLocaleDateString(isMalayalam ? 'ml-IN' : 'en-IN', {
       weekday:'long', year:'numeric', month:'long', day:'numeric'
     });
 
     $('todayOpenStatus').innerHTML = openNow
-      ? '<b>🟢 Open now</b>'
-      : '<b>🔴 Closed now</b>';
+      ? `<b>🟢 ${isMalayalam ? 'ഇപ്പോൾ ക്ഷേത്രം തുറന്നിരിക്കുന്നു' : 'Open now'}</b>`
+      : `<b>🔴 ${isMalayalam ? 'ഇപ്പോൾ ക്ഷേത്രം അടച്ചിരിക്കുന്നു' : 'Closed now'}</b>`;
 
-    $('nextTempleEvent').textContent =
-      `Next: ${next.label} at ${next.time.replace(':', ':')}`;
+    const dayLabel = nextDate.toDateString() === now.toDateString()
+      ? (isMalayalam ? 'ഇന്ന്' : 'Today')
+      : (isMalayalam ? 'നാളെ' : 'Tomorrow');
+    const eventLabel = isMalayalam ? next.ml : next.en;
+    $('nextTempleEvent').textContent = isMalayalam
+      ? `അടുത്തത്: ${dayLabel} ${next.time} – ${eventLabel}`
+      : `Next: ${dayLabel}, ${next.time} – ${eventLabel}`;
 
     card.classList.toggle('status-open', openNow);
     card.classList.toggle('status-closed', !openNow);
@@ -1009,33 +1006,62 @@ Date: ${date}`}
       ? 'The ancient and famous temple, named after its five chambers, is a sacred place where Sri Bhadra Bhagavathi, Sri Maha Vishnu, Sri Maha Ganapathi and other deities shower blessings on devotees. Annual special rituals and poojas bring the community together in devotion, making it a place of faith, peace and divine grace.'
       : 'അതിപുരാതനവും പ്രസിദ്ധവുമായ ഈ ക്ഷേത്രത്തിൽ ശ്രീ ഭദ്രാ ഭഗവതി, ശ്രീ മഹാവിഷ്ണു, ശ്രീ മഹാഗണപതി എന്നിവരും മറ്റു ഉപദേവതകളും ഭക്തജനങ്ങൾക്ക് അനുഗ്രഹം ചൊരിയുന്നു. വാർഷിക പ്രത്യേക ചടങ്ങുകളും പൂജകളും ഭക്തിസാന്ദ്രമായ അന്തരീക്ഷത്തിൽ സമൂഹത്തെ ഒന്നിപ്പിക്കുന്നു.';
 
-    $('specialRitualsTitle').textContent = englishLang ? '🛕 Special Rituals 🛕' : '🛕 പ്രത്യേക ചടങ്ങുകൾ 🛕';
-
-    $('specialRitualsText').textContent = englishLang
-      ? `🌺 Punapratishta Anniversary 2026 🌺
-
-📅 April 19, 2026 (Malayalam: Medam 6, 1201)
-
-It is respectfully informed to all devotees that the Punapratishta Anniversary of the temple will be celebrated with devotion.
-
-On this auspicious occasion, various poojas, rituals and special programs have been arranged.
-
-🙏 All devotees are cordially requested to attend the celebrations with their families, participate in the rituals and receive divine blessings.`
-      : `🌺 പുനഃപ്രതിഷ്ഠ വാർഷികം 2026 🌺
-
-📅 2026 ഏപ്രിൽ 19 (മലയാളം: 1201 മേടം 6)
-
-ക്ഷേത്രത്തിലെ പുനഃപ്രതിഷ്ഠ വാർഷികം ഭക്തിപൂർവ്വം ആഘോഷിക്കുന്ന കാര്യം എല്ലാ ദേവീഭക്തജനങ്ങളെയും സാദരം അറിയിക്കുന്നു.
-
-ഈ വിശിഷ്ട ദിനത്തോടനുബന്ധിച്ച് വിവിധ പൂജകൾ, അനുഷ്ഠാനങ്ങൾ, പ്രത്യേക പരിപാടികൾ എന്നിവ ക്രമീകരിച്ചിരിക്കുന്നു.
-
-🙏 എല്ലാ ഭക്തജനങ്ങളെയും കുടുംബസമേതം എത്തിച്ചേരുകയും ചടങ്ങുകളിൽ പങ്കെടുത്ത് ദിവ്യാനുഗ്രഹം പ്രാപിക്കുകയും ചെയ്യണമെന്ന് വിനീതമായി അഭ്യർത്ഥിക്കുന്നു.`;
-
+    
     $('galleryTitle').textContent = englishLang ? 'Gallery' : 'ഗാലറി';
     $('locationTitle').textContent = englishLang ? 'Location' : 'സ്ഥലം';
     $('donationTitle').textContent = englishLang ? 'Bank & UPI Donation' : 'ബാങ്ക് & UPI സംഭാവന';
     $('timingsTitle').textContent = englishLang ? '🛕 Daily Pooja Timings 🛕' : '🛕 ദൈനംദിന പൂജ സമയങ്ങൾ 🛕';
     $('today-status').querySelector('h2').textContent = englishLang ? '🪔 Today at the Temple' : '🪔 ഇന്ന് ക്ഷേത്രത്തിൽ';
+    const byId = (id, en, ml) => { const el = $(id); if (el) el.textContent = englishLang ? en : ml; };
+    byId('quickBook', '📿 Book Pooja', '📿 പൂജ ബുക്ക് ചെയ്യുക');
+    const quickLinks = document.querySelectorAll('.quick-actions a');
+    if (quickLinks.length >= 3) {
+      quickLinks[0].textContent = englishLang ? '🕘 Timings' : '🕘 പൂജാസമയം';
+      quickLinks[1].textContent = englishLang ? '🪔 Today' : '🪔 ഇന്ന്';
+      quickLinks[2].textContent = englishLang ? '🙏 Donate' : '🙏 സംഭാവന';
+    }
+    const announcementTitle = document.querySelector('#announcements h2');
+    if (announcementTitle) announcementTitle.textContent = englishLang ? '📢 Temple Announcements' : '📢 ക്ഷേത്ര അറിയിപ്പുകൾ';
+    const announcementCards = document.querySelectorAll('#announcements .notice-card');
+    const announcementTranslations = [
+      ['Pooja Booking', 'പൂജ ബുക്കിംഗ്', 'Online requests are subject to temple confirmation. Please keep your payment screenshot until confirmation.', 'ഓൺലൈൻ അപേക്ഷകൾ ക്ഷേത്രത്തിന്റെ സ്ഥിരീകരണത്തിന് വിധേയമാണ്. സ്ഥിരീകരണം ലഭിക്കുന്നതുവരെ പേയ്‌മെന്റ് സ്ക്രീൻഷോട്ട് സൂക്ഷിക്കുക.'],
+      ['Karyasidhi Ponkala', 'കാര്യസിദ്ധി പൊങ്കാല', 'Every Tuesday. Contact the temple for current arrangements and availability.', 'എല്ലാ ചൊവ്വാഴ്ചയും. നിലവിലെ ക്രമീകരണങ്ങൾക്കും ലഭ്യതയ്ക്കും ക്ഷേത്രവുമായി ബന്ധപ്പെടുക.'],
+      ['Ayilya Pooja', 'ആയില്യ പൂജ', 'Conducted every month on Ayilyam. Dates can vary with the Malayalam calendar.', 'എല്ലാ മാസവും ആയില്യം നാളിൽ നടത്തുന്നു. മലയാളം കലണ്ടർ അനുസരിച്ച് തീയതിയിൽ മാറ്റമുണ്ടാകാം.']
+    ];
+    announcementCards.forEach((card, i) => {
+      const t = announcementTranslations[i]; if (!t) return;
+      const strong = card.querySelector('strong'), p = card.querySelector('p');
+      if (strong) strong.textContent = englishLang ? t[0] : t[1];
+      if (p) p.textContent = englishLang ? t[2] : t[3];
+    });
+    const festivalsTitle = document.querySelector('#festivals h2');
+    if (festivalsTitle) festivalsTitle.textContent = englishLang ? '🌺 Important Temple Days' : '🌺 പ്രധാന ക്ഷേത്രദിനങ്ങൾ';
+    const festivalCards = document.querySelectorAll('#festivals .festival-card');
+    const festivalTranslations = [
+      ['19 April 2026', '2026 ഏപ്രിൽ 19', 'Punapratishta Anniversary — Medam 6, 1201.', 'പുനഃപ്രതിഷ്ഠ വാർഷികം — 1201 മേടം 6.'],
+      ['Karkidakam', 'കർക്കിടകം', 'Ramayanaparayanam begins from the first day.', 'ഒന്നാം തീയതി മുതൽ രാമായണപാരായണം ആരംഭിക്കുന്നു.'],
+      ['Meenam — Chothi', 'മീനം — ചോതി', 'Mankalathil Pongala.', 'മൺകലത്തിൽ പൊങ്കാല.'],
+      ['Kanni — Ayilyam', 'കന്നി — ആയില്യം', 'Naagarootu.', 'നാഗരൂട്ട്.']
+    ];
+    festivalCards.forEach((card, i) => {
+      const t = festivalTranslations[i]; if (!t) return;
+      const strong = card.querySelector('strong'), p = card.querySelector('p');
+      if (strong) strong.textContent = englishLang ? t[0] : t[1];
+      if (p) p.textContent = englishLang ? t[2] : t[3];
+    });
+    const specialPoojasTitle = document.querySelector('#special-poojas .lang-en h2, #special-poojas .lang-ml h2');
+    if (specialPoojasTitle) specialPoojasTitle.textContent = englishLang ? '🛕 Special Poojas 🛕' : '🛕 പ്രത്യേക പൂജകൾ 🛕';
+    const locationSection = $('location');
+    if (locationSection) { const b = locationSection.querySelector('.direction-btn'); if (b) b.textContent = englishLang ? '📍 Get Directions' : '📍 വഴി കണ്ടെത്തുക'; }
+    const donationCard = document.querySelector('#donation .card');
+    if (donationCard) {
+      const ps = donationCard.querySelectorAll('p');
+      const labelsEn = ['Bank:', 'Branch:', 'Account Name:', 'Account No:', 'IFSC:'];
+      const labelsMl = ['ബാങ്ക്:', 'ശാഖ:', 'അക്കൗണ്ട് പേര്:', 'അക്കൗണ്ട് നമ്പർ:', 'IFSC:'];
+      ps.forEach((p, i) => { if (i < 5 && p.querySelector('b')) p.querySelector('b').textContent = englishLang ? labelsEn[i] : labelsMl[i]; });
+    }
+    $('nextTempleEvent').textContent = '';
+    updateTempleStatus();
 
     $('timingsText').innerHTML = englishLang
       ? `<p>🕔 <b>5:45 AM</b> – Nada Thurakkal</p>
